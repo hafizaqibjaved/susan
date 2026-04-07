@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom';
-import { logo } from '../assets';
+import Logo from './Logo';
 
 export default function Footer() {
   return (
     <footer style={{ background: '#1e2b1a', color: 'rgba(255,255,255,0.75)', padding: '70px 0 30px' }}>
       <div className="container">
         <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr', gap: 50, marginBottom: 55 }}>
-          {/* Brand - logo only */}
           <div>
             <Link to="/" style={{ display: 'inline-block', marginBottom: 20 }}>
-              <img src={logo} alt="Susan Stevens Celebrant" style={{ height: 90, width: 'auto', objectFit: 'contain' }} />
+              <Logo size={90} light={true} />
             </Link>
             <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '1rem', color: 'var(--apricot-light)', lineHeight: 1.5, marginBottom: 18 }}>
               Every Story Treasured with Love
@@ -30,15 +29,14 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services links */}
           <div>
             <p style={{ fontFamily: 'var(--sans)', fontSize: '0.62rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--sage-light)', marginBottom: 18, fontWeight: 500 }}>Services</p>
             {[
-              { label: 'Funerals', to: '/services#funerals' },
-              { label: 'Weddings', to: '/services#weddings' },
-              { label: 'Vow Renewals', to: '/services#vow-renewals' },
-              { label: 'Life Celebrations', to: '/services#vow-renewals' },
-              { label: 'Pet Funerals', to: '/services#pet-funerals' },
+              { label: 'Funerals', to: '/services' },
+              { label: 'Weddings', to: '/services' },
+              { label: 'Vow Renewals', to: '/services' },
+              { label: 'Life Celebrations', to: '/services' },
+              { label: 'Pet Funerals', to: '/services' },
             ].map(s => (
               <Link key={s.label} to={s.to} style={{
                 display: 'block', fontSize: '0.82rem', color: 'rgba(255,255,255,0.55)', marginBottom: 10, transition: 'color 0.2s',
@@ -50,7 +48,6 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Promise */}
           <div>
             <p style={{ fontFamily: 'var(--sans)', fontSize: '0.62rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--sage-light)', marginBottom: 18, fontWeight: 500 }}>Our Promise</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>

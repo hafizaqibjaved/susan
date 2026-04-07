@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import { logo } from '../assets';
+import Logo from './Logo';
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -38,24 +38,13 @@ export default function Nav() {
       backdropFilter: isTransparent ? 'none' : 'blur(12px)',
       boxShadow: isTransparent ? 'none' : '0 1px 24px rgba(0,0,0,0.07)',
       transition: 'all 0.4s ease',
-      padding: scrolled ? '10px 0' : '16px 0',
+      padding: scrolled ? '8px 0' : '14px 0',
     }}>
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        {/* Logo only - no text */}
         <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-          <img
-            src={logo}
-            alt="Susan Stevens Celebrant"
-            style={{
-              height: scrolled ? 72 : 88,
-              width: 'auto',
-              objectFit: 'contain',
-              transition: 'all 0.4s ease',
-            }}
-          />
+          <Logo size={scrolled ? 64 : 80} light={isTransparent} />
         </Link>
 
-        {/* Desktop nav */}
         <ul style={{ display: 'flex', gap: 28, listStyle: 'none', alignItems: 'center' }} className="desktop-nav">
           {navLinks.map(link => {
             const active = location.pathname === link.to;
@@ -83,7 +72,6 @@ export default function Nav() {
           </li>
         </ul>
 
-        {/* Mobile burger */}
         <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu" style={{
           display: 'none', background: 'none', border: 'none', cursor: 'pointer',
           flexDirection: 'column', gap: 6, padding: 4,
@@ -101,7 +89,6 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu overlay */}
       <div style={{
         position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
         background: 'var(--cream)', zIndex: -1,
@@ -109,6 +96,8 @@ export default function Nav() {
         transition: 'transform 0.4s cubic-bezier(0.77,0,0.18,1)',
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 30,
       }}>
+        <Logo size={90} />
+        <div style={{ width: 40, height: 1, background: 'var(--apricot)', margin: '4px 0 16px' }}/>
         {navLinks.map(link => (
           <Link key={link.label} to={link.to}
             onClick={() => setMenuOpen(false)}
