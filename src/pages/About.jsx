@@ -24,9 +24,9 @@ export default function About() {
       {/* Main content */}
       <section style={{ padding: '100px 0', background: 'var(--white)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }}>
+          <div className="about-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start' }}>
             {/* Image stack */}
-            <div style={{ position: 'sticky', top: 120 }}>
+            <div style={{ position: 'sticky', top: 120 }} className="about-sticky">
               <div style={{ position: 'relative' }}>
                 <img src={photo5} alt="Susan Stevens" style={{
                   width: '100%', height: 520, objectFit: 'cover', objectPosition: 'center top',
@@ -87,6 +87,13 @@ export default function About() {
         </div>
         <style>{`@media(max-width:900px){.about-grid{grid-template-columns:1fr !important;}}`}</style>
       </section>
+      <style>{`
+        @media(max-width:900px){
+          .about-grid{grid-template-columns:1fr !important; gap:30px !important;}
+          .about-sticky{position:static !important;}
+          .about-values{grid-template-columns:1fr !important;}
+        }
+      `}</style>
     </>
   );
 }

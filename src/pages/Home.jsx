@@ -85,7 +85,7 @@ export default function Home() {
 
       {/* Trust band */}
       <section style={{ background: 'var(--sage)', padding: '18px 0' }}>
-        <div className="container" style={{ display: 'flex', justifyContent: 'center', gap: 60, flexWrap: 'wrap' }}>
+        <div className="container trust-band" style={{ display: 'flex', justifyContent: 'center', gap: 40, flexWrap: 'wrap' }}>
           {['Warm & Compassionate', 'Fully Personalised', 'APC Certified', 'Serving Families with Care'].map(t => (
             <span key={t} style={{
               fontFamily: 'var(--sans)', fontSize: '0.68rem', letterSpacing: '0.18em',
@@ -100,37 +100,30 @@ export default function Home() {
       </section>
 
       {/* About preview */}
-      <section id="about" style={{ padding: '120px 0', background: 'var(--off-white)', position: 'relative', overflow: 'hidden' }}>
+      <section id="about" className="section-pad" style={{ background: 'var(--off-white)', position: 'relative', overflow: 'hidden' }}>
         {/* BG decorative circle */}
         <div style={{
           position: 'absolute', top: -80, right: -80, width: 400, height: 400,
           borderRadius: '50%', background: 'rgba(138,158,122,0.08)', zIndex: 0,
         }}/>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center', position: 'relative', zIndex: 1 }}>
-            {/* Image collage */}
-            <div style={{ position: 'relative', height: 580 }}>
-              <div style={{
-                position: 'absolute', left: 0, top: 0, width: '70%', height: '65%',
-                backgroundImage: `url(${photo5})`,
-                backgroundSize: 'cover', backgroundPosition: 'center top',
-                borderRadius: '2px',
-                boxShadow: '0 20px 60px rgba(0,0,0,0.12)',
+          <div className="two-col-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start', position: 'relative', zIndex: 1 }}>
+            {/* Image collage - mobile safe */}
+            <div className="about-images" style={{ position: 'relative' }}>
+              <img src={photo5} alt="Susan Stevens" style={{
+                width: '100%', height: 420, objectFit: 'cover', objectPosition: 'center top', display: 'block',
               }}/>
-              <div style={{
-                position: 'absolute', right: 0, bottom: 60, width: '60%', height: '55%',
-                backgroundImage: `url(${photo3})`,
-                backgroundSize: 'cover', backgroundPosition: 'center',
-                borderRadius: '2px',
-                boxShadow: '0 20px 60px rgba(0,0,0,0.12)',
+              <img src={photo3} alt="Susan at a ceremony" style={{
+                width: '60%', height: 220, objectFit: 'cover', objectPosition: 'center',
+                display: 'block', marginLeft: 'auto', marginTop: -60, position: 'relative', zIndex: 1,
+                boxShadow: '0 16px 50px rgba(0,0,0,0.18)', border: '5px solid var(--white)',
               }}/>
               {/* Quote card */}
               <div style={{
-                position: 'absolute', left: '15%', bottom: 0,
-                background: 'var(--sage)', padding: '24px 28px', maxWidth: 240,
-                boxShadow: '0 10px 40px rgba(0,0,0,0.12)',
+                background: 'var(--sage)', padding: '22px 26px', marginTop: 0,
+                position: 'relative', zIndex: 2,
               }}>
-                <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '1rem', color: '#fff', lineHeight: 1.6 }}>
+                <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '0.95rem', color: '#fff', lineHeight: 1.6 }}>
                   "Every life, every love, every story deserves to be honoured."
                 </p>
               </div>
@@ -152,11 +145,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <style>{`@media(max-width:900px){#about .container > div{grid-template-columns:1fr !important;} #about .container > div > div:first-child{height:300px !important;}}`}</style>
+
       </section>
 
       {/* Services */}
-      <section id="services" style={{ padding: '120px 0', background: 'var(--white)', position: 'relative' }}>
+      <section id="services" className="section-pad" style={{ background: 'var(--white)', position: 'relative' }}>
         <div style={{
           position: 'absolute', left: 0, top: 0, bottom: 0, width: '40%',
           background: 'var(--cream)', zIndex: 0,
@@ -168,7 +161,7 @@ export default function Home() {
             <h2 className="section-heading" style={{ marginTop: 12 }}>Ceremonies Shaped <em>By Your Story</em></h2>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2 }}>
+          <div className="three-col-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 2 }}>
             {services.map((s, i) => (
               <div key={s.title} style={{
                 background: i % 2 === 0 ? 'var(--white)' : 'var(--cream)',
@@ -209,7 +202,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <style>{`@media(max-width:900px){#services .container > div:last-child{grid-template-columns:1fr !important;}}`}</style>
+        
       </section>
 
       {/* Photo break */}
@@ -218,6 +211,7 @@ export default function Home() {
           position: 'absolute', inset: 0,
           backgroundImage: `url(${photo4})`,
           backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: 'center 40%',
+          WebkitBackgroundAttachment: 'scroll',
           filter: 'brightness(0.5)',
         }}/>
         <div style={{ position: 'absolute', inset: 0, background: 'rgba(26,43,20,0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 28, padding: '0 20px', textAlign: 'center' }}>
@@ -229,13 +223,13 @@ export default function Home() {
       </section>
 
       {/* Fees */}
-      <section id="fees" style={{ padding: '120px 0', background: 'var(--cream)' }}>
+      <section id="fees" className="section-pad" style={{ background: 'var(--cream)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 70 }}>
             <p className="section-tag" style={{ justifyContent: 'center' }}>Transparent Pricing</p>
             <h2 className="section-heading">Ceremony <em>Fees</em></h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+          <div className="fees-home three-col-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
             {[
               { category: 'Funerals, Memorials & Ashes', title: 'Funeral & Memorial Services', price: '£265', desc: 'Compassionate, fully personalised ceremonies honouring a life lived and loved.', dark: true },
               { category: 'Traditional, Civil, Symbolic or Vow Renewals', title: 'Weddings', price: '£700', desc: 'Bespoke ceremonies shaped entirely around your love story and your day.', dark: false },
@@ -299,13 +293,13 @@ export default function Home() {
       </section>
 
       {/* Process */}
-      <section style={{ padding: '120px 0', background: 'var(--white)' }}>
+      <section className="section-pad" style={{ background: 'var(--white)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: 70 }}>
             <p className="section-tag" style={{ justifyContent: 'center' }}>The Journey</p>
             <h2 className="section-heading">How We <em>Work Together</em></h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 40, position: 'relative' }}>
+          <div className="four-col-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 30, position: 'relative' }}>
             <div style={{
               position: 'absolute', top: 36, left: '12.5%', right: '12.5%', height: 1,
               background: 'linear-gradient(to right, var(--sage-light), var(--apricot-light), var(--sage-light))',
@@ -332,11 +326,11 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <style>{`@media(max-width:768px){#services + section + section + section .container > div:last-child{grid-template-columns:1fr 1fr !important;}}`}</style>
+        
       </section>
 
       {/* FAQs */}
-      <section id="faqs" style={{ padding: '120px 0', background: 'var(--off-white)' }}>
+      <section id="faqs" className="section-pad" style={{ background: 'var(--off-white)' }}>
         <div className="container" style={{ maxWidth: 800 }}>
           <div style={{ textAlign: 'center', marginBottom: 70 }}>
             <p className="section-tag" style={{ justifyContent: 'center' }}>Questions</p>
@@ -350,11 +344,11 @@ export default function Home() {
       </section>
 
       {/* Links */}
-      <section id="links" style={{ padding: '80px 0', background: 'var(--white)' }}>
+      <section id="links" className="section-pad" style={{ background: 'var(--white)' }}>
         <div className="container" style={{ maxWidth: 700, textAlign: 'center' }}>
           <p className="section-tag" style={{ justifyContent: 'center' }}>Helpful Resources</p>
           <h2 className="section-heading" style={{ marginBottom: 40 }}>Useful <em>Links</em></h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+          <div className="links-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
             {[
               { name: 'The Good Funeral Guide', url: 'https://www.goodfuneralguide.co.uk', desc: 'Guidance and support for funeral planning' },
               { name: 'Cruse Bereavement Care', url: 'https://www.cruse.org.uk', desc: 'Bereavement support and counselling' },
@@ -376,13 +370,13 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section id="contact" style={{ padding: '120px 0', background: '#1e2b1a', position: 'relative', overflow: 'hidden' }}>
+      <section id="contact" className="section-pad" style={{ background: '#1e2b1a', position: 'relative', overflow: 'hidden' }}>
         <div style={{
           position: 'absolute', top: -100, right: -100, width: 500, height: 500,
           borderRadius: '50%', background: 'rgba(138,158,122,0.08)',
         }}/>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }}>
+          <div className="two-col-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start' }}>
             <div>
               <p className="section-tag" style={{ '--apricot': 'var(--apricot-light)' }}>Get in Touch</p>
               <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#fff', fontWeight: 300, marginTop: 12, marginBottom: 24, lineHeight: 1.2 }}>
@@ -412,7 +406,7 @@ export default function Home() {
             <ContactForm/>
           </div>
         </div>
-        <style>{`@media(max-width:768px){#contact .container > div{grid-template-columns:1fr !important;}}`}</style>
+        
       </section>
     </>
   );

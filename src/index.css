@@ -43,3 +43,144 @@ img{max-width:100%;display:block;}
 .btn-ghost:hover{background:var(--sage);color:var(--white);}
 .container{max-width:1200px;margin:0 auto;padding:0 40px;}
 @media(max-width:768px){.container{padding:0 20px;}}
+
+/* ===== GLOBAL MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+  /* Sections padding */
+  section { padding-left: 0 !important; padding-right: 0 !important; }
+
+  /* All 2-col grids -> 1 col */
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="gridTemplateColumns: '1fr 1fr'"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* All 3-col grids -> 1 col */
+  [style*="grid-template-columns: repeat(3"],
+  [style*="gridTemplateColumns: 'repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* All 4-col grids -> 2 col */
+  [style*="grid-template-columns: repeat(4"],
+  [style*="gridTemplateColumns: 'repeat(4"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Reduce section padding on mobile */
+  section[style*="padding: '120px"] {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  [style*="grid-template-columns: repeat(4"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ===== SECTION PADDING ===== */
+.section-pad {
+  padding: 100px 0;
+}
+@media (max-width: 768px) {
+  .section-pad { padding: 60px 0; }
+}
+@media (max-width: 480px) {
+  .section-pad { padding: 48px 0; }
+}
+
+/* ===== RESPONSIVE GRIDS ===== */
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+.three-col-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.four-col-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 900px) {
+  .two-col-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .three-col-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .four-col-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+  }
+}
+@media (max-width: 600px) {
+  .three-col-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .four-col-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  /* hide the process connector line on mobile */
+  .four-col-grid > div > div[style*="position: absolute"] {
+    display: none !important;
+  }
+}
+@media (max-width: 400px) {
+  .four-col-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ===== ABOUT IMAGES - no overlap on mobile ===== */
+.about-images img:nth-child(2) {
+  margin-top: -60px;
+}
+@media (max-width: 900px) {
+  .about-images img:nth-child(2) {
+    margin-top: 0 !important;
+    width: 100% !important;
+    height: 260px !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin-left: 0 !important;
+  }
+}
+
+/* ===== HERO MOBILE ===== */
+@media (max-width: 600px) {
+  #home h1 { font-size: 2.8rem !important; }
+  #home { min-height: 100svh; }
+  #home .container { padding-top: 120px !important; padding-bottom: 80px !important; }
+}
+
+/* ===== TRUST BAND ===== */
+@media (max-width: 600px) {
+  .trust-band { flex-direction: column !important; gap: 14px !important; text-align: center; }
+}
+
+/* ===== PARALLAX BREAK - disable parallax on mobile ===== */
+@media (max-width: 768px) {
+  .parallax-bg { background-attachment: scroll !important; }
+}
+
+/* ===== CONTACT FORM GRID ===== */
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr !important; }
+}
+
+/* ===== FEES HOME SECTION ===== */
+@media (max-width: 600px) {
+  .fees-home { grid-template-columns: 1fr !important; }
+}
+
+/* ===== LINKS SECTION ===== */
+@media (max-width: 600px) {
+  .links-grid { grid-template-columns: 1fr !important; }
+}

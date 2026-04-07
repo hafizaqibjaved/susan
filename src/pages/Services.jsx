@@ -71,10 +71,10 @@ export default function Services() {
       {services.map((s, i) => (
         <section key={s.id} id={s.id} style={{ padding: '100px 0', background: i % 2 === 0 ? 'var(--white)' : 'var(--off-white)' }}>
           <div className="container">
-            <div style={{
+            <div className="services-section-grid" style={{
               display: 'grid',
-              gridTemplateColumns: i % 2 === 0 ? '1fr 1fr' : '1fr 1fr',
-              gap: 80, alignItems: 'center',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 60, alignItems: 'center',
               direction: i % 2 === 0 ? 'ltr' : 'rtl',
             }}>
               {/* Image */}
@@ -116,6 +116,12 @@ export default function Services() {
           </div>
         </section>
       ))}
+      <style>{`
+        @media(max-width:900px){
+          .services-section-grid{grid-template-columns:1fr !important; direction:ltr !important; gap:30px !important;}
+          .services-section-grid > div{direction:ltr !important;}
+        }
+      `}</style>
     </>
   );
 }

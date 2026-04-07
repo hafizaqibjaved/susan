@@ -29,7 +29,7 @@ export default function Contact() {
 
       <section id="contact" style={{ padding: '100px 0', background: 'var(--white)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start' }} className="contact-grid">
             {/* Left */}
             <div>
               <p style={{ fontSize: '0.92rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: 40 }}>
@@ -72,7 +72,7 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }} className="contact-form-row">
                   <div>
                     <label style={{ display: 'block', fontFamily: 'var(--sans)', fontSize: '0.62rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-light)', marginBottom: 6 }}>Full Name *</label>
                     <input name="name" value={form.name} onChange={handle} required style={inputStyle}
@@ -86,7 +86,7 @@ export default function Contact() {
                       onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}/>
                   </div>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }} className="contact-form-row">
                   <div>
                     <label style={{ display: 'block', fontFamily: 'var(--sans)', fontSize: '0.62rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-light)', marginBottom: 6 }}>Phone</label>
                     <input name="phone" value={form.phone} onChange={handle} style={inputStyle}
@@ -118,6 +118,12 @@ export default function Contact() {
         </div>
         <style>{`@media(max-width:900px){#contact .container > div{grid-template-columns:1fr !important;}}`}</style>
       </section>
+      <style>{`
+        @media(max-width:900px){
+          .contact-grid{grid-template-columns:1fr !important; gap:40px !important;}
+          .contact-form-row{grid-template-columns:1fr !important;}
+        }
+      `}</style>
     </>
   );
 }

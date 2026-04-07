@@ -129,7 +129,7 @@ export default function Fees() {
               </div>
 
               {/* Cards */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 18 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 18 }} className="fee-cards-grid">
                 {group.items.map(item => (
                   <FeeCard key={item.title} item={item} accent={group.accent} />
                 ))}
@@ -158,6 +158,14 @@ export default function Fees() {
 
       <style>{`
         @media(max-width:600px) { .fee-grid { grid-template-columns: 1fr !important; } }
+      `}</style>
+      <style>{`
+        @media(max-width:900px){
+          .fee-cards-grid{grid-template-columns:1fr 1fr !important;}
+        }
+        @media(max-width:500px){
+          .fee-cards-grid{grid-template-columns:1fr !important;}
+        }
       `}</style>
     </>
   );

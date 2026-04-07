@@ -3,71 +3,76 @@ import Logo from './Logo';
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#1e2b1a', color: 'rgba(255,255,255,0.75)', padding: '70px 0 30px' }}>
-      <div className="container">
-        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr', gap: 50, marginBottom: 55 }}>
-          <div>
-            <Link to="/" style={{ display: 'inline-block', marginBottom: 20 }}>
-              <Logo size={90} light={true} />
+    <footer style={{ background: '#1e2b1a', color: 'rgba(255,255,255,0.75)' }}>
+      <div className="container" style={{ padding: '60px 40px 30px' }}>
+        {/* Top grid */}
+        <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 40, marginBottom: 48 }}>
+
+          {/* Brand column */}
+          <div className="footer-brand">
+            <Link to="/" style={{ display: 'inline-block', marginBottom: 16 }}>
+              <Logo size={76} light={true} />
             </Link>
-            <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '1rem', color: 'var(--apricot-light)', lineHeight: 1.5, marginBottom: 18 }}>
+            <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '0.95rem', color: 'var(--apricot-light)', lineHeight: 1.6, marginBottom: 16 }}>
               Every Story Treasured with Love
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
               <a href="mailto:hello@susanstevenscelebrant.co.uk"
-                style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', transition: 'color 0.2s' }}
+                style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.5)', transition: 'color 0.2s', wordBreak: 'break-all' }}
                 onMouseEnter={e => e.target.style.color = 'var(--apricot-light)'}
-                onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.55)'}>
+                onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.5)'}>
                 hello@susanstevenscelebrant.co.uk
               </a>
               <a href="tel:07493204657"
-                style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)', transition: 'color 0.2s' }}
+                style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.5)', transition: 'color 0.2s' }}
                 onMouseEnter={e => e.target.style.color = 'var(--apricot-light)'}
-                onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.55)'}>
+                onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.5)'}>
                 07493 204657
               </a>
             </div>
           </div>
 
+          {/* Services */}
           <div>
-            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.62rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--sage-light)', marginBottom: 18, fontWeight: 500 }}>Services</p>
-            {[
-              { label: 'Funerals', to: '/services' },
-              { label: 'Weddings', to: '/services' },
-              { label: 'Vow Renewals', to: '/services' },
-              { label: 'Life Celebrations', to: '/services' },
-              { label: 'Pet Funerals', to: '/services' },
-            ].map(s => (
-              <Link key={s.label} to={s.to} style={{
-                display: 'block', fontSize: '0.82rem', color: 'rgba(255,255,255,0.55)', marginBottom: 10, transition: 'color 0.2s',
+            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--sage-light)', marginBottom: 16, fontWeight: 500 }}>Services</p>
+            {['Funerals', 'Weddings', 'Vow Renewals', 'Life Celebrations', 'Pet Funerals'].map(s => (
+              <Link key={s} to="/services" style={{
+                display: 'block', fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)', marginBottom: 9, transition: 'color 0.2s',
               }}
               onMouseEnter={e => e.target.style.color = 'var(--apricot-light)'}
-              onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.55)'}>
-                {s.label}
+              onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.5)'}>
+                {s}
               </Link>
             ))}
           </div>
 
+          {/* Quick Links */}
           <div>
-            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.62rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--sage-light)', marginBottom: 18, fontWeight: 500 }}>Our Promise</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-              {[
-                'Funerals: Honouring your story, held with love.',
-                'Weddings: Celebrating your love, held with joy.',
-                'Vow Renewals: Honouring your moments, cherished with warmth.',
-                'Pet Funerals: Remembering your companion, treasured with heart.',
-              ].map(p => (
-                <p key={p} style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.7 }}>{p}</p>
-              ))}
-            </div>
+            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--sage-light)', marginBottom: 16, fontWeight: 500 }}>Quick Links</p>
+            {[
+              { label: 'About Me', to: '/about' },
+              { label: 'Fees', to: '/fees' },
+              { label: 'FAQs', to: '/faqs' },
+              { label: 'Useful Links', to: '/links' },
+              { label: 'Contact', to: '/contact' },
+            ].map(l => (
+              <Link key={l.label} to={l.to} style={{
+                display: 'block', fontSize: '0.8rem', color: 'rgba(255,255,255,0.5)', marginBottom: 9, transition: 'color 0.2s',
+              }}
+              onMouseEnter={e => e.target.style.color = 'var(--apricot-light)'}
+              onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.5)'}>
+                {l.label}
+              </Link>
+            ))}
           </div>
         </div>
 
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
-          <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)' }}>
+        {/* Bottom bar */}
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10 }}>
+          <p style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.28)' }}>
             &copy; {new Date().getFullYear()} Susan Stevens Celebrant. All rights reserved.
           </p>
-          <p style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.3)' }}>
+          <p style={{ fontSize: '0.68rem', color: 'rgba(255,255,255,0.28)' }}>
             Website made by the{' '}
             <a href="https://www.funeralcelebrantacademy.co.uk" target="_blank" rel="noopener noreferrer"
               style={{ color: 'var(--sage-light)', textDecoration: 'underline' }}>
@@ -76,6 +81,17 @@ export default function Footer() {
           </p>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .footer-grid {
+            grid-template-columns: 1fr !important;
+            gap: 36px !important;
+          }
+          .footer-brand { text-align: center; }
+          .footer-brand a:first-child { display: flex; justify-content: center; }
+        }
+      `}</style>
     </footer>
   );
 }
