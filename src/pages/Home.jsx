@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { photo1, photo2, photo3, photo4, photo5 } from '../assets';
 
 const services = [
@@ -74,20 +75,12 @@ export default function Home() {
             </p>
 
             <div className="anim-fade-up anim-delay-4" style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-              <a href="#contact" className="btn-primary">Get in Touch</a>
+              <Link to="/contact" className="btn-primary">Get in Touch</Link>
               <a href="#services" className="btn-ghost" style={{ color: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.4)' }}>View Services</a>
             </div>
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div style={{
-          position: 'absolute', bottom: 40, left: '50%', transform: 'translateX(-50%)',
-          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, zIndex: 3,
-        }}>
-          <span style={{ fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)' }}>Scroll</span>
-          <div style={{ width: 1, height: 40, background: 'linear-gradient(to bottom, rgba(255,255,255,0.4), transparent)' }}/>
-        </div>
       </section>
 
       {/* Trust band */}
@@ -155,7 +148,7 @@ export default function Home() {
               <p style={{ fontSize: '0.92rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: 36 }}>
                 Every ceremony I create is personal, heartfelt and thoughtful. I take time to listen, understand and reflect on what is meaningful to you, so that every moment feels authentic, memorable, and deeply respectful.
               </p>
-              <a href="#contact" className="btn-primary">Enquire About Your Ceremony</a>
+              <Link to="/contact" className="btn-primary">Enquire About Your Ceremony</Link>
             </div>
           </div>
         </div>
@@ -211,7 +204,7 @@ export default function Home() {
                 <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '1.25rem', color: '#fff', lineHeight: 1.5, marginBottom: 20 }}>
                   "Because every life, every love, every story deserves to be honoured."
                 </p>
-                <a href="#contact" className="btn-primary" style={{ alignSelf: 'flex-start', fontSize: '0.68rem' }}>Get in Touch</a>
+                <Link to="/contact" className="btn-primary" style={{ alignSelf: 'flex-start', fontSize: '0.68rem' }}>Get in Touch</Link>
               </div>
             </div>
           </div>
@@ -231,7 +224,7 @@ export default function Home() {
           <p style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(1.5rem, 4vw, 2.8rem)', fontWeight: 300, fontStyle: 'italic', color: '#fff', maxWidth: 700, lineHeight: 1.4 }}>
             "I am here to hold space for your moments, all of them, with warmth, care and deep respect for your story."
           </p>
-          <a href="#contact" className="btn-ghost" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.5)' }}>Begin Your Enquiry</a>
+          <Link to="/contact" className="btn-ghost" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.5)' }}>Begin Your Enquiry</Link>
         </div>
       </section>
 
@@ -242,37 +235,66 @@ export default function Home() {
             <p className="section-tag" style={{ justifyContent: 'center' }}>Transparent Pricing</p>
             <h2 className="section-heading">Ceremony <em>Fees</em></h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
             {[
-              { type: 'Funeral', price: 'From £265' },
-              { type: 'Memorial Ceremony', price: 'From £250' },
-              { type: 'Interring of Ashes', price: 'From £80' },
-              { type: 'Scattering of Ashes', price: 'From £80' },
-              { type: 'Wedding Ceremony', price: 'From £700' },
-              { type: 'Vow Renewal', price: 'From £600' },
-              { type: 'Baby Naming', price: 'From £250' },
-              { type: 'Pet Committal / Memorial', price: 'From £150' },
-              { type: 'Bespoke Ceremonies', price: 'By Discussion' },
+              { category: 'Funerals, Memorials & Ashes', title: 'Funeral & Memorial Services', price: '£265', desc: 'Compassionate, fully personalised ceremonies honouring a life lived and loved.', dark: true },
+              { category: 'Traditional, Civil, Symbolic or Vow Renewals', title: 'Weddings', price: '£700', desc: 'Bespoke ceremonies shaped entirely around your love story and your day.', dark: false },
+              { category: 'Family & Children Ceremonies', title: 'Baby Naming Ceremonies', price: '£250', desc: 'A beautiful, heartfelt welcome ceremony for your new arrival.', dark: false },
+              { category: 'Renew Your Commitment', title: 'Vow Renewals', price: '£600', desc: 'Celebrate your love and recommit in a ceremony that is entirely yours.', dark: false },
+              { category: 'Beloved Companions', title: 'Pet Funerals & Memorials', price: '£150', desc: 'Gentle, compassionate ceremonies honouring the bond you shared.', dark: true },
+              { category: 'Funerals, Memorials, Celebrations of Life & Pet Memorials', title: 'Bespoke Ceremonies', price: null, desc: 'Have something unique in mind? All bespoke ceremonies are priced by prior discussion.', dark: false },
             ].map(fee => (
-              <div key={fee.type} style={{
-                background: 'var(--white)', padding: '32px 30px',
-                display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                borderBottom: '2px solid transparent',
-                transition: 'all 0.3s ease',
+              <div key={fee.title} style={{
+                background: fee.dark ? 'var(--sage)' : 'var(--white)',
+                padding: '36px 34px 30px',
+                display: 'flex', flexDirection: 'column', gap: 0,
+                boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
               }}
-              onMouseEnter={e => { e.currentTarget.style.borderBottomColor = 'var(--apricot)'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 30px rgba(0,0,0,0.07)'; }}
-              onMouseLeave={e => { e.currentTarget.style.borderBottomColor = 'transparent'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}>
-                <span style={{ fontFamily: 'var(--serif)', fontSize: '1.05rem', fontWeight: 400, color: 'var(--text-dark)' }}>{fee.type}</span>
-                <span style={{ fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 500, color: 'var(--sage-dark)', letterSpacing: '0.05em' }}>{fee.price}</span>
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 16px 50px rgba(0,0,0,0.12)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.06)'; }}>
+                <p style={{
+                  fontFamily: 'var(--sans)', fontSize: '0.6rem', fontWeight: 500,
+                  letterSpacing: '0.16em', textTransform: 'uppercase',
+                  color: fee.dark ? 'rgba(255,255,255,0.65)' : 'var(--text-light)',
+                  marginBottom: 14, lineHeight: 1.6,
+                }}>{fee.category}</p>
+                <h3 style={{
+                  fontFamily: 'var(--serif)', fontSize: '1.6rem', fontWeight: 400,
+                  color: fee.dark ? '#fff' : 'var(--text-dark)',
+                  lineHeight: 1.2, marginBottom: 16,
+                }}>{fee.title}</h3>
+                {fee.price && (
+                  <p style={{ marginBottom: 12 }}>
+                    <span style={{ fontFamily: 'var(--sans)', fontSize: '0.78rem', color: fee.dark ? 'rgba(255,255,255,0.7)' : 'var(--text-light)', marginRight: 4 }}>from</span>
+                    <span style={{ fontFamily: 'var(--serif)', fontSize: '2rem', fontWeight: 500, color: fee.dark ? '#fff' : 'var(--sage-dark)' }}>£{fee.price}</span>
+                  </p>
+                )}
+                <p style={{
+                  fontSize: '0.82rem', lineHeight: 1.8,
+                  color: fee.dark ? 'rgba(255,255,255,0.75)' : 'var(--text-mid)',
+                  marginBottom: 28, flex: 1,
+                }}>{fee.desc}</p>
+                <Link to="/contact" style={{
+                  display: 'block', textAlign: 'center',
+                  padding: '13px 20px',
+                  background: fee.dark ? 'rgba(255,255,255,0.15)' : 'var(--sage)',
+                  color: '#fff',
+                  fontFamily: 'var(--sans)', fontSize: '0.68rem', fontWeight: 500,
+                  letterSpacing: '0.16em', textTransform: 'uppercase',
+                  border: fee.dark ? '1px solid rgba(255,255,255,0.3)' : 'none',
+                  transition: 'background 0.3s ease',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = fee.dark ? 'rgba(255,255,255,0.25)' : 'var(--sage-dark)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = fee.dark ? 'rgba(255,255,255,0.15)' : 'var(--sage)'; }}>
+                  Enquire Now
+                </Link>
               </div>
             ))}
           </div>
-          <p style={{ textAlign: 'center', marginTop: 50, fontSize: '0.85rem', color: 'var(--text-light)', fontStyle: 'italic' }}>
-            All fees are discussed during your initial enquiry. Travel costs may apply.
+          <p style={{ textAlign: 'center', marginTop: 36, fontSize: '0.82rem', color: 'var(--text-light)', fontStyle: 'italic' }}>
+            All fees discussed openly during your initial no-obligation consultation. Travel costs may apply.
           </p>
-          <div style={{ textAlign: 'center', marginTop: 30 }}>
-            <a href="#contact" className="btn-primary">Check Availability</a>
-          </div>
         </div>
       </section>
 
@@ -322,7 +344,7 @@ export default function Home() {
           </div>
           <FaqList/>
           <p style={{ textAlign: 'center', marginTop: 50, fontSize: '0.85rem', color: 'var(--text-mid)' }}>
-            Have more questions? <a href="#contact" style={{ color: 'var(--sage-dark)', textDecoration: 'underline' }}>Contact Susan directly</a>
+            Have more questions? <Link to="/contact" style={{ color: 'var(--sage-dark)', textDecoration: 'underline' }}>Contact Susan directly</Link>
           </p>
         </div>
       </section>

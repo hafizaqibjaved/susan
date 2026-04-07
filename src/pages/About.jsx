@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { photo3, photo5, photo1 } from '../assets';
 
 export default function About() {
@@ -78,9 +79,9 @@ export default function About() {
                   </div>
                 ))}
               </div>
-              <a href="#contact" className="btn-primary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              <Link to="/contact" className="btn-primary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                 Enquire About Your Ceremony
-              </a>
+              </Link>
             </div>
           </div>
         </div>

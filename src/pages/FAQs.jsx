@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 const faqs = [
@@ -65,7 +66,7 @@ export default function FAQs() {
             <p style={{ fontFamily: 'var(--serif)', fontSize: '1.2rem', fontStyle: 'italic', color: 'var(--text-dark)', marginBottom: 20 }}>
               Still have questions? I would love to hear from you.
             </p>
-            <a href="/#contact" className="btn-primary">Get in Touch</a>
+            <Link to="/contact" className="btn-primary">Get in Touch</Link>
           </div>
         </div>
       </section>

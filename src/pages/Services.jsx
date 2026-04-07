@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { photo1, photo2, photo4 } from '../assets';
 
 const services = [
@@ -108,7 +109,7 @@ export default function Services() {
                   ))}
                 </div>
                 <div style={{ marginTop: 32 }}>
-                  <a href="/#contact" className="btn-primary">Enquire About {s.title}</a>
+                  <Link to="/contact" className="btn-primary">Enquire About {s.title}</Link>
                 </div>
               </div>
             </div>

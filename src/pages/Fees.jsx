@@ -1,30 +1,68 @@
-const feeGroups = [
+import { Link } from 'react-router-dom';
+
+const feeCards = [
   {
-    category: 'Funeral Services',
-    color: 'var(--sage)',
-    items: [
-      { type: 'Funeral Ceremony', price: 'From £265', note: 'Full tribute and ceremony writing and delivery' },
-      { type: 'Memorial Ceremony', price: 'From £250', note: 'For those who prefer a later service' },
-      { type: 'Interring of Ashes', price: 'From £80', note: 'Graveside ceremony for ashes interment' },
-      { type: 'Scattering of Ashes', price: 'From £80', note: 'Ceremony for scattering in a meaningful place' },
-    ],
+    category: 'Funerals, Memorials & Ashes',
+    title: 'Funeral Ceremony',
+    price: '265',
+    desc: 'A calm, compassionate presence to guide you through this tender moment. A personal, sincere tribute to a life lived and loved.',
+    dark: true,
   },
   {
-    category: 'Celebrations of Love',
-    color: 'var(--apricot)',
-    items: [
-      { type: 'Wedding Ceremony', price: 'From £700', note: 'Fully personalised ceremony writing and delivery' },
-      { type: 'Vow Renewal', price: 'From £600', note: 'Renew your commitment in style' },
-      { type: 'Baby Naming', price: 'From £250', note: 'A beautiful welcome ceremony for your little one' },
-    ],
+    category: 'Funerals, Memorials & Ashes',
+    title: 'Memorial Ceremony',
+    price: '250',
+    desc: 'For those who prefer to hold a service at a later date. A meaningful gathering to celebrate and remember.',
+    dark: false,
   },
   {
-    category: 'Special Ceremonies',
-    color: 'var(--sage-dark)',
-    items: [
-      { type: 'Pet Committal or Memorial', price: 'From £150', note: 'Compassionate farewell for beloved companions' },
-      { type: 'Bespoke Ceremonies', price: 'By Discussion', note: 'Have something unique in mind? Let\'s talk' },
-    ],
+    category: 'Ashes Ceremonies',
+    title: 'Interring of Ashes',
+    price: '80',
+    desc: 'A gentle, personal ceremony for the interment of ashes in a meaningful place.',
+    dark: false,
+  },
+  {
+    category: 'Ashes Ceremonies',
+    title: 'Scattering of Ashes',
+    price: '80',
+    desc: 'A deeply personal ceremony for scattering ashes in a place that held meaning for your loved one.',
+    dark: false,
+  },
+  {
+    category: 'Traditional, Civil, Symbolic or Vow Renewals',
+    title: 'Weddings',
+    price: '700',
+    desc: 'Fully personalised ceremony writing and delivery. A ceremony shaped entirely by your love story.',
+    dark: true,
+  },
+  {
+    category: 'Renew Your Commitment',
+    title: 'Vow Renewal',
+    price: '600',
+    desc: 'Celebrate your love and recommit in a ceremony that is warm, personal and entirely yours.',
+    dark: false,
+  },
+  {
+    category: 'Family & Children Ceremonies',
+    title: 'Baby Naming',
+    price: '250',
+    desc: 'A beautiful welcome ceremony for your little one, held with joy and warmth.',
+    dark: false,
+  },
+  {
+    category: 'Beloved Companions',
+    title: 'Pet Committal or Memorial',
+    price: '150',
+    desc: 'Pets are family. A compassionate ceremony celebrating the love and bond you shared.',
+    dark: true,
+  },
+  {
+    category: 'Funerals, Memorials, Celebrations of Life & Pet Memorials',
+    title: 'Bespoke Ceremonies',
+    price: null,
+    desc: 'Have something unique in mind? All bespoke ceremonies are priced by prior discussion.',
+    dark: false,
   },
 ];
 
@@ -44,70 +82,63 @@ export default function Fees() {
         </div>
       </section>
 
-      <section style={{ padding: '100px 0', background: 'var(--white)' }}>
+      <section style={{ padding: '100px 0', background: 'var(--off-white)' }}>
         <div className="container">
-          {feeGroups.map((group, gi) => (
-            <div key={group.category} style={{ marginBottom: 70 }}>
-              {/* Category header */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 30 }}>
-                <div style={{ width: 48, height: 48, borderRadius: '50%', background: group.color, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ color: '#fff', fontSize: '1.1rem' }}>{['🕊', '💍', '✨'][gi]}</span>
-                </div>
-                <h2 style={{ fontFamily: 'var(--serif)', fontSize: '1.8rem', fontWeight: 400, color: 'var(--text-dark)' }}>{group.category}</h2>
-                <div style={{ flex: 1, height: 1, background: 'var(--cream)' }}/>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20, marginBottom: 20 }}>
+            {feeCards.map(fee => (
+              <div key={fee.title} style={{
+                background: fee.dark ? 'var(--sage)' : 'var(--white)',
+                padding: '36px 34px 30px',
+                display: 'flex', flexDirection: 'column',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 16px 50px rgba(0,0,0,0.12)'; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.06)'; }}>
+                <p style={{
+                  fontFamily: 'var(--sans)', fontSize: '0.6rem', fontWeight: 500,
+                  letterSpacing: '0.16em', textTransform: 'uppercase',
+                  color: fee.dark ? 'rgba(255,255,255,0.65)' : 'var(--text-light)',
+                  marginBottom: 14, lineHeight: 1.6,
+                }}>{fee.category}</p>
+                <h3 style={{
+                  fontFamily: 'var(--serif)', fontSize: '1.65rem', fontWeight: 400,
+                  color: fee.dark ? '#fff' : 'var(--text-dark)',
+                  lineHeight: 1.2, marginBottom: 16,
+                }}>{fee.title}</h3>
+                {fee.price ? (
+                  <p style={{ marginBottom: 14 }}>
+                    <span style={{ fontFamily: 'var(--sans)', fontSize: '0.78rem', color: fee.dark ? 'rgba(255,255,255,0.65)' : 'var(--text-light)', marginRight: 5 }}>from</span>
+                    <span style={{ fontFamily: 'var(--serif)', fontSize: '2.2rem', fontWeight: 500, color: fee.dark ? '#fff' : 'var(--sage-dark)' }}>£{fee.price}</span>
+                  </p>
+                ) : (
+                  <p style={{ marginBottom: 14, fontFamily: 'var(--serif)', fontSize: '1.2rem', color: fee.dark ? 'rgba(255,255,255,0.8)' : 'var(--sage-dark)', fontStyle: 'italic' }}>
+                    Tailored to individual requirements
+                  </p>
+                )}
+                <p style={{
+                  fontSize: '0.82rem', lineHeight: 1.8,
+                  color: fee.dark ? 'rgba(255,255,255,0.75)' : 'var(--text-mid)',
+                  marginBottom: 28, flex: 1,
+                }}>{fee.desc}</p>
+                <Link to="/contact" style={{
+                  display: 'block', textAlign: 'center', padding: '13px 20px',
+                  background: fee.dark ? 'rgba(255,255,255,0.15)' : 'var(--sage)',
+                  color: '#fff',
+                  fontFamily: 'var(--sans)', fontSize: '0.68rem', fontWeight: 500,
+                  letterSpacing: '0.16em', textTransform: 'uppercase',
+                  border: fee.dark ? '1px solid rgba(255,255,255,0.3)' : 'none',
+                  transition: 'background 0.3s ease',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = fee.dark ? 'rgba(255,255,255,0.25)' : 'var(--sage-dark)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = fee.dark ? 'rgba(255,255,255,0.15)' : 'var(--sage)'; }}>
+                  Enquire Now
+                </Link>
               </div>
+            ))}
+          </div>
 
-              {/* Fee cards */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 16 }}>
-                {group.items.map((fee, fi) => (
-                  <div key={fee.type} style={{
-                    background: 'var(--off-white)',
-                    padding: '32px 30px',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    transition: 'all 0.3s ease',
-                    cursor: 'default',
-                    borderBottom: `3px solid transparent`,
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.borderBottomColor = group.color;
-                    e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.boxShadow = '0 16px 50px rgba(0,0,0,0.08)';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.borderBottomColor = 'transparent';
-                    e.currentTarget.style.transform = 'none';
-                    e.currentTarget.style.boxShadow = 'none';
-                  }}>
-                    {/* Number watermark */}
-                    <div style={{
-                      position: 'absolute', top: 10, right: 16,
-                      fontFamily: 'var(--serif)', fontSize: '4rem', fontWeight: 600,
-                      color: 'rgba(0,0,0,0.04)', lineHeight: 1, userSelect: 'none',
-                    }}>{String(fi + 1).padStart(2, '0')}</div>
-
-                    <div style={{
-                      width: 32, height: 3,
-                      background: group.color,
-                      marginBottom: 20,
-                    }}/>
-                    <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.15rem', fontWeight: 400, color: 'var(--text-dark)', marginBottom: 8, lineHeight: 1.3 }}>
-                      {fee.type}
-                    </h3>
-                    <p style={{ fontSize: '0.78rem', color: 'var(--text-light)', lineHeight: 1.7, marginBottom: 20 }}>{fee.note}</p>
-                    <div style={{ marginTop: 'auto' }}>
-                      <span style={{
-                        fontFamily: 'var(--serif)', fontSize: '1.5rem', fontWeight: 500,
-                        color: group.color,
-                      }}>{fee.price}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-
-          {/* CTA */}
+          {/* Bottom CTA */}
           <div style={{
             marginTop: 20, padding: '60px', background: '#1e2b1a',
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -117,13 +148,14 @@ export default function Fees() {
               <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.8rem', color: '#fff', fontWeight: 300, marginBottom: 10 }}>
                 Not sure which service you need?
               </h3>
-              <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.8, maxWidth: 480 }}>
+              <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.8, maxWidth: 480 }}>
                 I am always happy to have an initial conversation with no obligation. Just get in touch and we can talk through what feels right for you.
               </p>
             </div>
-            <a href="/#contact" className="btn-primary" style={{ flexShrink: 0 }}>Get in Touch</a>
+            <Link to="/contact" className="btn-primary" style={{ flexShrink: 0 }}>Get in Touch</Link>
           </div>
         </div>
+        <style>{`@media(max-width:900px){.fees-grid{grid-template-columns:1fr 1fr !important;} } @media(max-width:600px){.fees-grid{grid-template-columns:1fr !important;}}`}</style>
       </section>
     </>
   );

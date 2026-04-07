@@ -6,14 +6,10 @@ export default function Footer() {
     <footer style={{ background: '#1e2b1a', color: 'rgba(255,255,255,0.75)', padding: '70px 0 30px' }}>
       <div className="container">
         <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr', gap: 50, marginBottom: 55 }}>
-          {/* Brand */}
+          {/* Brand - logo only */}
           <div>
-            <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 20, textDecoration: 'none' }}>
-              <img src={logo} alt="Susan Stevens" style={{ height: 68, width: 68, objectFit: 'contain', filter: 'brightness(1.15)' }} />
-              <div>
-                <div style={{ fontFamily: 'var(--serif)', fontSize: '1.1rem', color: '#fff', lineHeight: 1.1 }}>Susan Stevens</div>
-                <div style={{ fontFamily: 'var(--sans)', fontSize: '0.58rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--sage-light)', marginTop: 2 }}>Celebrant</div>
-              </div>
+            <Link to="/" style={{ display: 'inline-block', marginBottom: 20 }}>
+              <img src={logo} alt="Susan Stevens Celebrant" style={{ height: 90, width: 'auto', objectFit: 'contain' }} />
             </Link>
             <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '1rem', color: 'var(--apricot-light)', lineHeight: 1.5, marginBottom: 18 }}>
               Every Story Treasured with Love

@@ -38,38 +38,21 @@ export default function Nav() {
       backdropFilter: isTransparent ? 'none' : 'blur(12px)',
       boxShadow: isTransparent ? 'none' : '0 1px 24px rgba(0,0,0,0.07)',
       transition: 'all 0.4s ease',
-      padding: scrolled ? '12px 0' : '20px 0',
+      padding: scrolled ? '10px 0' : '16px 0',
     }}>
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        {/* Logo - bigger */}
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 14, textDecoration: 'none' }}>
+        {/* Logo only - no text */}
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
           <img
             src={logo}
             alt="Susan Stevens Celebrant"
             style={{
-              height: scrolled ? 62 : 74,
-              width: scrolled ? 62 : 74,
+              height: scrolled ? 72 : 88,
+              width: 'auto',
               objectFit: 'contain',
               transition: 'all 0.4s ease',
-              filter: isTransparent ? 'brightness(1.1)' : 'none',
             }}
           />
-          <div>
-            <div style={{
-              fontFamily: 'var(--serif)', fontSize: scrolled ? '1.1rem' : '1.25rem',
-              fontWeight: 500, color: isTransparent ? '#fff' : 'var(--text-dark)',
-              lineHeight: 1.1, transition: 'all 0.4s ease',
-            }}>
-              Susan Stevens
-            </div>
-            <div style={{
-              fontFamily: 'var(--sans)', fontSize: '0.58rem', letterSpacing: '0.22em',
-              textTransform: 'uppercase', color: isTransparent ? 'rgba(255,255,255,0.7)' : 'var(--sage-dark)',
-              fontWeight: 400, marginTop: 2, transition: 'all 0.4s ease',
-            }}>
-              Celebrant
-            </div>
-          </div>
         </Link>
 
         {/* Desktop nav */}
@@ -81,7 +64,9 @@ export default function Nav() {
                 <Link to={link.to} style={{
                   fontFamily: 'var(--sans)', fontSize: '0.72rem', fontWeight: active ? 500 : 400,
                   letterSpacing: '0.12em', textTransform: 'uppercase',
-                  color: isTransparent ? (active ? '#fff' : 'rgba(255,255,255,0.75)') : (active ? 'var(--sage-dark)' : 'var(--text-mid)'),
+                  color: isTransparent
+                    ? (active ? '#fff' : 'rgba(255,255,255,0.78)')
+                    : (active ? 'var(--sage-dark)' : 'var(--text-mid)'),
                   transition: 'color 0.2s',
                   borderBottom: active ? `1.5px solid ${isTransparent ? '#fff' : 'var(--sage)'}` : '1.5px solid transparent',
                   paddingBottom: 2,
