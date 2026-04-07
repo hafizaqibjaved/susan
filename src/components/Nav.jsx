@@ -1,19 +1,22 @@
 import { useState, useEffect } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import { logo } from '../assets';
 
 const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Fees', href: '#fees' },
-  { label: 'FAQs', href: '#faqs' },
-  { label: 'Links', href: '#links' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Services', to: '/services' },
+  { label: 'Fees', to: '/fees' },
+  { label: 'FAQs', to: '/faqs' },
+  { label: 'Links', to: '/links' },
+  { label: 'Contact', to: '/contact' },
 ];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -21,95 +24,122 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  const isTransparent = isHome && !scrolled;
+
   return (
     <nav style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-      background: scrolled ? 'rgba(255,255,255,0.97)' : 'transparent',
-      backdropFilter: scrolled ? 'blur(10px)' : 'none',
-      boxShadow: scrolled ? '0 1px 20px rgba(0,0,0,0.06)' : 'none',
+      background: isTransparent ? 'transparent' : 'rgba(255,255,255,0.97)',
+      backdropFilter: isTransparent ? 'none' : 'blur(12px)',
+      boxShadow: isTransparent ? 'none' : '0 1px 24px rgba(0,0,0,0.07)',
       transition: 'all 0.4s ease',
-      padding: scrolled ? '14px 0' : '22px 0',
+      padding: scrolled ? '12px 0' : '20px 0',
     }}>
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <a href="#home" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <img src={logo} alt="Susan Stevens Celebrant" style={{ height: 52, width: 52, objectFit: 'contain' }} />
+        {/* Logo - bigger */}
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 14, textDecoration: 'none' }}>
+          <img
+            src={logo}
+            alt="Susan Stevens Celebrant"
+            style={{
+              height: scrolled ? 62 : 74,
+              width: scrolled ? 62 : 74,
+              objectFit: 'contain',
+              transition: 'all 0.4s ease',
+              filter: isTransparent ? 'brightness(1.1)' : 'none',
+            }}
+          />
           <div>
-            <div style={{ fontFamily: 'var(--serif)', fontSize: '1.05rem', fontWeight: 500, color: 'var(--text-dark)', lineHeight: 1.1 }}>
+            <div style={{
+              fontFamily: 'var(--serif)', fontSize: scrolled ? '1.1rem' : '1.25rem',
+              fontWeight: 500, color: isTransparent ? '#fff' : 'var(--text-dark)',
+              lineHeight: 1.1, transition: 'all 0.4s ease',
+            }}>
               Susan Stevens
             </div>
-            <div style={{ fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--sage-dark)', fontWeight: 400 }}>
+            <div style={{
+              fontFamily: 'var(--sans)', fontSize: '0.58rem', letterSpacing: '0.22em',
+              textTransform: 'uppercase', color: isTransparent ? 'rgba(255,255,255,0.7)' : 'var(--sage-dark)',
+              fontWeight: 400, marginTop: 2, transition: 'all 0.4s ease',
+            }}>
               Celebrant
             </div>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
-        <ul style={{ display: 'flex', gap: 32, listStyle: 'none', alignItems: 'center' }}
-          className="desktop-nav">
-          {navLinks.map(link => (
-            <li key={link.label}>
-              <a href={link.href} style={{
-                fontFamily: 'var(--sans)', fontSize: '0.72rem', fontWeight: 400,
-                letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--text-mid)',
-                transition: 'color 0.2s',
-                position: 'relative',
-              }}
-              onMouseEnter={e => e.target.style.color = 'var(--sage-dark)'}
-              onMouseLeave={e => e.target.style.color = 'var(--text-mid)'}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+        <ul style={{ display: 'flex', gap: 28, listStyle: 'none', alignItems: 'center' }} className="desktop-nav">
+          {navLinks.map(link => {
+            const active = location.pathname === link.to;
+            return (
+              <li key={link.label}>
+                <Link to={link.to} style={{
+                  fontFamily: 'var(--sans)', fontSize: '0.72rem', fontWeight: active ? 500 : 400,
+                  letterSpacing: '0.12em', textTransform: 'uppercase',
+                  color: isTransparent ? (active ? '#fff' : 'rgba(255,255,255,0.75)') : (active ? 'var(--sage-dark)' : 'var(--text-mid)'),
+                  transition: 'color 0.2s',
+                  borderBottom: active ? `1.5px solid ${isTransparent ? '#fff' : 'var(--sage)'}` : '1.5px solid transparent',
+                  paddingBottom: 2,
+                }}>
+                  {link.label}
+                </Link>
+              </li>
+            );
+          })}
           <li>
-            <a href="#contact" className="btn-primary" style={{ padding: '10px 24px', fontSize: '0.68rem' }}>
+            <Link to="/contact" className="btn-primary" style={{ padding: '11px 26px', fontSize: '0.68rem' }}>
               Enquire
-            </a>
+            </Link>
           </li>
         </ul>
 
         {/* Mobile burger */}
-        <button onClick={() => setMenuOpen(!menuOpen)} style={{
+        <button onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu" style={{
           display: 'none', background: 'none', border: 'none', cursor: 'pointer',
-          flexDirection: 'column', gap: 5, padding: 4
+          flexDirection: 'column', gap: 6, padding: 4,
         }} className="burger">
-          {[0,1,2].map(i => (
+          {[0, 1, 2].map(i => (
             <span key={i} style={{
-              display: 'block', width: 22, height: 1.5,
-              background: 'var(--text-dark)',
+              display: 'block', width: 24, height: 1.5,
+              background: isTransparent ? '#fff' : 'var(--text-dark)',
               transition: 'all 0.3s ease',
-              transform: menuOpen && i === 0 ? 'rotate(45deg) translate(5px,5px)' :
-                         menuOpen && i === 2 ? 'rotate(-45deg) translate(5px,-5px)' : 'none',
+              transform: menuOpen && i === 0 ? 'rotate(45deg) translate(5px,6px)' :
+                         menuOpen && i === 2 ? 'rotate(-45deg) translate(5px,-6px)' : 'none',
               opacity: menuOpen && i === 1 ? 0 : 1,
             }}/>
           ))}
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu overlay */}
       <div style={{
         position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
         background: 'var(--cream)', zIndex: -1,
         transform: menuOpen ? 'translateX(0)' : 'translateX(100%)',
-        transition: 'transform 0.4s ease',
-        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-        gap: 28,
+        transition: 'transform 0.4s cubic-bezier(0.77,0,0.18,1)',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 30,
       }}>
         {navLinks.map(link => (
-          <a key={link.label} href={link.href}
+          <Link key={link.label} to={link.to}
             onClick={() => setMenuOpen(false)}
             style={{
-              fontFamily: 'var(--serif)', fontSize: '1.8rem', fontWeight: 300,
-              color: 'var(--text-dark)', letterSpacing: '0.05em',
+              fontFamily: 'var(--serif)', fontSize: '2rem', fontWeight: 300,
+              color: location.pathname === link.to ? 'var(--sage-dark)' : 'var(--text-dark)',
+              letterSpacing: '0.05em',
             }}>
             {link.label}
-          </a>
+          </Link>
         ))}
-        <a href="#contact" className="btn-primary" onClick={() => setMenuOpen(false)}>Enquire Now</a>
+        <Link to="/contact" className="btn-primary" onClick={() => setMenuOpen(false)} style={{ marginTop: 10 }}>Enquire Now</Link>
       </div>
 
       <style>{`
-        @media(max-width:900px){ .desktop-nav{ display:none !important; } .burger{ display:flex !important; } }
+        @media(max-width:960px){ .desktop-nav{ display:none !important; } .burger{ display:flex !important; } }
       `}</style>
     </nav>
   );
