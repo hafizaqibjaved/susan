@@ -52,8 +52,8 @@ export default function Nav() {
       }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
-          {/* Logo */}
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          {/* Logo - hidden when mobile menu is open */}
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', opacity: menuOpen ? 0 : 1, transition: 'opacity 0.2s ease', pointerEvents: menuOpen ? 'none' : 'auto' }}>
             <Logo size={scrolled ? 64 : 80} light={isTransparent} />
           </Link>
 
