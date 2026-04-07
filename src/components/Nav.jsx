@@ -52,8 +52,8 @@ export default function Nav() {
       }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
-          {/* Logo - desktop only, hidden on mobile via CSS */}
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} className="nav-logo">
+          {/* Logo - always visible, hidden when mobile menu open to avoid duplicate */}
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', opacity: menuOpen ? 0 : 1, transition: 'opacity 0.25s ease', pointerEvents: menuOpen ? 'none' : 'auto' }} className="nav-logo">
             <Logo size={scrolled ? 64 : 80} light={isTransparent} />
           </Link>
 
@@ -207,7 +207,6 @@ export default function Nav() {
         @media(max-width:960px){
           .desktop-nav{ display:none !important; }
           .burger{ display:flex !important; }
-          .nav-logo{ display:none !important; }
         }
       `}</style>
     </>
