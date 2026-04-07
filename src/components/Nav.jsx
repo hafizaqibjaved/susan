@@ -44,9 +44,9 @@ export default function Nav() {
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0,
         zIndex: 1001,
-        background: (isTransparent) ? 'transparent' : 'rgba(255,255,255,0.98)',
-        backdropFilter: isTransparent ? 'none' : 'blur(12px)',
-        boxShadow: isTransparent ? 'none' : '0 1px 24px rgba(0,0,0,0.07)',
+        background: menuOpen ? '#1e2b1a' : (isTransparent ? 'transparent' : 'rgba(255,255,255,0.98)'),
+        backdropFilter: isTransparent && !menuOpen ? 'none' : 'blur(12px)',
+        boxShadow: isTransparent && !menuOpen ? 'none' : '0 1px 24px rgba(0,0,0,0.07)',
         transition: 'background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease',
         padding: scrolled ? '8px 0' : '14px 0',
       }}>
@@ -134,7 +134,7 @@ export default function Nav() {
         overflowY: 'auto',
       }}>
         {/* Logo at top of menu - light version on dark bg */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0, marginTop: 20 }}>
           <Logo size={80} light={true} />
         </div>
 
