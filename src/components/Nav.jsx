@@ -52,9 +52,9 @@ export default function Nav() {
       }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
-          {/* Logo - always visible, hidden when mobile menu open to avoid duplicate */}
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', opacity: menuOpen ? 0 : 1, transition: 'opacity 0.25s ease', pointerEvents: menuOpen ? 'none' : 'auto' }} className="nav-logo">
-            <Logo size={scrolled ? 64 : 80} light={isTransparent} />
+          {/* Logo - always visible */}
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} className="nav-logo">
+            <Logo size={scrolled ? 64 : 80} light={isTransparent && !menuOpen} />
           </Link>
 
           {/* Desktop links */}
@@ -133,11 +133,6 @@ export default function Nav() {
         transition: 'opacity 0.3s ease, transform 0.3s ease',
         overflowY: 'auto',
       }}>
-        {/* Logo at top of menu - light version on dark bg */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0, marginTop: 20 }}>
-          <Logo size={80} light={true} />
-        </div>
-
         {/* Nav links */}
         <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, flex: 1, justifyContent: 'center' }}>
           {navLinks.map(link => {
