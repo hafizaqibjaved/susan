@@ -52,8 +52,8 @@ export default function Nav() {
       }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
-          {/* Logo - visible on desktop, hidden on mobile (shown in mobile overlay instead) */}
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', opacity: menuOpen ? 0 : 1, transition: 'opacity 0.2s ease', pointerEvents: menuOpen ? 'none' : 'auto' }} className="nav-logo">
+          {/* Logo - desktop only, hidden on mobile via CSS */}
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} className="nav-logo">
             <Logo size={scrolled ? 64 : 80} light={isTransparent} />
           </Link>
 
