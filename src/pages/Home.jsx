@@ -1,6 +1,32 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { photo1, photo2, photo3, photo4, photo5 } from '../assets';
+import { photo2, photo3, photo4, photo5, heroBackground } from '../assets';
+
+// APC Certified Badge
+function APCBadge({ dark = false }) {
+  return (
+    <a
+      href="https://www.funeralcelebrantacademy.co.uk"
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none', padding: '10px 16px', background: dark ? 'rgba(255,255,255,0.1)' : 'rgba(138,158,122,0.12)', borderRadius: 2 }}
+    >
+      <div style={{ width: 38, height: 38, borderRadius: '50%', background: 'var(--sage)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+        <svg width="22" height="22" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="12" stroke="rgba(255,255,255,0.5)" strokeWidth="0.8"/>
+          <text x="13" y="11" textAnchor="middle" fontFamily="Georgia,serif" fontSize="7" fontWeight="700" fill="#fff" letterSpacing="0.5">APC</text>
+          <line x1="5" y1="14" x2="21" y2="14" stroke="rgba(255,255,255,0.4)" strokeWidth="0.6"/>
+          <text x="13" y="20" textAnchor="middle" fontFamily="sans-serif" fontSize="4.5" fill="rgba(255,255,255,0.8)" letterSpacing="0.3">CERTIFIED</text>
+        </svg>
+      </div>
+      <div>
+        <p style={{ fontFamily: 'var(--sans)', fontSize: '0.58rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: dark ? 'rgba(255,255,255,0.6)' : 'var(--sage-dark)', fontWeight: 500, marginBottom: 1 }}>APC Certified</p>
+        <p style={{ fontFamily: 'var(--sans)', fontSize: '0.72rem', color: dark ? 'rgba(255,255,255,0.85)' : 'var(--text-mid)' }}>Academy of Professional Celebrants</p>
+      </div>
+    </a>
+  );
+}
+
 
 const services = [
   { title: 'Funerals', icon: '🕊', text: 'A calm, compassionate presence to guide you through this tender moment. Personal, sincere and a gentle tribute to a life lived and loved.' },
@@ -18,9 +44,9 @@ export default function Home() {
         {/* Background image */}
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: `url(${photo1})`,
+          backgroundImage: `url(${heroBackground})`,
           backgroundSize: 'cover', backgroundPosition: 'center 30%',
-          filter: 'brightness(0.45)',
+          filter: 'none',
           zIndex: 0,
         }}/>
         {/* Gradient overlay */}
@@ -76,7 +102,10 @@ export default function Home() {
 
             <div className="anim-fade-up anim-delay-4" style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
               <Link to="/contact" className="btn-primary">Get in Touch</Link>
-              <a href="#services" className="btn-ghost" style={{ color: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.4)' }}>View Services</a>
+              <Link to="/services" style={{ display: 'inline-flex', alignItems: 'center', padding: '13px 35px', background: 'transparent', color: 'rgba(255,255,255,0.8)', fontFamily: 'var(--sans)', fontSize: '0.78rem', fontWeight: 500, letterSpacing: '0.15em', textTransform: 'uppercase', border: '1.5px solid rgba(255,255,255,0.4)', transition: 'all 0.3s ease' }}>View Services</Link>
+            </div>
+            <div style={{ marginTop: 28 }}>
+              <APCBadge dark={true} />
             </div>
           </div>
         </div>

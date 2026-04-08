@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { photo1, photo2, photo4 } from '../assets';
+import { photo1, photo2, photo3, photo4, photo5 } from '../assets';
 
+// Each service has a UNIQUE image - no duplicates
 const services = [
   {
     id: 'funerals',
@@ -46,7 +47,7 @@ const services = [
     title: 'Pet Funerals',
     icon: '🐾',
     tagline: 'Remembering your companion, treasured with heart.',
-    image: photo4,
+    image: photo3,   // ← unique image, was photo4 (duplicate of funerals)
     content: [
       'Pets are family and saying goodbye can be deeply emotional. I create ceremonies that honour your companion\'s life and celebrate the love you shared.',
       'I hold your memories and the special bond they brought to your life, creating a gentle, heartfelt farewell that truly reflects the joy your beloved companion gave.',
@@ -54,6 +55,36 @@ const services = [
     includes: ['Personalised tribute to your pet', 'Compassionate, private ceremony', 'Space for family to share memories', 'Delivered with warmth and sensitivity'],
   },
 ];
+
+// APC Badge SVG inline
+function APCBadge() {
+  return (
+    <a
+      href="https://www.funeralcelebrantacademy.co.uk"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Academy of Professional Celebrants"
+      style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}
+    >
+      <div style={{
+        width: 48, height: 48, borderRadius: '50%',
+        background: 'var(--sage)', display: 'flex', alignItems: 'center', justifyContent: 'center',
+        flexShrink: 0, boxShadow: '0 4px 16px rgba(138,158,122,0.35)',
+      }}>
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="12" stroke="rgba(255,255,255,0.5)" strokeWidth="0.8"/>
+          <text x="13" y="11" textAnchor="middle" fontFamily="Georgia,serif" fontSize="7" fontWeight="700" fill="#fff" letterSpacing="0.5">APC</text>
+          <line x1="5" y1="14" x2="21" y2="14" stroke="rgba(255,255,255,0.4)" strokeWidth="0.6"/>
+          <text x="13" y="20" textAnchor="middle" fontFamily="sans-serif" fontSize="4.5" fill="rgba(255,255,255,0.8)" letterSpacing="0.3">CERTIFIED</text>
+        </svg>
+      </div>
+      <div>
+        <p style={{ fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--sage-dark)', fontWeight: 500, marginBottom: 1 }}>APC Certified</p>
+        <p style={{ fontFamily: 'var(--sans)', fontSize: '0.72rem', color: 'var(--text-mid)' }}>Academy of Professional Celebrants</p>
+      </div>
+    </a>
+  );
+}
 
 export default function Services() {
   return (
@@ -65,6 +96,9 @@ export default function Services() {
           <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15 }}>
             Ceremonies Shaped <em style={{ color: 'var(--sage-dark)', fontStyle: 'italic' }}>By Your Story</em>
           </h1>
+          <div style={{ marginTop: 28 }}>
+            <APCBadge />
+          </div>
         </div>
       </section>
 
@@ -92,7 +126,7 @@ export default function Services() {
 
               {/* Text */}
               <div style={{ direction: 'ltr' }}>
-                <p className="section-tag">{['Service', 'Service', 'Service', 'Service'][i]}</p>
+                <p className="section-tag">Service</p>
                 <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', fontWeight: 300, marginTop: 12, marginBottom: 28, lineHeight: 1.2 }}>
                   {s.title}
                 </h2>
@@ -116,6 +150,7 @@ export default function Services() {
           </div>
         </section>
       ))}
+
       <style>{`
         @media(max-width:900px){
           .services-section-grid{grid-template-columns:1fr !important; direction:ltr !important; gap:30px !important;}
