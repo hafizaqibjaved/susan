@@ -65,22 +65,16 @@ export default function Contact() {
               <p style={{ fontSize: '0.92rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: 40 }}>
                 I would love to hear from you. Whether you are in the early stages of planning or simply want to ask a question, please get in touch. I always respond warmly and promptly.
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 0 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
                 {contacts.map(({ label, value, href, Icon }) => (
                   <a key={label} href={href} style={{
-                    display: 'flex', alignItems: 'center', gap: 20, padding: '20px 22px',
-                    background: 'var(--off-white)', transition: 'all 0.3s ease',
-                    borderLeft: '3px solid transparent', textDecoration: 'none',
+                    display: 'flex', alignItems: 'center', gap: 14,
+                    textDecoration: 'none', transition: 'opacity 0.2s',
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.borderLeftColor = 'var(--sage)'; e.currentTarget.style.transform = 'translateX(4px)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderLeftColor = 'transparent'; e.currentTarget.style.transform = 'none'; }}>
-                    <div style={{ width: 44, height: 44, borderRadius: '50%', background: 'var(--sage)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <Icon size={18} color="#fff" strokeWidth={1.5}/>
-                    </div>
-                    <div>
-                      <div style={{ fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-light)', marginBottom: 2 }}>{label}</div>
-                      <div style={{ fontFamily: 'var(--serif)', fontSize: '1.05rem', color: 'var(--text-dark)' }}>{value}</div>
-                    </div>
+                  onMouseEnter={e => e.currentTarget.style.opacity = '0.72'}
+                  onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
+                    <Icon size={16} color="var(--sage)" strokeWidth={1.5} style={{ flexShrink: 0 }}/>
+                    <span style={{ fontFamily: 'var(--serif)', fontSize: '1rem', color: 'var(--text-dark)' }}>{value}</span>
                   </a>
                 ))}
               </div>

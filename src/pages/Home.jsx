@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { photo2, photo5, heroBackground } from '../assets';
+import { APCBadge } from '../components/APCComponents';
 
 // ── Scroll animation hook ──────────────────────────────────────────────────
 function useReveal() {
@@ -31,43 +32,7 @@ function Reveal({ children, delay = 0, direction = 'up', style = {} }) {
   );
 }
 
-// ── APC Official Badge ─────────────────────────────────────────────────────
-function APCBadge({ dark = false }) {
-  return (
-    <a href="https://www.funeralcelebrantacademy.co.uk" target="_blank" rel="noopener noreferrer"
-      style={{ display: 'inline-flex', alignItems: 'center', gap: 12, textDecoration: 'none',
-        padding: '10px 18px 10px 10px',
-        background: dark ? 'rgba(255,255,255,0.12)' : 'rgba(138,158,122,0.10)',
-        border: dark ? '1px solid rgba(255,255,255,0.2)' : '1px solid rgba(138,158,122,0.25)',
-        backdropFilter: 'blur(4px)', borderRadius: 2,
-      }}>
-      {/* Official APC seal style */}
-      <div style={{ width: 44, height: 44, borderRadius: '50%', flexShrink: 0, position: 'relative',
-        background: 'linear-gradient(135deg, #8A9E7A 0%, #5a6e4e 100%)',
-        boxShadow: '0 3px 12px rgba(90,110,78,0.4)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-      }}>
-        <svg width="36" height="36" viewBox="0 0 36 36">
-          <circle cx="18" cy="18" r="16" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="0.8"/>
-          <circle cx="18" cy="18" r="13" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5"/>
-          <text x="18" y="16" textAnchor="middle" fontFamily="Georgia,serif" fontSize="8.5" fontWeight="700" fill="#fff" letterSpacing="0.5">APC</text>
-          <line x1="8" y1="19" x2="28" y2="19" stroke="rgba(255,255,255,0.45)" strokeWidth="0.6"/>
-          <text x="18" y="25" textAnchor="middle" fontFamily="sans-serif" fontSize="5" fill="rgba(255,255,255,0.85)" letterSpacing="0.8">CERTIFIED</text>
-        </svg>
-      </div>
-      <div>
-        <p style={{ fontFamily: 'var(--sans)', fontSize: '0.58rem', letterSpacing: '0.18em', textTransform: 'uppercase',
-          color: dark ? 'rgba(255,255,255,0.65)' : 'var(--sage-dark)', fontWeight: 600, marginBottom: 2 }}>
-          Fully Accredited
-        </p>
-        <p style={{ fontFamily: 'var(--sans)', fontSize: '0.74rem', fontWeight: 400,
-          color: dark ? 'rgba(255,255,255,0.9)' : 'var(--text-dark)' }}>
-          Academy of Professional Celebrants
-        </p>
-      </div>
-    </a>
-  );
-}
+
 
 const services = [
   { title: 'Funerals', icon: '🕊', text: 'A calm, compassionate presence to guide you through this tender moment. Personal, sincere and a gentle tribute to a life lived and loved.' },
@@ -83,7 +48,7 @@ export default function Home() {
       {/* ── HERO ── */}
       <section id="home" style={{ minHeight: '100vh', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: `url(${heroBackground})`, backgroundSize: 'cover', backgroundPosition: 'center', zIndex: 0 }}/>
-        <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(120deg, rgba(14,25,14,0.72) 0%, rgba(26,43,20,0.55) 55%, rgba(14,25,14,0.3) 100%)' }}/>
+        <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(to bottom, rgba(10,18,10,0.55) 0%, rgba(10,18,10,0.42) 50%, rgba(10,18,10,0.65) 100%)' }}/>
 
         {/* Full-width centred content */}
         <div style={{ position: 'relative', zIndex: 3, width: '100%', paddingTop: 100 }}>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { APCBadge } from '../components/APCComponents';
 import { useEffect, useRef, useState } from 'react';
 import { photo5 } from '../assets';
 
@@ -48,22 +49,8 @@ export default function About() {
             <Reveal direction="left">
               <div style={{ position: 'sticky', top: 120 }} className="about-sticky">
                 <img src={photo5} alt="Susan Stevens" style={{ width: '100%', height: 560, objectFit: 'cover', objectPosition: 'center top', display: 'block' }}/>
-                {/* APC badge overlay on image */}
-                <div style={{ background: 'var(--sage)', padding: '20px 26px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                    <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <svg width="28" height="28" viewBox="0 0 36 36">
-                        <circle cx="18" cy="18" r="15" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="0.8"/>
-                        <text x="18" y="16" textAnchor="middle" fontFamily="Georgia,serif" fontSize="8" fontWeight="700" fill="#fff" letterSpacing="0.5">APC</text>
-                        <line x1="8" y1="19" x2="28" y2="19" stroke="rgba(255,255,255,0.4)" strokeWidth="0.6"/>
-                        <text x="18" y="25" textAnchor="middle" fontFamily="sans-serif" fontSize="5" fill="rgba(255,255,255,0.85)" letterSpacing="0.8">CERTIFIED</text>
-                      </svg>
-                    </div>
-                    <div>
-                      <p style={{ fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginBottom: 2 }}>Fully Accredited</p>
-                      <p style={{ fontFamily: 'var(--serif)', fontSize: '0.95rem', color: '#fff' }}>Academy of Professional Celebrants</p>
-                    </div>
-                  </div>
+                <div style={{ background: 'var(--sage)', padding: '20px 24px' }}>
+                  <APCBadge dark={true} showLabel={true} size={48} />
                 </div>
               </div>
             </Reveal>

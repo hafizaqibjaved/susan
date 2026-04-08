@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { svcFuneral, svcWedding, svcVow, svcPet } from '../assets';
+import { APCBadge } from '../components/APCComponents';
 import { useEffect, useRef, useState } from 'react';
 
 function useReveal() {
@@ -19,36 +21,14 @@ function Reveal({ children, delay = 0, direction = 'up', style = {} }) {
   return <div ref={ref} style={{ opacity: visible ? 1 : 0, transform: visible ? 'none' : t[direction], transition: `opacity 0.7s ease ${delay}s, transform 0.7s ease ${delay}s`, ...style }}>{children}</div>;
 }
 
-// APC badge compact
-function APCBadge() {
-  return (
-    <a href="https://www.funeralcelebrantacademy.co.uk" target="_blank" rel="noopener noreferrer"
-      style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none',
-        padding: '8px 16px 8px 8px',
-        background: 'rgba(138,158,122,0.12)', border: '1px solid rgba(138,158,122,0.3)', borderRadius: 2,
-      }}>
-      <div style={{ width: 38, height: 38, borderRadius: '50%', background: 'linear-gradient(135deg, #8A9E7A 0%, #5a6e4e 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-        <svg width="30" height="30" viewBox="0 0 36 36">
-          <circle cx="18" cy="18" r="15" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="0.8"/>
-          <text x="18" y="16" textAnchor="middle" fontFamily="Georgia,serif" fontSize="8" fontWeight="700" fill="#fff" letterSpacing="0.5">APC</text>
-          <line x1="8" y1="19" x2="28" y2="19" stroke="rgba(255,255,255,0.4)" strokeWidth="0.6"/>
-          <text x="18" y="25" textAnchor="middle" fontFamily="sans-serif" fontSize="5" fill="rgba(255,255,255,0.85)" letterSpacing="0.8">CERTIFIED</text>
-        </svg>
-      </div>
-      <div>
-        <p style={{ fontFamily: 'var(--sans)', fontSize: '0.58rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--sage-dark)', fontWeight: 600, marginBottom: 1 }}>Fully Accredited</p>
-        <p style={{ fontFamily: 'var(--sans)', fontSize: '0.72rem', color: 'var(--text-dark)' }}>Academy of Professional Celebrants</p>
-      </div>
-    </a>
-  );
-}
+
 
 // Service-representative colors instead of photos of Susan
 const serviceColors = [
-  { from: '#2d4a28', to: '#1a3018', accent: 'rgba(212,149,106,0.3)' }, // Funerals - deep green
-  { from: '#6b4c3b', to: '#3d2a20', accent: 'rgba(212,149,106,0.4)' }, // Weddings - warm earth
-  { from: '#3a5e4a', to: '#1e3830', accent: 'rgba(138,158,122,0.4)' }, // Vow Renewals - sage
-  { from: '#4a5e30', to: '#2a3818', accent: 'rgba(212,149,106,0.25)' }, // Pet Funerals - olive
+  { from: '#2d4a28', to: '#1a3018', accent: 'rgba(212,149,106,0.3)', img: null },
+  { from: '#6b4c3b', to: '#3d2a20', accent: 'rgba(212,149,106,0.4)', img: null },
+  { from: '#3a5e4a', to: '#1e3830', accent: 'rgba(138,158,122,0.4)', img: null },
+  { from: '#4a5e30', to: '#2a3818', accent: 'rgba(212,149,106,0.25)', img: null },
 ];
 
 const services = [
@@ -109,7 +89,7 @@ export default function Services() {
             Ceremonies Shaped <em style={{ color: 'var(--apricot-light)', fontStyle: 'italic' }}>By Your Story</em>
           </h1>
           <div style={{ marginTop: 28 }}>
-            <APCBadge/>
+            <APCBadge dark={false} showLabel={true} />
           </div>
         </div>
       </section>
@@ -127,20 +107,17 @@ export default function Services() {
                   <div style={{ direction: 'ltr', position: 'relative' }}>
                     <div style={{
                       width: '100%', height: 480,
-                      background: `linear-gradient(135deg, ${col.from} 0%, ${col.to} 100%)`,
+                      backgroundImage: `url(${[svcFuneral, svcWedding, svcVow, svcPet][i]})`,
+                      backgroundSize: 'cover', backgroundPosition: 'center',
                       position: 'relative', overflow: 'hidden',
-                      display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '40px',
+                      display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '32px',
                     }}>
-                      {/* Texture overlay */}
-                      <div style={{ position: 'absolute', inset: 0, opacity: 0.08, backgroundImage: 'repeating-linear-gradient(45deg, #8A9E7A 0, #8A9E7A 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }}/>
-                      {/* Radial glow */}
-                      <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(circle at 30% 40%, ${col.accent} 0%, transparent 65%)` }}/>
-                      {/* Large icon */}
-                      <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', fontSize: '7rem', opacity: 0.12 }}>{s.icon}</div>
+                      {/* Dark overlay for text readability */}
+                      <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to top, rgba(10,20,10,0.85) 0%, rgba(10,20,10,0.3) 55%, rgba(10,20,10,0.15) 100%)` }}/>
                       {/* Tagline card */}
-                      <div style={{ position: 'relative', zIndex: 2, background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(8px)', padding: '20px 24px', borderLeft: '3px solid var(--apricot)' }}>
-                        <span style={{ fontSize: '1.6rem', display: 'block', marginBottom: 10 }}>{s.icon}</span>
-                        <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '1rem', color: '#fff', lineHeight: 1.5 }}>{s.tagline}</p>
+                      <div style={{ position: 'relative', zIndex: 2, background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(8px)', padding: '18px 22px', borderLeft: '3px solid var(--apricot)' }}>
+                        <span style={{ fontSize: '1.4rem', display: 'block', marginBottom: 8 }}>{s.icon}</span>
+                        <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '0.95rem', color: '#fff', lineHeight: 1.5 }}>{s.tagline}</p>
                       </div>
                     </div>
                   </div>

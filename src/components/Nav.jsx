@@ -78,11 +78,7 @@ export default function Nav() {
                 </li>
               );
             })}
-            <li>
-              <Link to="/contact" className="btn-primary" style={{ padding: '11px 26px', fontSize: '0.68rem' }}>
-                Enquire
-              </Link>
-            </li>
+
           </ul>
 
           {/* Burger button */}

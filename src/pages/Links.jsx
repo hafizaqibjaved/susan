@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { APCLogo } from '../components/APCComponents';
 import { ExternalLink } from 'lucide-react';
 
 function useReveal() {
