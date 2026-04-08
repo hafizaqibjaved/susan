@@ -78,15 +78,14 @@ export default function Services() {
       {/* Dark banner */}
       <section style={{
         paddingTop: 140, paddingBottom: 80,
-        background: 'linear-gradient(135deg, #1e2b1a 0%, #2d4a28 50%, #1a3018 100%)',
+        background: 'linear-gradient(135deg, var(--cream) 0%, var(--off-white) 100%)',
         position: 'relative', overflow: 'hidden',
       }}>
-        <div style={{ position: 'absolute', inset: 0, opacity: 0.06, backgroundImage: 'repeating-linear-gradient(45deg, #8A9E7A 0, #8A9E7A 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }}/>
         <div style={{ position: 'absolute', top: -60, left: -60, width: 360, height: 360, borderRadius: '50%', background: 'rgba(212,149,106,0.1)' }}/>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <p className="section-tag" style={{ color: 'var(--apricot-light)' }}>What I Offer</p>
-          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: '#fff' }}>
-            Ceremonies Shaped <em style={{ color: 'var(--apricot-light)', fontStyle: 'italic' }}>By Your Story</em>
+          <p className="section-tag" style={{ }}>What I Offer</p>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: 'var(--text-dark)' }}>
+            Ceremonies Shaped <em style={{ color: 'var(--sage-dark)', fontStyle: 'italic' }}>By Your Story</em>
           </h1>
           <div style={{ marginTop: 28 }}>
             <APCBadge dark={false} showLabel={true} />

@@ -158,18 +158,16 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section id="services" className="section-pad" style={{ background: '#1e2b1a', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, opacity: 0.06, backgroundImage: 'repeating-linear-gradient(45deg, #8A9E7A 0, #8A9E7A 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }}/>
+      <section id="services" className="section-pad" style={{ background: 'var(--off-white)', position: 'relative', overflow: 'hidden' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal style={{ textAlign: 'center', marginBottom: 60 }}>
-            <p className="section-tag" style={{ justifyContent: 'center', color: 'var(--apricot-light)' }}>
-              <span style={{ background: 'var(--apricot-light)' }}/>What I Offer
+            <p className="section-tag" style={{ justifyContent: 'center', color: 'var(--apricot)' }}>What I Offer
             </p>
-            <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 300, color: '#fff', marginTop: 12 }}>
-              Ceremonies Shaped <em style={{ color: 'var(--apricot-light)', fontStyle: 'italic' }}>By Your Story</em>
+            <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 300, color: 'var(--text-dark)', marginTop: 12 }}>
+            Ceremonies Shaped <em style={{ color: 'var(--sage-dark)', fontStyle: 'italic' }}>By Your Story</em>
             </h2>
             <div style={{ marginTop: 24, display: 'flex', justifyContent: 'center' }}>
-              <APCBadge dark={true} />
+              <APCBadge dark={false} showLabel={true} size={48} />
             </div>
           </Reveal>
 
@@ -177,17 +175,17 @@ export default function Home() {
             {services.map((s, i) => (
               <Reveal key={s.title} delay={i * 0.08}>
                 <div style={{
-                  background: i % 2 === 0 ? 'rgba(255,255,255,0.05)' : 'rgba(138,158,122,0.15)',
+                  background: i % 2 === 0 ? 'var(--white)' : 'var(--cream)',
                   padding: '44px 36px', height: '100%',
                   borderTop: '2px solid ' + (i % 2 === 0 ? 'var(--sage)' : 'var(--apricot)'),
                   transition: 'transform 0.3s ease, background 0.3s ease',
                   cursor: 'default',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(138,158,122,0.22)'; e.currentTarget.style.transform = 'translateY(-4px)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = i % 2 === 0 ? 'rgba(255,255,255,0.05)' : 'rgba(138,158,122,0.15)'; e.currentTarget.style.transform = 'none'; }}>
+                onMouseEnter={e => { e.currentTarget.style.background = i % 2 === 0 ? 'var(--cream)' : 'var(--off-white)'; e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.09)'; }}
+                onMouseLeave={e => { e.currentTarget.style.background = i % 2 === 0 ? 'var(--white)' : 'var(--cream)'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}>
                   <div style={{ fontSize: '1.6rem', marginBottom: 18 }}>{s.icon}</div>
-                  <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.35rem', fontWeight: 400, marginBottom: 14, color: '#fff' }}>{s.title}</h3>
-                  <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.9 }}>{s.text}</p>
+                  <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.35rem', fontWeight: 400, marginBottom: 14, color: 'var(--text-dark)' }}>{s.title}</h3>
+                  <p style={{ fontSize: '0.85rem', color: 'var(--text-mid)', lineHeight: 1.9 }}>{s.text}</p>
                   <div style={{ width: 28, height: 1.5, background: 'var(--apricot)', marginTop: 24 }}/>
                 </div>
               </Reveal>
@@ -197,7 +195,7 @@ export default function Home() {
               <div style={{
                 background: 'var(--sage)', padding: '44px 36px', height: '100%',
                 display: 'flex', flexDirection: 'column', justifyContent: 'center',
-                borderTop: '2px solid var(--apricot-light)',
+                borderTop: '2px solid var(--apricot)',
               }}>
                 <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '1.2rem', color: '#fff', lineHeight: 1.5, marginBottom: 28 }}>
                   "Because every life, every love, every story deserves to be honoured."
@@ -365,16 +363,15 @@ export default function Home() {
       </section>
 
       {/* ── CONTACT CTA ── */}
-      <section id="contact" className="section-pad" style={{ background: '#1e2b1a', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, opacity: 0.05, backgroundImage: 'repeating-linear-gradient(45deg, #8A9E7A 0, #8A9E7A 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }}/>
+      <section id="contact" className="section-pad" style={{ background: 'var(--cream)', position: 'relative', overflow: 'hidden' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="two-col-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start' }}>
             <Reveal direction="left">
-              <p className="section-tag" style={{ color: 'var(--apricot-light)' }}>Get in Touch</p>
-              <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#fff', fontWeight: 300, marginTop: 12, marginBottom: 24, lineHeight: 1.2 }}>
-                Let's Start a<br/><em style={{ color: 'var(--apricot-light)', fontStyle: 'italic' }}>Conversation</em>
+              <p className="section-tag" style={{ color: 'var(--apricot)' }}>Get in Touch</p>
+              <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--text-dark)', fontWeight: 300, marginTop: 12, marginBottom: 24, lineHeight: 1.2 }}>
+                Let's Start a<br/><em style={{ color: 'var(--apricot-dark)', fontStyle: 'italic' }}>Conversation</em>
               </h2>
-              <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.9, marginBottom: 40 }}>
+              <p style={{ fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.9, marginBottom: 40 }}>
                 I would love to hear your story. Please get in touch and I will respond warmly and promptly.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -383,8 +380,8 @@ export default function Home() {
                   { label: 'Mobile', value: '07493 204657', href: 'tel:07493204657' },
                 ].map(c => (
                   <a key={c.label} href={c.href} style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                    <span style={{ fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--sage-light)' }}>{c.label}</span>
-                    <span style={{ fontFamily: 'var(--serif)', fontSize: '1.05rem', color: 'rgba(255,255,255,0.85)' }}>{c.value}</span>
+                    <span style={{ fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-light)' }}>{c.label}</span>
+                    <span style={{ fontFamily: 'var(--serif)', fontSize: '1.05rem', color: 'var(--text-dark)' }}>{c.value}</span>
                   </a>
                 ))}
               </div>
@@ -431,27 +428,27 @@ function ContactForm() {
   const [sent, setSent] = useState(false);
   const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const submit = (e) => { e.preventDefault(); setSent(true); };
-  const inputStyle = { width: '100%', padding: '14px 16px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.15)', color: '#fff', fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 300, outline: 'none', transition: 'border-color 0.2s' };
+  const inputStyle = { width: '100%', padding: '14px 16px', background: 'var(--off-white)', border: '1px solid rgba(0,0,0,0.08)', color: 'var(--text-dark)', fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 300, outline: 'none', transition: 'border-color 0.2s' };
   if (sent) return (
-    <div style={{ padding: '60px 40px', background: 'rgba(138,158,122,0.15)', textAlign: 'center' }}>
+    <div style={{ padding: '60px 40px', background: 'var(--sage)', textAlign: 'center' }}>
       <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.6rem', color: '#fff', marginBottom: 16 }}>Thank You</h3>
-      <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.65)', lineHeight: 1.9 }}>Susan will be in touch with you warmly and promptly.</p>
+      <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.9 }}>Susan will be in touch with you warmly and promptly.</p>
     </div>
   );
   return (
     <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
       <div className="form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
-        <input name="name" value={form.name} onChange={handle} placeholder="Your Name" required style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage-light)'} onBlur={e => e.target.style.borderColor='rgba(255,255,255,0.15)'}/>
-        <input name="email" type="email" value={form.email} onChange={handle} placeholder="Email Address" required style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage-light)'} onBlur={e => e.target.style.borderColor='rgba(255,255,255,0.15)'}/>
+        <input name="name" value={form.name} onChange={handle} placeholder="Your Name" required style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage)'} onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}/>
+        <input name="email" type="email" value={form.email} onChange={handle} placeholder="Email Address" required style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage)'} onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}/>
       </div>
       <div className="form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
-        <input name="phone" value={form.phone} onChange={handle} placeholder="Phone (optional)" style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage-light)'} onBlur={e => e.target.style.borderColor='rgba(255,255,255,0.15)'}/>
-        <select name="type" value={form.type} onChange={handle} style={{ ...inputStyle, color: form.type ? '#fff' : 'rgba(255,255,255,0.4)' }} onFocus={e => e.target.style.borderColor='var(--sage-light)'} onBlur={e => e.target.style.borderColor='rgba(255,255,255,0.15)'}>
-          <option value="" style={{ background: '#1e2b1a' }}>Ceremony Type</option>
-          {['Funeral','Memorial','Wedding','Vow Renewal','Baby Naming','Pet Funeral','Other'].map(o => <option key={o} value={o} style={{ background: '#1e2b1a' }}>{o}</option>)}
+        <input name="phone" value={form.phone} onChange={handle} placeholder="Phone (optional)" style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage)'} onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}/>
+        <select name="type" value={form.type} onChange={handle} style={{ ...inputStyle, color: form.type ? '#fff' : 'rgba(255,255,255,0.4)' }} onFocus={e => e.target.style.borderColor='var(--sage)'} onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}>
+          <option value="">Ceremony Type</option>
+          {['Funeral','Memorial','Wedding','Vow Renewal','Baby Naming','Pet Funeral','Other'].map(o => <option key={o} value={o}>{o}</option>)}
         </select>
       </div>
-      <textarea name="message" value={form.message} onChange={handle} placeholder="Your message..." rows={5} required style={{ ...inputStyle, resize: 'vertical' }} onFocus={e => e.target.style.borderColor='var(--sage-light)'} onBlur={e => e.target.style.borderColor='rgba(255,255,255,0.15)'}/>
+      <textarea name="message" value={form.message} onChange={handle} placeholder="Your message..." rows={5} required style={{ ...inputStyle, resize: 'vertical' }} onFocus={e => e.target.style.borderColor='var(--sage)'} onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}/>
       <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-start', marginTop: 8 }}>Send Message</button>
     </form>
   );

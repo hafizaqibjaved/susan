@@ -44,15 +44,14 @@ export default function Contact() {
       {/* Hero banner with background */}
       <section style={{
         paddingTop: 140, paddingBottom: 80,
-        background: 'linear-gradient(135deg, #1e2b1a 0%, #2d4a28 50%, #1a3018 100%)',
+        background: 'linear-gradient(135deg, var(--cream) 0%, var(--off-white) 100%)',
         position: 'relative', overflow: 'hidden',
       }}>
-        <div style={{ position: 'absolute', inset: 0, opacity: 0.06, backgroundImage: 'repeating-linear-gradient(45deg, #8A9E7A 0, #8A9E7A 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }}/>
         <div style={{ position: 'absolute', top: -80, right: -80, width: 360, height: 360, borderRadius: '50%', background: 'rgba(212,149,106,0.12)' }}/>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <p className="section-tag" style={{ color: 'var(--apricot-light)' }}>Reach Out</p>
-          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: '#fff' }}>
-            Let's Start a <em style={{ color: 'var(--apricot-light)', fontStyle: 'italic' }}>Conversation</em>
+          <p className="section-tag" style={{ }}>Reach Out</p>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: 'var(--text-dark)' }}>
+            Let's Start a <em style={{ color: 'var(--apricot-dark)', fontStyle: 'italic' }}>Conversation</em>
           </h1>
         </div>
       </section>
