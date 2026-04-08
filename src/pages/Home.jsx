@@ -46,13 +46,13 @@ export default function Home() {
           position: 'absolute', inset: 0,
           backgroundImage: `url(${heroBackground})`,
           backgroundSize: 'cover', backgroundPosition: 'center 30%',
-          filter: 'brightness(0.55)',
+          filter: 'brightness(0.65)',
           zIndex: 0,
         }}/>
         {/* Gradient overlay */}
         <div style={{
           position: 'absolute', inset: 0, zIndex: 1,
-          background: 'linear-gradient(135deg, rgba(26,43,20,0.6) 0%, rgba(138,158,122,0.25) 100%)',
+          background: 'linear-gradient(135deg, rgba(20,35,16,0.72) 0%, rgba(42,65,36,0.45) 60%, rgba(138,158,122,0.2) 100%)',
         }}/>
         {/* Decorative leaf shapes */}
         <div style={{
