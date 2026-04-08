@@ -1,27 +1,17 @@
-import { clientLogo } from '../assets';
+import { clientLogo, clientLogoWhite } from '../assets';
 
-// Logo component using the client's actual logo
-// light prop = show on dark backgrounds (adds brightness filter)
 export default function Logo({ size = 80, light = false }) {
-  // Logo is horizontal (aspect ~2.5:1), so height drives sizing
-  const height = size;
-  const width = Math.round(size * 2.49);
-
   return (
     <img
-      src={clientLogo}
+      src={light ? clientLogoWhite : clientLogo}
       alt="Susan Stevens Independent Celebrant"
       style={{
-        height: height,
+        height: size,
         width: 'auto',
-        maxWidth: width,
+        maxWidth: size * 2.5,
         objectFit: 'contain',
         display: 'block',
-        // On dark backgrounds, invert/brighten so it's visible
-        filter: light
-          ? 'brightness(0) invert(1) opacity(0.92)'
-          : 'none',
-        transition: 'filter 0.3s ease',
+        transition: 'opacity 0.3s ease',
       }}
     />
   );
