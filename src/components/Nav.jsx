@@ -117,7 +117,7 @@ export default function Nav() {
         position: 'fixed',
         top: 0, left: 0, right: 0, bottom: 0,
         // Solid dark sage background - no cream, more elegant and no bleed-through
-        background: '#1e2b1a',
+        background: 'var(--cream)',
         zIndex: 1000,
         display: 'flex',
         flexDirection: 'column',
@@ -146,11 +146,11 @@ export default function Nav() {
                   fontFamily: 'var(--serif)',
                   fontSize: 'clamp(1.6rem, 5vw, 2rem)',
                   fontWeight: 300,
-                  color: active ? 'var(--apricot-light)' : 'rgba(255,255,255,0.85)',
+                  color: active ? 'var(--apricot-dark)' : 'var(--text-dark)',
                   letterSpacing: '0.04em',
                   padding: '10px 0',
                   transition: 'color 0.2s',
-                  borderBottom: active ? '1px solid rgba(212,149,106,0.4)' : '1px solid transparent',
+                  borderBottom: active ? '1px solid var(--apricot)' : '1px solid transparent',
                   minWidth: 180,
                   textAlign: 'center',
                 }}
@@ -190,7 +190,7 @@ export default function Nav() {
             fontFamily: 'var(--serif)',
             fontStyle: 'italic',
             fontSize: '0.78rem',
-            color: 'rgba(255,255,255,0.3)',
+            color: 'var(--text-light)',
             marginTop: 16,
           }}>
             Every Story Treasured with Love

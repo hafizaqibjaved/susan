@@ -1,4 +1,23 @@
-import { Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { ExternalLink } from 'lucide-react';
+
+function useReveal() {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } }, { threshold: 0.1 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return [ref, visible];
+}
+function Reveal({ children, delay = 0, style = {} }) {
+  const [ref, visible] = useReveal();
+  return <div ref={ref} style={{ opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateY(24px)', transition: `opacity 0.7s ease ${delay}s, transform 0.7s ease ${delay}s`, ...style }}>{children}</div>;
+}
+
 const links = [
   {
     category: 'Bereavement Support',
@@ -18,47 +37,53 @@ const links = [
 export default function Links() {
   return (
     <>
-      <section style={{ paddingTop: 140, paddingBottom: 80, background: 'var(--cream)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: -60, right: -60, width: 300, height: 300, borderRadius: '50%', background: 'rgba(138,158,122,0.1)' }}/>
+      {/* Dark banner with background */}
+      <section style={{
+        paddingTop: 140, paddingBottom: 80,
+        background: 'linear-gradient(135deg, #1e2b1a 0%, #2d4a28 50%, #1a3018 100%)',
+        position: 'relative', overflow: 'hidden',
+      }}>
+        <div style={{ position: 'absolute', inset: 0, opacity: 0.06, backgroundImage: 'repeating-linear-gradient(45deg, #8A9E7A 0, #8A9E7A 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }}/>
+        <div style={{ position: 'absolute', top: -60, right: -60, width: 300, height: 300, borderRadius: '50%', background: 'rgba(138,158,122,0.12)' }}/>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <p className="section-tag">Helpful Resources</p>
-          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15 }}>
-            Useful <em style={{ color: 'var(--sage-dark)', fontStyle: 'italic' }}>Links</em>
+          <p className="section-tag" style={{ color: 'var(--apricot-light)' }}>Helpful Resources</p>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: '#fff' }}>
+            Useful <em style={{ color: 'var(--apricot-light)', fontStyle: 'italic' }}>Links</em>
           </h1>
-          <p style={{ fontSize: '0.92rem', color: 'var(--text-mid)', maxWidth: 520, marginTop: 16, lineHeight: 1.9 }}>
+          <p style={{ fontSize: '0.92rem', color: 'rgba(255,255,255,0.65)', maxWidth: 520, marginTop: 16, lineHeight: 1.9 }}>
             A collection of trusted organisations and resources that I recommend to the families and individuals I work with.
           </p>
         </div>
       </section>
 
-      <section style={{ padding: '100px 0', background: 'var(--white)' }}>
+      <section style={{ padding: '80px 0', background: 'var(--white)' }}>
         <div className="container" style={{ maxWidth: 860 }}>
-          {links.map(group => (
-            <div key={group.category} style={{ marginBottom: 60 }}>
-              <h2 style={{ fontFamily: 'var(--sans)', fontSize: '0.68rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--apricot)', fontWeight: 500, marginBottom: 24, display: 'flex', alignItems: 'center', gap: 12 }}>
+          {links.map((group, gi) => (
+            <Reveal key={group.category} delay={gi * 0.1} style={{ marginBottom: 50 }}>
+              <h2 style={{ fontFamily: 'var(--sans)', fontSize: '0.68rem', letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--apricot)', fontWeight: 500, marginBottom: 20, display: 'flex', alignItems: 'center', gap: 12 }}>
                 <span style={{ width: 30, height: 1, background: 'var(--apricot)', display: 'block' }}/>
                 {group.category}
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                {group.items.map(link => (
-                  <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" style={{
-                    display: 'grid', gridTemplateColumns: '1fr auto',
-                    alignItems: 'center', gap: 20,
-                    padding: '32px 36px', background: 'var(--off-white)',
-                    borderLeft: '3px solid transparent',
-                    transition: 'all 0.3s ease',
-                  }}
-                  onMouseEnter={e => { e.currentTarget.style.borderLeftColor = 'var(--sage)'; e.currentTarget.style.background = 'var(--cream)'; e.currentTarget.style.transform = 'translateX(6px)'; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderLeftColor = 'transparent'; e.currentTarget.style.background = 'var(--off-white)'; e.currentTarget.style.transform = 'none'; }}>
-                    <div>
-                      <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.2rem', fontWeight: 400, color: 'var(--text-dark)', marginBottom: 8 }}>{link.name}</h3>
-                      <p style={{ fontSize: '0.83rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>{link.desc}</p>
-                    </div>
-                    <span style={{ fontSize: '1.2rem', color: 'var(--sage)', flexShrink: 0 }}>→</span>
-                  </a>
+                {group.items.map((link, li) => (
+                  <Reveal key={link.name} delay={gi * 0.1 + li * 0.08}>
+                    <a href={link.url} target="_blank" rel="noopener noreferrer" style={{
+                      display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20,
+                      padding: '28px 32px', background: 'var(--off-white)',
+                      borderLeft: '3px solid transparent', transition: 'all 0.3s ease', textDecoration: 'none',
+                    }}
+                    onMouseEnter={e => { e.currentTarget.style.borderLeftColor = 'var(--sage)'; e.currentTarget.style.background = 'var(--cream)'; e.currentTarget.style.transform = 'translateX(5px)'; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderLeftColor = 'transparent'; e.currentTarget.style.background = 'var(--off-white)'; e.currentTarget.style.transform = 'none'; }}>
+                      <div>
+                        <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.2rem', fontWeight: 400, color: 'var(--text-dark)', marginBottom: 6 }}>{link.name}</h3>
+                        <p style={{ fontSize: '0.83rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>{link.desc}</p>
+                      </div>
+                      <ExternalLink size={18} color="var(--sage)" style={{ flexShrink: 0 }}/>
+                    </a>
+                  </Reveal>
                 ))}
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
