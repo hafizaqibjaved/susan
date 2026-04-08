@@ -46,7 +46,7 @@ export default function Home() {
           position: 'absolute', inset: 0,
           backgroundImage: `url(${heroBackground})`,
           backgroundSize: 'cover', backgroundPosition: 'center 30%',
-          filter: 'none',
+          filter: 'brightness(0.55)',
           zIndex: 0,
         }}/>
         {/* Gradient overlay */}

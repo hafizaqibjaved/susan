@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand column */}
           <div className="footer-brand">
             <Link to="/" style={{ display: 'inline-block', marginBottom: 16 }}>
-              <Logo size={76} light={true} />
+              <Logo size={90} light={true} />
             </Link>
             <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '0.95rem', color: 'var(--apricot-light)', lineHeight: 1.6, marginBottom: 16 }}>
               Every Story Treasured with Love
