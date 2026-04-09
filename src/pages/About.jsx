@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { APCBadge } from '../components/APCComponents';
 import { useEffect, useRef, useState } from 'react';
-import { photo5 } from '../assets';
+import { photo5, aboutBanner } from '../assets';
 
 function useReveal() {
   const ref = useRef(null);
