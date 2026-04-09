@@ -122,7 +122,7 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT ── */}
-      <section id="about" className="section-pad" style={{ background: 'var(--off-white)', position: 'relative', overflow: 'hidden' }}>
+      <section id="about" className="section-pad" style={{ background: 'var(--card-bg)', position: 'relative', overflow: 'hidden' }}>
         <div className="container">
           <div className="two-col-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start' }}>
             <Reveal direction="left">
@@ -158,7 +158,7 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section id="services" className="section-pad" style={{ background: 'var(--off-white)', position: 'relative', overflow: 'hidden' }}>
+      <section id="services" className="section-pad" style={{ background: 'var(--card-bg)', position: 'relative', overflow: 'hidden' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal style={{ textAlign: 'center', marginBottom: 60 }}>
             <p className="section-tag" style={{ justifyContent: 'center', color: 'var(--apricot)' }}>What I Offer
@@ -181,7 +181,7 @@ export default function Home() {
                   transition: 'transform 0.3s ease, background 0.3s ease',
                   cursor: 'default',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.background = i % 2 === 0 ? 'var(--cream)' : 'var(--off-white)'; e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.09)'; }}
+                onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.09)'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = i % 2 === 0 ? 'var(--white)' : 'var(--cream)'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}>
                   <div style={{ fontSize: '1.6rem', marginBottom: 18 }}>{s.icon}</div>
                   <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.35rem', fontWeight: 400, marginBottom: 14, color: 'var(--text-dark)' }}>{s.title}</h3>
@@ -224,7 +224,7 @@ export default function Home() {
       </section>
 
       {/* ── FEES ── */}
-      <section id="fees" className="section-pad" style={{ background: 'var(--cream)' }}>
+      <section id="fees" className="section-pad" style={{ background: '#182018' }}>
         <div className="container">
           <Reveal style={{ textAlign: 'center', marginBottom: 60 }}>
             <p className="section-tag" style={{ justifyContent: 'center' }}>Transparent Pricing</p>
@@ -285,7 +285,7 @@ export default function Home() {
       </section>
 
       {/* ── PROCESS ── */}
-      <section className="section-pad" style={{ background: 'var(--white)' }}>
+      <section className="section-pad" style={{ background: 'var(--page-bg)' }}>
         <div className="container">
           <Reveal style={{ textAlign: 'center', marginBottom: 70 }}>
             <p className="section-tag" style={{ justifyContent: 'center' }}>The Journey</p>
@@ -319,7 +319,7 @@ export default function Home() {
       </section>
 
       {/* ── FAQS ── */}
-      <section id="faqs" className="section-pad" style={{ background: 'var(--off-white)' }}>
+      <section id="faqs" className="section-pad" style={{ background: 'var(--card-bg)' }}>
         <div className="container" style={{ maxWidth: 800 }}>
           <Reveal style={{ textAlign: 'center', marginBottom: 60 }}>
             <p className="section-tag" style={{ justifyContent: 'center' }}>Questions</p>
@@ -333,7 +333,7 @@ export default function Home() {
       </section>
 
       {/* ── LINKS (no gap fix - only 3 items so use 3-col) ── */}
-      <section id="links" className="section-pad" style={{ background: 'var(--white)' }}>
+      <section id="links" className="section-pad" style={{ background: 'var(--page-bg)' }}>
         <div className="container" style={{ maxWidth: 900, textAlign: 'center' }}>
           <Reveal>
             <p className="section-tag" style={{ justifyContent: 'center' }}>Helpful Resources</p>
@@ -347,7 +347,7 @@ export default function Home() {
             ].map((link, i) => (
               <Reveal key={link.name} delay={i * 0.1}>
                 <a href={link.url} target="_blank" rel="noopener noreferrer" style={{
-                  padding: '32px 24px', background: 'var(--cream)',
+                  padding: '32px 24px', background: '#182018',
                   display: 'block', textAlign: 'left', height: '100%',
                   transition: 'all 0.3s ease', borderLeft: '3px solid transparent',
                 }}
@@ -363,7 +363,7 @@ export default function Home() {
       </section>
 
       {/* ── CONTACT CTA ── */}
-      <section id="contact" className="section-pad" style={{ background: 'var(--cream)', position: 'relative', overflow: 'hidden' }}>
+      <section id="contact" className="section-pad" style={{ background: '#182018', position: 'relative', overflow: 'hidden' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="two-col-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start' }}>
             <Reveal direction="left">
@@ -431,7 +431,7 @@ function ContactForm() {
   const [sent, setSent] = useState(false);
   const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const submit = (e) => { e.preventDefault(); setSent(true); };
-  const inputStyle = { width: '100%', padding: '14px 16px', background: 'var(--off-white)', border: '1px solid rgba(0,0,0,0.08)', color: 'var(--text-dark)', fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 300, outline: 'none', transition: 'border-color 0.2s' };
+  const inputStyle = { width: '100%', padding: '14px 16px', background: 'var(--card-bg)', border: '1px solid rgba(0,0,0,0.08)', color: 'var(--text-dark)', fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 300, outline: 'none', transition: 'border-color 0.2s' };
   if (sent) return (
     <div style={{ padding: '60px 40px', background: 'var(--sage)', textAlign: 'center' }}>
       <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.6rem', color: '#fff', marginBottom: 16 }}>Thank You</h3>
@@ -441,17 +441,17 @@ function ContactForm() {
   return (
     <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
       <div className="form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
-        <input name="name" value={form.name} onChange={handle} placeholder="Your Name" required style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage)'} onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}/>
-        <input name="email" type="email" value={form.email} onChange={handle} placeholder="Email Address" required style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage)'} onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}/>
+        <input name="name" value={form.name} onChange={handle} placeholder="Your Name" required style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage-light)'} onBlur={e => e.target.style.borderColor='rgba(255,255,255,0.12)'}/>
+        <input name="email" type="email" value={form.email} onChange={handle} placeholder="Email Address" required style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage-light)'} onBlur={e => e.target.style.borderColor='rgba(255,255,255,0.12)'}/>
       </div>
       <div className="form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
-        <input name="phone" value={form.phone} onChange={handle} placeholder="Phone (optional)" style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage)'} onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}/>
-        <select name="type" value={form.type} onChange={handle} style={{ ...inputStyle, color: form.type ? '#fff' : 'rgba(255,255,255,0.4)' }} onFocus={e => e.target.style.borderColor='var(--sage)'} onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}>
+        <input name="phone" value={form.phone} onChange={handle} placeholder="Phone (optional)" style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage-light)'} onBlur={e => e.target.style.borderColor='rgba(255,255,255,0.12)'}/>
+        <select name="type" value={form.type} onChange={handle} style={{ ...inputStyle, color: form.type ? '#fff' : 'rgba(255,255,255,0.4)' }} onFocus={e => e.target.style.borderColor='var(--sage-light)'} onBlur={e => e.target.style.borderColor='rgba(255,255,255,0.12)'}>
           <option value="">Ceremony Type</option>
           {['Funeral','Memorial','Wedding','Vow Renewal','Baby Naming','Pet Funeral','Other'].map(o => <option key={o} value={o}>{o}</option>)}
         </select>
       </div>
-      <textarea name="message" value={form.message} onChange={handle} placeholder="Your message..." rows={5} required style={{ ...inputStyle, resize: 'vertical' }} onFocus={e => e.target.style.borderColor='var(--sage)'} onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}/>
+      <textarea name="message" value={form.message} onChange={handle} placeholder="Your message..." rows={5} required style={{ ...inputStyle, resize: 'vertical' }} onFocus={e => e.target.style.borderColor='var(--sage-light)'} onBlur={e => e.target.style.borderColor='rgba(255,255,255,0.12)'}/>
       <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-start', marginTop: 8 }}>Send Message</button>
     </form>
   );

@@ -27,7 +27,7 @@ export default function Contact() {
 
   const inputStyle = {
     width: '100%', padding: '15px 18px',
-    background: 'var(--off-white)', border: '1px solid rgba(0,0,0,0.08)',
+    background: 'var(--card-bg)', border: '1px solid rgba(0,0,0,0.08)',
     color: 'var(--text-dark)', fontFamily: 'var(--sans)', fontSize: '0.88rem', fontWeight: 300,
     outline: 'none', transition: 'border-color 0.2s',
   };
@@ -39,7 +39,7 @@ export default function Contact() {
       {/* Hero banner with background */}
       <section style={{
         paddingTop: 140, paddingBottom: 80,
-        background: 'linear-gradient(135deg, var(--cream) 0%, var(--off-white) 100%)',
+        background: 'linear-gradient(135deg, #1a2a1c 0%, #141a14 100%)',
         position: 'relative', overflow: 'hidden',
       }}>
         <div style={{ position: 'absolute', top: -80, right: -80, width: 360, height: 360, borderRadius: '50%', background: 'rgba(212,149,106,0.12)' }}/>
@@ -51,7 +51,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section style={{ padding: '80px 0', background: 'var(--white)' }}>
+      <section style={{ padding: '80px 0', background: 'var(--page-bg)' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start' }} className="contact-grid">
             {/* Left */}
@@ -83,7 +83,7 @@ export default function Contact() {
             {/* Form */}
             <Reveal direction="right" delay={0.1}>
               {sent ? (
-                <div style={{ padding: '60px 40px', background: 'var(--cream)', textAlign: 'center' }}>
+                <div style={{ padding: '60px 40px', background: '#182018', textAlign: 'center' }}>
                   <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.8rem', color: 'var(--text-dark)', marginBottom: 16 }}>Thank You</h3>
                   <p style={{ fontSize: '0.9rem', color: 'var(--text-mid)', lineHeight: 1.9 }}>Susan will be in touch with you warmly and promptly.</p>
                 </div>
@@ -92,21 +92,21 @@ export default function Contact() {
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }} className="contact-form-row">
                     <div>
                       <label style={{ display: 'block', fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-light)', marginBottom: 6 }}>Full Name *</label>
-                      <input name="name" value={form.name} onChange={handle} required style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage)'} onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}/>
+                      <input name="name" value={form.name} onChange={handle} required style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage-light)'} onBlur={e => e.target.style.borderColor='rgba(255,255,255,0.12)'}/>
                     </div>
                     <div>
                       <label style={{ display: 'block', fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-light)', marginBottom: 6 }}>Email Address *</label>
-                      <input name="email" type="email" value={form.email} onChange={handle} required style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage)'} onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}/>
+                      <input name="email" type="email" value={form.email} onChange={handle} required style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage-light)'} onBlur={e => e.target.style.borderColor='rgba(255,255,255,0.12)'}/>
                     </div>
                   </div>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }} className="contact-form-row">
                     <div>
                       <label style={{ display: 'block', fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-light)', marginBottom: 6 }}>Phone</label>
-                      <input name="phone" value={form.phone} onChange={handle} style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage)'} onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}/>
+                      <input name="phone" value={form.phone} onChange={handle} style={inputStyle} onFocus={e => e.target.style.borderColor='var(--sage-light)'} onBlur={e => e.target.style.borderColor='rgba(255,255,255,0.12)'}/>
                     </div>
                     <div>
                       <label style={{ display: 'block', fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-light)', marginBottom: 6 }}>Ceremony Type</label>
-                      <select name="type" value={form.type} onChange={handle} style={{ ...inputStyle, color: form.type ? 'var(--text-dark)' : 'var(--text-light)' }} onFocus={e => e.target.style.borderColor='var(--sage)'} onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}>
+                      <select name="type" value={form.type} onChange={handle} style={{ ...inputStyle, color: form.type ? 'var(--text-dark)' : 'var(--text-light)' }} onFocus={e => e.target.style.borderColor='var(--sage-light)'} onBlur={e => e.target.style.borderColor='rgba(255,255,255,0.12)'}>
                         <option value="">Please select...</option>
                         {['Funeral','Memorial','Wedding','Vow Renewal','Baby Naming','Pet Funeral','Other'].map(o => <option key={o}>{o}</option>)}
                       </select>
@@ -114,7 +114,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <label style={{ display: 'block', fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-light)', marginBottom: 6 }}>Your Message *</label>
-                    <textarea name="message" value={form.message} onChange={handle} rows={7} required style={{ ...inputStyle, resize: 'vertical' }} onFocus={e => e.target.style.borderColor='var(--sage)'} onBlur={e => e.target.style.borderColor='rgba(0,0,0,0.08)'}/>
+                    <textarea name="message" value={form.message} onChange={handle} rows={7} required style={{ ...inputStyle, resize: 'vertical' }} onFocus={e => e.target.style.borderColor='var(--sage-light)'} onBlur={e => e.target.style.borderColor='rgba(255,255,255,0.12)'}/>
                   </div>
                   <button type="submit" className="btn-primary" style={{ alignSelf: 'flex-start', marginTop: 6 }}>Send Your Message</button>
                 </form>

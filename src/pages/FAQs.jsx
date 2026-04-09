@@ -21,7 +21,7 @@ export default function FAQs() {
     <>
       <section style={{
         paddingTop: 140, paddingBottom: 80,
-        background: 'linear-gradient(135deg, var(--cream) 0%, var(--off-white) 100%)',
+        background: 'linear-gradient(135deg, #1a2a1c 0%, #141a14 100%)',
         position: 'relative', overflow: 'hidden',
       }}>
         <div style={{ position: 'absolute', bottom: -60, left: -60, width: 300, height: 300, borderRadius: '50%', background: 'rgba(212,149,106,0.1)' }}/>
@@ -33,7 +33,7 @@ export default function FAQs() {
         </div>
       </section>
 
-      <section style={{ padding: '100px 0', background: 'var(--white)' }}>
+      <section style={{ padding: '100px 0', background: 'var(--page-bg)' }}>
         <div className="container" style={{ maxWidth: 860 }}>
           {categories.map(cat => (
             <div key={cat} style={{ marginBottom: 60 }}>
@@ -66,7 +66,7 @@ export default function FAQs() {
             </div>
           ))}
 
-          <div style={{ marginTop: 40, padding: '40px', background: 'var(--off-white)', textAlign: 'center' }}>
+          <div style={{ marginTop: 40, padding: '40px', background: 'var(--card-bg)', textAlign: 'center' }}>
             <p style={{ fontFamily: 'var(--serif)', fontSize: '1.2rem', fontStyle: 'italic', color: 'var(--text-dark)', marginBottom: 20 }}>
               Still have questions? I would love to hear from you.
             </p>

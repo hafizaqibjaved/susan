@@ -42,14 +42,14 @@ export default function About() {
       </section>
 
       {/* Main content */}
-      <section style={{ padding: '100px 0', background: 'var(--white)' }}>
+      <section style={{ padding: '100px 0', background: 'var(--page-bg)' }}>
         <div className="container">
           <div className="about-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 70, alignItems: 'start' }}>
             {/* Single image - no duplicate */}
             <Reveal direction="left">
               <div style={{ position: 'sticky', top: 120 }} className="about-sticky">
                 <img src={photo5} alt="Susan Stevens" style={{ width: '100%', height: 560, objectFit: 'cover', objectPosition: 'center top', display: 'block' }}/>
-                <div style={{ background: 'var(--sage)', padding: '20px 24px' }}>
+                <div style={{ background: 'var(--sage-dark)', padding: '20px 24px' }}>
                   <APCBadge dark={true} showLabel={true} size={48} />
                 </div>
               </div>
@@ -79,7 +79,7 @@ export default function About() {
                     { title: 'Thoughtful', text: 'I take time to listen and truly understand.' },
                     { title: 'Professional', text: 'APC certified and committed to excellence.' },
                   ].map(v => (
-                    <div key={v.title} style={{ padding: '22px', background: 'var(--cream)', borderLeft: '3px solid var(--apricot)' }}>
+                    <div key={v.title} style={{ padding: '22px', background: '#182018', borderLeft: '3px solid var(--apricot)' }}>
                       <h4 style={{ fontFamily: 'var(--serif)', fontSize: '1rem', fontWeight: 500, marginBottom: 6, color: 'var(--text-dark)' }}>{v.title}</h4>
                       <p style={{ fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>{v.text}</p>
                     </div>

@@ -77,7 +77,7 @@ export default function Services() {
       {/* Dark banner */}
       <section style={{
         paddingTop: 140, paddingBottom: 80,
-        background: 'linear-gradient(135deg, var(--cream) 0%, var(--off-white) 100%)',
+        background: 'linear-gradient(135deg, #1a2a1c 0%, #141a14 100%)',
         position: 'relative', overflow: 'hidden',
       }}>
         <div style={{ position: 'absolute', top: -60, left: -60, width: 360, height: 360, borderRadius: '50%', background: 'rgba(212,149,106,0.1)' }}/>
@@ -128,7 +128,7 @@ export default function Services() {
                     {s.content.map((p, j) => (
                       <p key={j} style={{ fontSize: '0.9rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: 16 }}>{p}</p>
                     ))}
-                    <div style={{ marginTop: 32, padding: '26px 28px', background: 'var(--cream)', borderLeft: '3px solid var(--sage)' }}>
+                    <div style={{ marginTop: 32, padding: '26px 28px', background: '#182018', borderLeft: '3px solid var(--sage)' }}>
                       <p style={{ fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--sage-dark)', marginBottom: 14, fontWeight: 500 }}>What's Included</p>
                       {s.includes.map(item => (
                         <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 8 }}>

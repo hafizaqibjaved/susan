@@ -41,7 +41,7 @@ export default function Links() {
       {/* Dark banner with background */}
       <section style={{
         paddingTop: 140, paddingBottom: 80,
-        background: 'linear-gradient(135deg, var(--cream) 0%, var(--off-white) 100%)',
+        background: 'linear-gradient(135deg, #1a2a1c 0%, #141a14 100%)',
         position: 'relative', overflow: 'hidden',
       }}>
         <div style={{ position: 'absolute', top: -60, right: -60, width: 300, height: 300, borderRadius: '50%', background: 'rgba(138,158,122,0.12)' }}/>
@@ -56,7 +56,7 @@ export default function Links() {
         </div>
       </section>
 
-      <section style={{ padding: '80px 0', background: 'var(--white)' }}>
+      <section style={{ padding: '80px 0', background: 'var(--page-bg)' }}>
         <div className="container" style={{ maxWidth: 860 }}>
           {links.map((group, gi) => (
             <Reveal key={group.category} delay={gi * 0.1} style={{ marginBottom: 50 }}>
@@ -69,7 +69,7 @@ export default function Links() {
                   <Reveal key={link.name} delay={gi * 0.1 + li * 0.08}>
                     <a href={link.url} target="_blank" rel="noopener noreferrer" style={{
                       display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20,
-                      padding: '28px 32px', background: 'var(--off-white)',
+                      padding: '28px 32px', background: 'var(--card-bg)',
                       borderLeft: '3px solid transparent', transition: 'all 0.3s ease', textDecoration: 'none',
                     }}
                     onMouseEnter={e => { e.currentTarget.style.borderLeftColor = 'var(--sage)'; e.currentTarget.style.background = 'var(--cream)'; e.currentTarget.style.transform = 'translateX(5px)'; }}

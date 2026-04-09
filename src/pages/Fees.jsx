@@ -94,7 +94,7 @@ export default function Fees() {
       {/* Hero */}
       <section style={{
         paddingTop: 140, paddingBottom: 80,
-        background: 'linear-gradient(135deg, var(--cream) 0%, var(--off-white) 100%)',
+        background: 'linear-gradient(135deg, #1a2a1c 0%, #141a14 100%)',
         position: 'relative', overflow: 'hidden',
       }}>
         <div style={{ position: 'absolute', top: -80, right: -80, width: 400, height: 400, borderRadius: '50%', background: 'rgba(212,149,106,0.1)' }}/>
@@ -110,7 +110,7 @@ export default function Fees() {
       </section>
 
       {/* Fee groups */}
-      <section style={{ padding: '80px 0 100px', background: 'var(--off-white)' }}>
+      <section style={{ padding: '80px 0 100px', background: 'var(--card-bg)' }}>
         <div className="container">
           {feeGroups.map((group, gi) => (
             <div key={group.category} style={{ marginBottom: gi < feeGroups.length - 1 ? 80 : 0 }}>
@@ -129,7 +129,7 @@ export default function Fees() {
                     {group.category}
                   </h2>
                 </div>
-                <div style={{ flex: 1, height: 1, background: 'rgba(0,0,0,0.08)' }}/>
+                <div style={{ flex: 1, height: 1, background: 'rgba(255,255,255,0.08)' }}/>
               </div>
 
               {/* Cards */}

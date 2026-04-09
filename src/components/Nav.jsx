@@ -39,10 +39,10 @@ export default function Nav() {
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0,
         zIndex: 1001,
-        background: 'rgba(255,255,255,0.97)',
+        background: 'rgba(18,26,18,0.97)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
-        borderBottom: '1px solid rgba(0,0,0,0.06)',
+        borderBottom: '1px solid rgba(255,255,255,0.08)',
         boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.06)' : 'none',
         transition: 'all 0.4s ease',
         padding: scrolled ? '6px 0' : '10px 0',
@@ -64,9 +64,9 @@ export default function Nav() {
                     fontFamily: 'var(--sans)', fontSize: '0.72rem',
                     fontWeight: active ? 500 : 400,
                     letterSpacing: '0.12em', textTransform: 'uppercase',
-                    color: active ? 'var(--sage-dark)' : 'var(--text-mid)',
+                    color: active ? 'var(--sage-light)' : 'var(--text-mid)',
                     transition: 'color 0.2s',
-                    borderBottom: active ? '1.5px solid var(--sage)' : '1.5px solid transparent',
+                    borderBottom: active ? '1.5px solid var(--sage-light)' : '1.5px solid transparent',
                     paddingBottom: 2, textDecoration: 'none',
                   }}
                   onMouseEnter={e => e.currentTarget.style.color = 'var(--sage-dark)'}
@@ -108,7 +108,7 @@ export default function Nav() {
       <div style={{
         position: 'fixed',
         top: 0, left: 0, right: 0, bottom: 0,
-        background: 'var(--cream)',
+        background: '#182018',
         zIndex: 1000,
         display: 'flex',
         flexDirection: 'column',

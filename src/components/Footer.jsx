@@ -3,7 +3,7 @@ import Logo from './Logo';
 
 export default function Footer() {
   return (
-    <footer style={{ background: 'var(--cream)', borderTop: '1px solid rgba(0,0,0,0.07)' }}>
+    <footer style={{ background: '#182018', borderTop: '1px solid rgba(0,0,0,0.07)' }}>
       <div className="container" style={{ padding: '60px 40px 28px' }}>
         {/* Top grid */}
         <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 40, marginBottom: 44 }}>
@@ -71,7 +71,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div style={{ borderTop: '1px solid rgba(0,0,0,0.08)', paddingTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10 }}>
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10 }}>
           <p style={{ fontSize: '0.68rem', color: 'var(--text-light)' }}>
             &copy; {new Date().getFullYear()} Susan Stevens Celebrant. All rights reserved.
           </p>
