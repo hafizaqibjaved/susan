@@ -27,7 +27,7 @@ export default function Contact() {
 
   const inputStyle = {
     width: '100%', padding: '15px 18px',
-    background: 'var(--card-bg)', border: '1px solid rgba(0,0,0,0.08)',
+    background: 'var(--card-bg)', border: '1px solid rgba(255,255,255,0.1)',
     color: 'var(--text-dark)', fontFamily: 'var(--sans)', fontSize: '0.88rem', fontWeight: 300,
     outline: 'none', transition: 'border-color 0.2s',
   };

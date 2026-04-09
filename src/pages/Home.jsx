@@ -431,7 +431,7 @@ function ContactForm() {
   const [sent, setSent] = useState(false);
   const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const submit = (e) => { e.preventDefault(); setSent(true); };
-  const inputStyle = { width: '100%', padding: '14px 16px', background: 'var(--card-bg)', border: '1px solid rgba(0,0,0,0.08)', color: 'var(--text-dark)', fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 300, outline: 'none', transition: 'border-color 0.2s' };
+  const inputStyle = { width: '100%', padding: '14px 16px', background: 'var(--card-bg)', border: '1px solid rgba(255,255,255,0.1)', color: 'var(--text-dark)', fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 300, outline: 'none', transition: 'border-color 0.2s' };
   if (sent) return (
     <div style={{ padding: '60px 40px', background: 'var(--sage)', textAlign: 'center' }}>
       <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.6rem', color: '#fff', marginBottom: 16 }}>Thank You</h3>

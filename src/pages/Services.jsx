@@ -112,7 +112,7 @@ export default function Services() {
                       {/* Dark overlay for text readability */}
                       <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to top, rgba(10,20,10,0.85) 0%, rgba(10,20,10,0.3) 55%, rgba(10,20,10,0.15) 100%)` }}/>
                       {/* Tagline card */}
-                      <div style={{ position: 'relative', zIndex: 2, background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(8px)', padding: '18px 22px', borderLeft: '3px solid var(--apricot)' }}>
+                      <div style={{ position: 'relative', zIndex: 2, background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(8px)', padding: '18px 22px', borderLeft: '3px solid var(--apricot)' }}>
                         <span style={{ fontSize: '1.4rem', display: 'block', marginBottom: 8 }}>{s.icon}</span>
                         <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '0.95rem', color: '#fff', lineHeight: 1.5 }}>{s.tagline}</p>
                       </div>

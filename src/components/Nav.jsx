@@ -141,7 +141,7 @@ export default function Nav() {
                   fontFamily: 'var(--serif)',
                   fontSize: 'clamp(1.45rem, 5vw, 1.85rem)',
                   fontWeight: 300,
-                  color: active ? 'var(--sage-dark)' : 'var(--text-dark)',
+                  color: active ? 'var(--sage-light)' : 'var(--text-dark)',
                   letterSpacing: '0.04em',
                   padding: '10px 0',
                   transition: 'color 0.2s',

@@ -72,10 +72,10 @@ export default function Footer() {
 
         {/* Divider */}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10 }}>
-          <p style={{ fontSize: '0.68rem', color: 'var(--text-light)' }}>
+          <p style={{ fontSize: '0.68rem', color: 'var(--text-mid)' }}>
             &copy; {new Date().getFullYear()} Susan Stevens Celebrant. All rights reserved.
           </p>
-          <p style={{ fontSize: '0.68rem', color: 'var(--text-light)' }}>
+          <p style={{ fontSize: '0.68rem', color: 'var(--text-mid)' }}>
             Website made by the{' '}
             <a href="https://www.funeralcelebrantacademy.co.uk" target="_blank" rel="noopener noreferrer"
               style={{ color: 'var(--sage-dark)', textDecoration: 'underline' }}>
