@@ -24,7 +24,6 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Lock body scroll when menu open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -35,72 +34,73 @@ export default function Nav() {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  // Nav is always solid white when menu is open
   const isTransparent = isHome && !scrolled && !menuOpen;
 
   return (
     <>
-      {/* Main nav bar - always on top */}
+      {/* Nav bar — always white/cream, never dark */}
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0,
         zIndex: 1001,
-        background: menuOpen ? '#1e2b1a' : (isTransparent ? 'transparent' : 'rgba(255,255,255,0.98)'),
-        backdropFilter: isTransparent && !menuOpen ? 'none' : 'blur(12px)',
-        boxShadow: isTransparent && !menuOpen ? 'none' : '0 1px 24px rgba(0,0,0,0.07)',
-        transition: 'background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease',
-        padding: scrolled ? '8px 0' : '14px 0',
+        background: isTransparent
+          ? 'rgba(255,255,255,0.15)'
+          : 'rgba(255,255,255,0.97)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        borderBottom: isTransparent ? '1px solid rgba(255,255,255,0.2)' : '1px solid rgba(0,0,0,0.06)',
+        transition: 'all 0.4s ease',
+        padding: scrolled ? '8px 0' : '12px 0',
       }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
-          {/* Logo - always visible */}
+          {/* Logo */}
           <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} className="nav-logo">
-            <Logo size={scrolled ? 64 : 80} light={isTransparent && !menuOpen} />
+            <Logo size={scrolled ? 60 : 76} light={false} />
           </Link>
 
-          {/* Desktop links */}
+          {/* Desktop nav links */}
           <ul style={{ display: 'flex', gap: 28, listStyle: 'none', alignItems: 'center' }} className="desktop-nav">
             {navLinks.map(link => {
               const active = location.pathname === link.to;
               return (
                 <li key={link.label}>
                   <Link to={link.to} style={{
-                    fontFamily: 'var(--sans)', fontSize: '0.72rem', fontWeight: active ? 500 : 400,
+                    fontFamily: 'var(--sans)', fontSize: '0.72rem',
+                    fontWeight: active ? 500 : 400,
                     letterSpacing: '0.12em', textTransform: 'uppercase',
-                    color: isTransparent
-                      ? (active ? '#fff' : 'rgba(255,255,255,0.78)')
-                      : (active ? 'var(--sage-dark)' : 'var(--text-mid)'),
+                    color: active ? 'var(--sage-dark)' : 'var(--text-mid)',
                     transition: 'color 0.2s',
-                    borderBottom: active ? `1.5px solid ${isTransparent ? '#fff' : 'var(--sage)'}` : '1.5px solid transparent',
+                    borderBottom: active ? '1.5px solid var(--sage)' : '1.5px solid transparent',
                     paddingBottom: 2,
-                  }}>
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.color = 'var(--sage-dark)'}
+                  onMouseLeave={e => e.currentTarget.style.color = active ? 'var(--sage-dark)' : 'var(--text-mid)'}>
                     {link.label}
                   </Link>
                 </li>
               );
             })}
-
           </ul>
 
-          {/* Burger button */}
+          {/* Burger — visible on mobile */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             style={{
-              display: 'none',
-              background: 'none', border: 'none', cursor: 'pointer',
-              flexDirection: 'column', gap: 6, padding: 6,
-              zIndex: 1002,
+              display: 'none', background: 'none', border: 'none',
+              cursor: 'pointer', flexDirection: 'column', gap: 5,
+              padding: 6, zIndex: 1002,
             }}
             className="burger"
           >
             {[0, 1, 2].map(i => (
               <span key={i} style={{
-                display: 'block', width: 24, height: 2, borderRadius: 2,
-                background: isTransparent && !menuOpen ? '#fff' : 'var(--sage-dark)',
+                display: 'block', width: 22, height: 2, borderRadius: 2,
+                background: 'var(--sage-dark)',
                 transition: 'all 0.3s ease',
                 transform:
-                  menuOpen && i === 0 ? 'rotate(45deg) translate(5px, 8px)' :
-                  menuOpen && i === 2 ? 'rotate(-45deg) translate(5px, -8px)' : 'none',
+                  menuOpen && i === 0 ? 'rotate(45deg) translate(5px, 7px)' :
+                  menuOpen && i === 2 ? 'rotate(-45deg) translate(5px, -7px)' : 'none',
                 opacity: menuOpen && i === 1 ? 0 : 1,
               }}/>
             ))}
@@ -108,29 +108,32 @@ export default function Nav() {
         </div>
       </nav>
 
-      {/* Full-screen mobile menu overlay */}
+      {/* Mobile menu overlay — light cream theme */}
       <div style={{
         position: 'fixed',
         top: 0, left: 0, right: 0, bottom: 0,
-        // Solid dark sage background - no cream, more elegant and no bleed-through
         background: 'var(--cream)',
         zIndex: 1000,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingTop: 100,
+        paddingTop: 110,
         paddingBottom: 'max(40px, env(safe-area-inset-bottom))',
         paddingLeft: 24,
         paddingRight: 24,
         pointerEvents: menuOpen ? 'all' : 'none',
         opacity: menuOpen ? 1 : 0,
-        transform: menuOpen ? 'translateY(0)' : 'translateY(-8px)',
+        transform: menuOpen ? 'translateY(0)' : 'translateY(-6px)',
         transition: 'opacity 0.3s ease, transform 0.3s ease',
         overflowY: 'auto',
       }}>
+
+        {/* Decorative top divider */}
+        <div style={{ position: 'absolute', top: 95, left: '50%', transform: 'translateX(-50%)', width: 40, height: 1, background: 'var(--apricot)', opacity: 0.6 }}/>
+
         {/* Nav links */}
-        <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, flex: 1, justifyContent: 'center' }}>
+        <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, flex: 1, justifyContent: 'center' }}>
           {navLinks.map(link => {
             const active = location.pathname === link.to;
             return (
@@ -140,16 +143,18 @@ export default function Nav() {
                 onClick={() => setMenuOpen(false)}
                 style={{
                   fontFamily: 'var(--serif)',
-                  fontSize: 'clamp(1.6rem, 5vw, 2rem)',
+                  fontSize: 'clamp(1.5rem, 5vw, 1.9rem)',
                   fontWeight: 300,
-                  color: active ? 'var(--apricot-dark)' : 'var(--text-dark)',
+                  color: active ? 'var(--sage-dark)' : 'var(--text-dark)',
                   letterSpacing: '0.04em',
-                  padding: '10px 0',
+                  padding: '9px 0',
                   transition: 'color 0.2s',
                   borderBottom: active ? '1px solid var(--apricot)' : '1px solid transparent',
                   minWidth: 180,
                   textAlign: 'center',
                 }}
+                onMouseEnter={e => e.currentTarget.style.color = 'var(--sage-dark)'}
+                onMouseLeave={e => e.currentTarget.style.color = active ? 'var(--sage-dark)' : 'var(--text-dark)'}
               >
                 {link.label}
               </Link>
@@ -157,23 +162,21 @@ export default function Nav() {
           })}
         </nav>
 
-        {/* Enquire button - always fully visible at bottom */}
-        <div style={{ width: '100%', maxWidth: 280, paddingBottom: 8 }}>
+        {/* Bottom section */}
+        <div style={{ width: '100%', maxWidth: 260, paddingBottom: 8 }}>
+          {/* Thin line above button */}
+          <div style={{ width: '100%', height: 1, background: 'rgba(0,0,0,0.07)', marginBottom: 20 }}/>
           <Link
             to="/contact"
             onClick={() => setMenuOpen(false)}
             style={{
-              display: 'block',
-              width: '100%',
-              textAlign: 'center',
-              padding: '16px 24px',
+              display: 'block', width: '100%', textAlign: 'center',
+              padding: '15px 24px',
               background: 'var(--sage)',
               color: '#fff',
               fontFamily: 'var(--sans)',
-              fontSize: '0.78rem',
-              fontWeight: 500,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
+              fontSize: '0.75rem', fontWeight: 500,
+              letterSpacing: '0.18em', textTransform: 'uppercase',
               transition: 'background 0.2s',
             }}
             onMouseEnter={e => e.currentTarget.style.background = 'var(--sage-dark)'}
@@ -183,11 +186,9 @@ export default function Nav() {
           </Link>
           <p style={{
             textAlign: 'center',
-            fontFamily: 'var(--serif)',
-            fontStyle: 'italic',
-            fontSize: '0.78rem',
-            color: 'var(--text-light)',
-            marginTop: 16,
+            fontFamily: 'var(--serif)', fontStyle: 'italic',
+            fontSize: '0.75rem', color: 'var(--text-light)',
+            marginTop: 14,
           }}>
             Every Story Treasured with Love
           </p>
@@ -198,6 +199,7 @@ export default function Nav() {
         @media(max-width:960px){
           .desktop-nav{ display:none !important; }
           .burger{ display:flex !important; }
+          .nav-logo{ display:flex !important; }
         }
       `}</style>
     </>
