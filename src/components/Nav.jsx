@@ -16,7 +16,6 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -34,11 +33,9 @@ export default function Nav() {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  const isTransparent = isHome && !scrolled && !menuOpen;
-
   return (
     <>
-      {/* Nav bar — always white/cream, never dark */}
+      {/* Nav bar */}
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0,
         zIndex: 1001,
@@ -48,17 +45,17 @@ export default function Nav() {
         borderBottom: '1px solid rgba(0,0,0,0.06)',
         boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.06)' : 'none',
         transition: 'all 0.4s ease',
-        padding: scrolled ? '8px 0' : '12px 0',
+        padding: scrolled ? '6px 0' : '10px 0',
       }}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
           {/* Logo */}
           <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} className="nav-logo">
-            <Logo size={scrolled ? 60 : 76} light={false} />
+            <Logo size={scrolled ? 58 : 72} light={false} />
           </Link>
 
           {/* Desktop nav links */}
-          <ul style={{ display: 'flex', gap: 28, listStyle: 'none', alignItems: 'center' }} className="desktop-nav">
+          <ul style={{ display: 'flex', gap: 26, listStyle: 'none', alignItems: 'center', margin: 0, padding: 0 }} className="desktop-nav">
             {navLinks.map(link => {
               const active = location.pathname === link.to;
               return (
@@ -70,7 +67,7 @@ export default function Nav() {
                     color: active ? 'var(--sage-dark)' : 'var(--text-mid)',
                     transition: 'color 0.2s',
                     borderBottom: active ? '1.5px solid var(--sage)' : '1.5px solid transparent',
-                    paddingBottom: 2,
+                    paddingBottom: 2, textDecoration: 'none',
                   }}
                   onMouseEnter={e => e.currentTarget.style.color = 'var(--sage-dark)'}
                   onMouseLeave={e => e.currentTarget.style.color = active ? 'var(--sage-dark)' : 'var(--text-mid)'}>
@@ -81,7 +78,7 @@ export default function Nav() {
             })}
           </ul>
 
-          {/* Burger — visible on mobile */}
+          {/* Burger — mobile only */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
@@ -107,7 +104,7 @@ export default function Nav() {
         </div>
       </nav>
 
-      {/* Mobile menu overlay — light cream theme */}
+      {/* Mobile menu overlay — no Enquire button, just nav links */}
       <div style={{
         position: 'fixed',
         top: 0, left: 0, right: 0, bottom: 0,
@@ -116,9 +113,9 @@ export default function Nav() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingTop: 110,
-        paddingBottom: 'max(40px, env(safe-area-inset-bottom))',
+        justifyContent: 'center',
+        paddingTop: 80,
+        paddingBottom: 'max(48px, env(safe-area-inset-bottom))',
         paddingLeft: 24,
         paddingRight: 24,
         pointerEvents: menuOpen ? 'all' : 'none',
@@ -126,13 +123,16 @@ export default function Nav() {
         transform: menuOpen ? 'translateY(0)' : 'translateY(-6px)',
         transition: 'opacity 0.3s ease, transform 0.3s ease',
         overflowY: 'auto',
+        gap: 0,
       }}>
+        {/* Logo in menu */}
+        <Logo size={70} light={false} />
 
-        {/* Decorative top divider */}
-        <div style={{ position: 'absolute', top: 95, left: '50%', transform: 'translateX(-50%)', width: 40, height: 1, background: 'var(--apricot)', opacity: 0.6 }}/>
+        {/* Apricot divider */}
+        <div style={{ width: 36, height: 1, background: 'var(--apricot)', opacity: 0.7, margin: '20px 0 28px' }}/>
 
-        {/* Nav links */}
-        <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, flex: 1, justifyContent: 'center' }}>
+        {/* Nav links — centred, well spaced */}
+        <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0 }}>
           {navLinks.map(link => {
             const active = location.pathname === link.to;
             return (
@@ -142,15 +142,16 @@ export default function Nav() {
                 onClick={() => setMenuOpen(false)}
                 style={{
                   fontFamily: 'var(--serif)',
-                  fontSize: 'clamp(1.5rem, 5vw, 1.9rem)',
+                  fontSize: 'clamp(1.45rem, 5vw, 1.85rem)',
                   fontWeight: 300,
                   color: active ? 'var(--sage-dark)' : 'var(--text-dark)',
                   letterSpacing: '0.04em',
-                  padding: '9px 0',
+                  padding: '10px 0',
                   transition: 'color 0.2s',
                   borderBottom: active ? '1px solid var(--apricot)' : '1px solid transparent',
-                  minWidth: 180,
+                  minWidth: 200,
                   textAlign: 'center',
+                  textDecoration: 'none',
                 }}
                 onMouseEnter={e => e.currentTarget.style.color = 'var(--sage-dark)'}
                 onMouseLeave={e => e.currentTarget.style.color = active ? 'var(--sage-dark)' : 'var(--text-dark)'}
@@ -161,37 +162,14 @@ export default function Nav() {
           })}
         </nav>
 
-        {/* Bottom section */}
-        <div style={{ width: '100%', maxWidth: 260, paddingBottom: 8 }}>
-          {/* Thin line above button */}
-          <div style={{ width: '100%', height: 1, background: 'rgba(0,0,0,0.07)', marginBottom: 20 }}/>
-          <Link
-            to="/contact"
-            onClick={() => setMenuOpen(false)}
-            style={{
-              display: 'block', width: '100%', textAlign: 'center',
-              padding: '15px 24px',
-              background: 'var(--sage)',
-              color: '#fff',
-              fontFamily: 'var(--sans)',
-              fontSize: '0.75rem', fontWeight: 500,
-              letterSpacing: '0.18em', textTransform: 'uppercase',
-              transition: 'background 0.2s',
-            }}
-            onMouseEnter={e => e.currentTarget.style.background = 'var(--sage-dark)'}
-            onMouseLeave={e => e.currentTarget.style.background = 'var(--sage)'}
-          >
-            Enquire Now
-          </Link>
-          <p style={{
-            textAlign: 'center',
-            fontFamily: 'var(--serif)', fontStyle: 'italic',
-            fontSize: '0.75rem', color: 'var(--text-light)',
-            marginTop: 14,
-          }}>
-            Every Story Treasured with Love
-          </p>
-        </div>
+        {/* Strapline at bottom */}
+        <p style={{
+          fontFamily: 'var(--serif)', fontStyle: 'italic',
+          fontSize: '0.78rem', color: 'var(--text-light)',
+          marginTop: 32, textAlign: 'center',
+        }}>
+          Every Story Treasured with Love
+        </p>
       </div>
 
       <style>{`
