@@ -125,11 +125,8 @@ export default function Nav() {
         overflowY: 'auto',
         gap: 0,
       }}>
-        {/* Logo in menu */}
-        <Logo size={70} light={false} />
-
         {/* Apricot divider */}
-        <div style={{ width: 36, height: 1, background: 'var(--apricot)', opacity: 0.7, margin: '20px 0 28px' }}/>
+        <div style={{ width: 36, height: 1, background: 'var(--apricot)', opacity: 0.7, marginBottom: 28 }}/>
 
         {/* Nav links — centred, well spaced */}
         <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0 }}>
