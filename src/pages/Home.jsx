@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { photo2, photo5, heroBackground } from '../assets';
+import { photo2, photo5 } from '../assets';
 import { APCBadge } from '../components/APCComponents';
 
 // ── Scroll animation hook ──────────────────────────────────────────────────
@@ -47,7 +47,7 @@ export default function Home() {
     <>
       {/* ── HERO ── */}
       <section id="home" style={{ minHeight: '100vh', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: `url(${heroBackground})`, backgroundSize: 'cover', backgroundPosition: 'center', zIndex: 0 }}/>
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.pexels.com/photos/2374918/pexels-photo-2374918.jpeg?auto=compress&cs=tinysrgb&w=1280)', backgroundSize: 'cover', backgroundPosition: 'center', zIndex: 0 }}/>
         <div style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(to bottom, rgba(10,18,10,0.55) 0%, rgba(10,18,10,0.42) 50%, rgba(10,18,10,0.65) 100%)' }}/>
 
         {/* Full-width centred content */}

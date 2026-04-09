@@ -72,8 +72,8 @@ export default function Contact() {
                   }}
                   onMouseEnter={e => e.currentTarget.style.opacity = '0.72'}
                   onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
-                    <Icon size={16} color="var(--sage)" strokeWidth={1.5} style={{ flexShrink: 0 }}/>
-                    <span style={{ fontFamily: 'var(--serif)', fontSize: '1rem', color: 'var(--text-dark)' }}>{value}</span>
+                    <Icon size={18} color="var(--sage)" strokeWidth={1.5} style={{ flexShrink: 0 }}/>
+                    <span style={{ fontFamily: 'var(--serif)', fontSize: '1rem', color: 'var(--text-dark)', fontWeight: 400 }}>{value}</span>
                   </a>
                 ))}
               </div>

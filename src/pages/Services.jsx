@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { svcFuneral, svcWedding, svcVow, svcPet } from '../assets';
 import { APCBadge } from '../components/APCComponents';
 import { useEffect, useRef, useState } from 'react';
 
@@ -23,12 +22,11 @@ function Reveal({ children, delay = 0, direction = 'up', style = {} }) {
 
 
 
-// Service-representative colors instead of photos of Susan
-const serviceColors = [
-  { from: '#2d4a28', to: '#1a3018', accent: 'rgba(212,149,106,0.3)', img: null },
-  { from: '#6b4c3b', to: '#3d2a20', accent: 'rgba(212,149,106,0.4)', img: null },
-  { from: '#3a5e4a', to: '#1e3830', accent: 'rgba(138,158,122,0.4)', img: null },
-  { from: '#4a5e30', to: '#2a3818', accent: 'rgba(212,149,106,0.25)', img: null },
+const serviceImages = [
+  'https://images.pexels.com/photos/8090088/pexels-photo-8090088.jpeg?auto=compress&cs=tinysrgb&w=1280',
+  'https://images.pexels.com/photos/1667088/pexels-photo-1667088.jpeg?auto=compress&cs=tinysrgb&w=1280',
+  'https://images.pexels.com/photos/2925049/pexels-photo-2925049.jpeg?auto=compress&cs=tinysrgb&w=1280',
+  'https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=1280',
 ];
 
 const services = [
@@ -95,18 +93,17 @@ export default function Services() {
 
       {/* Service sections - NO Susan photos */}
       {services.map((s, i) => {
-        const col = serviceColors[i];
         return (
           <section key={s.id} id={s.id} style={{ padding: '100px 0', background: i % 2 === 0 ? 'var(--white)' : 'var(--off-white)' }}>
             <div className="container">
               <div className="services-section-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center', direction: i % 2 === 0 ? 'ltr' : 'rtl' }}>
 
-                {/* Aesthetic colour block instead of Susan's photo */}
+                {/* Service background image */}
                 <Reveal direction={i % 2 === 0 ? 'left' : 'right'}>
                   <div style={{ direction: 'ltr', position: 'relative' }}>
                     <div style={{
                       width: '100%', height: 480,
-                      backgroundImage: `url(${[svcFuneral, svcWedding, svcVow, svcPet][i]})`,
+                      backgroundImage: `url(${serviceImages[i]})`,
                       backgroundSize: 'cover', backgroundPosition: 'center',
                       position: 'relative', overflow: 'hidden',
                       display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '32px',
