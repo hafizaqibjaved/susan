@@ -72,13 +72,13 @@ export default function Home() {
             </h1>
 
             <p style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(1.1rem, 2vw, 1.35rem)', fontStyle: 'italic',
-              color: 'rgba(255,255,255,0.88)', marginBottom: 18, fontWeight: 300,
+              color: '#ffffff', marginBottom: 18, fontWeight: 300,
               animation: 'fadeUp 0.8s ease 0.3s both',
             }}>
               Every Story Treasured with Love
             </p>
 
-            <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.65)', maxWidth: 560, margin: '0 auto 44px',
+            <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.92)', maxWidth: 560, margin: '0 auto 44px',
               lineHeight: 1.9, animation: 'fadeUp 0.8s ease 0.4s both',
             }}>
               Life is made of moments that touch the heart — moments of love, moments of loss and moments that quietly change us forever. I am here to hold space for all of them, with warmth, care and deep respect for your story.
