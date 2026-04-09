@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { svcFuneral, svcPet } from '../assets';
+import { svcFuneral, svcVow, svcPet } from '../assets';
 import { APCBadge } from '../components/APCComponents';
 import { useEffect, useRef, useState } from 'react';
 
@@ -24,10 +24,10 @@ function Reveal({ children, delay = 0, direction = 'up', style = {} }) {
 
 
 const serviceImages = [
-  svcFuneral, // Funerals: White sympathy flowers
-  'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1280&q=80', // Weddings: Outdoor wedding arch
-  'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1280&q=80', // Vow Renewals: Mixed pink/white flowers
-  svcPet, // Pet Funerals: Peaceful garden path
+  svcFuneral,   // Funerals: single pink rose
+  'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1280&q=80', // Weddings: kept as is
+  svcVow,       // Vow Renewals: colourful bouquet
+  svcPet,       // Pet Funerals: pink peonies
 ];
 
 const services = [

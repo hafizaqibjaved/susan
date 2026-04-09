@@ -53,14 +53,14 @@ export default function Home() {
         {/* Full-width centred content */}
         <div style={{ position: 'relative', zIndex: 3, width: '100%', paddingTop: 100 }}>
           <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 40px', textAlign: 'center' }}>
-            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.68rem', fontWeight: 400, letterSpacing: '0.28em',
-              textTransform: 'uppercase', color: 'var(--apricot-light)',
+            <p style={{ fontFamily: 'var(--sans)', fontSize: '0.72rem', fontWeight: 500, letterSpacing: '0.28em',
+              textTransform: 'uppercase', color: '#fff',
               display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, marginBottom: 28,
               animation: 'fadeUp 0.8s ease 0.1s both',
             }}>
-              <span style={{ display: 'block', width: 30, height: 1, background: 'var(--apricot-light)' }}/>
+              <span style={{ display: 'block', width: 30, height: 1, background: 'rgba(255,255,255,0.7)' }}/>
               APC Certified Celebrant
-              <span style={{ display: 'block', width: 30, height: 1, background: 'var(--apricot-light)' }}/>
+              <span style={{ display: 'block', width: 30, height: 1, background: 'rgba(255,255,255,0.7)' }}/>
             </p>
 
             <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(3.2rem, 8vw, 6.5rem)', fontWeight: 300,
