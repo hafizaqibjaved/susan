@@ -374,16 +374,19 @@ export default function Home() {
               <p style={{ fontSize: '0.88rem', color: 'var(--text-mid)', lineHeight: 1.9, marginBottom: 40 }}>
                 I would love to hear your story. Please get in touch and I will respond warmly and promptly.
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                {[
-                  { label: 'Email', value: 'hello@susanstevenscelebrant.co.uk', href: 'mailto:hello@susanstevenscelebrant.co.uk' },
-                  { label: 'Mobile', value: '07493 204657', href: 'tel:07493204657' },
-                ].map(c => (
-                  <a key={c.label} href={c.href} style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                    <span style={{ fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-light)' }}>{c.label}</span>
-                    <span style={{ fontFamily: 'var(--serif)', fontSize: '1.05rem', color: 'var(--text-dark)' }}>{c.value}</span>
-                  </a>
-                ))}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <a href="mailto:hello@susanstevenscelebrant.co.uk"
+                  style={{ fontSize: '0.78rem', color: 'var(--text-mid)', transition: 'color 0.2s', wordBreak: 'break-all', textDecoration: 'none' }}
+                  onMouseEnter={e => e.target.style.color = 'var(--sage-dark)'}
+                  onMouseLeave={e => e.target.style.color = 'var(--text-mid)'}>
+                  hello@susanstevenscelebrant.co.uk
+                </a>
+                <a href="tel:07493204657"
+                  style={{ fontSize: '0.78rem', color: 'var(--text-mid)', transition: 'color 0.2s', textDecoration: 'none' }}
+                  onMouseEnter={e => e.target.style.color = 'var(--sage-dark)'}
+                  onMouseLeave={e => e.target.style.color = 'var(--text-mid)'}>
+                  07493 204657
+                </a>
               </div>
             </Reveal>
             <Reveal direction="right" delay={0.1}>

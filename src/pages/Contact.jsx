@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
-import { Mail, Phone, Globe } from 'lucide-react';
 
 function useReveal() {
   const ref = useRef(null);
@@ -33,11 +32,7 @@ export default function Contact() {
     outline: 'none', transition: 'border-color 0.2s',
   };
 
-  const contacts = [
-    { label: 'Email', value: 'hello@susanstevenscelebrant.co.uk', href: 'mailto:hello@susanstevenscelebrant.co.uk', Icon: Mail },
-    { label: 'Mobile', value: '07493 204657', href: 'tel:07493204657', Icon: Phone },
-    { label: 'Website', value: 'susanstevenscelebrant.co.uk', href: 'https://www.susanstevenscelebrant.co.uk', Icon: Globe },
-  ];
+
 
   return (
     <>
@@ -64,21 +59,27 @@ export default function Contact() {
               <p style={{ fontSize: '0.92rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: 40 }}>
                 I would love to hear from you. Whether you are in the early stages of planning or simply want to ask a question, please get in touch. I always respond warmly and promptly.
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-                {contacts.map(({ label, value, href, Icon }) => (
-                  <a key={label} href={href} style={{
-                    display: 'flex', alignItems: 'center', gap: 14,
-                    textDecoration: 'none', transition: 'opacity 0.2s',
-                  }}
-                  onMouseEnter={e => e.currentTarget.style.opacity = '0.72'}
-                  onMouseLeave={e => e.currentTarget.style.opacity = '1'}>
-                    <Icon size={18} color="var(--sage)" strokeWidth={1.5} style={{ flexShrink: 0 }}/>
-                    <span style={{ fontFamily: 'var(--serif)', fontSize: '1rem', color: 'var(--text-dark)', fontWeight: 400 }}>{value}</span>
-                  </a>
-                ))}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                <a href="mailto:hello@susanstevenscelebrant.co.uk"
+                  style={{ fontSize: '0.78rem', color: 'var(--text-mid)', transition: 'color 0.2s', wordBreak: 'break-all', textDecoration: 'none' }}
+                  onMouseEnter={e => e.target.style.color = 'var(--sage-dark)'}
+                  onMouseLeave={e => e.target.style.color = 'var(--text-mid)'}>
+                  hello@susanstevenscelebrant.co.uk
+                </a>
+                <a href="tel:07493204657"
+                  style={{ fontSize: '0.78rem', color: 'var(--text-mid)', transition: 'color 0.2s', textDecoration: 'none' }}
+                  onMouseEnter={e => e.target.style.color = 'var(--sage-dark)'}
+                  onMouseLeave={e => e.target.style.color = 'var(--text-mid)'}>
+                  07493 204657
+                </a>
+                <a href="https://www.susanstevenscelebrant.co.uk"
+                  style={{ fontSize: '0.78rem', color: 'var(--text-mid)', transition: 'color 0.2s', textDecoration: 'none' }}
+                  onMouseEnter={e => e.target.style.color = 'var(--sage-dark)'}
+                  onMouseLeave={e => e.target.style.color = 'var(--text-mid)'}>
+                  susanstevenscelebrant.co.uk
+                </a>
               </div>
             </Reveal>
-
             {/* Form */}
             <Reveal direction="right" delay={0.1}>
               {sent ? (

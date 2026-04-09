@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
-import { APCLogo } from './APCComponents';
 
 export default function Footer() {
   return (
@@ -76,10 +75,13 @@ export default function Footer() {
           <p style={{ fontSize: '0.68rem', color: 'var(--text-light)' }}>
             &copy; {new Date().getFullYear()} Susan Stevens Celebrant. All rights reserved.
           </p>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <span style={{ fontSize: '0.68rem', color: 'var(--text-light)' }}>Website made by</span>
-            <APCLogo height={32} />
-          </div>
+          <p style={{ fontSize: '0.68rem', color: 'var(--text-light)' }}>
+            Website made by the{' '}
+            <a href="https://www.funeralcelebrantacademy.co.uk" target="_blank" rel="noopener noreferrer"
+              style={{ color: 'var(--sage-dark)', textDecoration: 'underline' }}>
+              Academy of Professional Celebrants
+            </a>
+          </p>
         </div>
       </div>
 
