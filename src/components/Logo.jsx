@@ -1,8 +1,8 @@
 import { clientLogo } from '../assets';
 
-// Logo always uses original colors
-// On dark backgrounds, CSS drop-shadow makes it pop
 export default function Logo({ size = 80, light = false }) {
+  // Logo aspect ratio is ~2.74:1 (wider than tall)
+  // size = height, width auto-calculated
   return (
     <img
       src={clientLogo}
@@ -10,13 +10,13 @@ export default function Logo({ size = 80, light = false }) {
       style={{
         height: size,
         width: 'auto',
-        maxWidth: size * 2.6,
+        maxWidth: size * 2.74,
         objectFit: 'contain',
         display: 'block',
-        // On dark bg: add white drop shadow so logo pops against dark green
+        // On dark backgrounds add brightness/contrast to stay visible
         filter: light
-          ? 'drop-shadow(0 0 8px rgba(255,255,255,0.5)) drop-shadow(0 1px 3px rgba(0,0,0,0.8)) brightness(1.1)'
-          : 'drop-shadow(0 1px 3px rgba(0,0,0,0.15))',
+          ? 'brightness(1.15) drop-shadow(0 1px 4px rgba(0,0,0,0.5))'
+          : 'drop-shadow(0 1px 2px rgba(0,0,0,0.08))',
         transition: 'filter 0.3s ease',
       }}
     />
