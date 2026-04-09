@@ -27,15 +27,16 @@ export default function About() {
       {/* Hero banner with nature background */}
       <section style={{
         paddingTop: 140, paddingBottom: 80,
-        background: 'linear-gradient(135deg, var(--cream) 0%, var(--off-white) 100%)',
         position: 'relative', overflow: 'hidden',
+        backgroundImage: `url(${aboutBanner})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 40%',
       }}>
-        <div style={{ position: 'absolute', top: -60, right: -60, width: 400, height: 400, borderRadius: '50%', background: 'rgba(138,158,122,0.12)' }}/>
-        <div style={{ position: 'absolute', bottom: -40, left: -40, width: 280, height: 280, borderRadius: '50%', background: 'rgba(212,149,106,0.08)' }}/>
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(20,30,20,0.48)' }}/>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <p className="section-tag" style={{ }}>My Story</p>
-          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, maxWidth: 600, lineHeight: 1.15, color: 'var(--text-dark)' }}>
-            Meet <em style={{ color: 'var(--sage-dark)', fontStyle: 'italic' }}>Susan</em>
+          <p className="section-tag" style={{ color: 'var(--apricot-light)' }}>My Story</p>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, maxWidth: 600, lineHeight: 1.15, color: '#fff' }}>
+            Meet <em style={{ color: 'var(--apricot-light)', fontStyle: 'italic' }}>Susan</em>
           </h1>
         </div>
       </section>
