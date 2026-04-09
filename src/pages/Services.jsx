@@ -24,9 +24,9 @@ function Reveal({ children, delay = 0, direction = 'up', style = {} }) {
 
 const serviceImages = [
   'https://images.unsplash.com/photo-1517055743202-09439169666b?auto=format&fit=crop&w=1280&q=80', // Funerals: White lilies
-  'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1280&q=80', // Weddings: Outdoor aisle
-  'https://images.unsplash.com/photo-1464692805480-a69dfaafdb0d?auto=format&fit=crop&w=1280&q=80', // Vow Renewals: Colourful garden flowers
-  'https://images.unsplash.com/photo-1444492417251-9c84a5fa18e0?auto=format&fit=crop&w=1280&q=80', // Pet Funerals: Peaceful garden path
+  'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1280&q=80', // Weddings: Outdoor wedding arch
+  'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1280&q=80', // Vow Renewals: Mixed pink/white flowers
+  'https://images.unsplash.com/photo-1444492417251-9c84a5fa18e0?auto=format&fit=crop&w=1280&q=80', // Pet Funerals: Peaceful garden sunlight
 ];
 
 const services = [
