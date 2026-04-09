@@ -42,12 +42,11 @@ export default function Nav() {
       <nav style={{
         position: 'fixed', top: 0, left: 0, right: 0,
         zIndex: 1001,
-        background: isTransparent
-          ? 'rgba(255,255,255,0.15)'
-          : 'rgba(255,255,255,0.97)',
+        background: 'rgba(255,255,255,0.97)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
-        borderBottom: isTransparent ? '1px solid rgba(255,255,255,0.2)' : '1px solid rgba(0,0,0,0.06)',
+        borderBottom: '1px solid rgba(0,0,0,0.06)',
+        boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.06)' : 'none',
         transition: 'all 0.4s ease',
         padding: scrolled ? '8px 0' : '12px 0',
       }}>
