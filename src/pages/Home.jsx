@@ -175,14 +175,14 @@ export default function Home() {
             {services.map((s, i) => (
               <Reveal key={s.title} delay={i * 0.08}>
                 <div style={{
-                  background: i % 2 === 0 ? 'var(--white)' : 'var(--cream)',
+                  background: '#1e2e20',
                   padding: '44px 36px', height: '100%',
                   borderTop: '2px solid ' + (i % 2 === 0 ? 'var(--sage)' : 'var(--apricot)'),
                   transition: 'transform 0.3s ease, background 0.3s ease',
                   cursor: 'default',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.09)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = i % 2 === 0 ? 'var(--white)' : 'var(--cream)'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}>
+                onMouseLeave={e => { e.currentTarget.style.background = '#1e2e20'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}>
                   <div style={{ fontSize: '1.6rem', marginBottom: 18 }}>{s.icon}</div>
                   <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.35rem', fontWeight: 400, marginBottom: 14, color: '#f5f2ee' }}>{s.title}</h3>
                   <p style={{ fontSize: '0.85rem', color: '#c8c0b4', lineHeight: 1.9 }}>{s.text}</p>
@@ -241,7 +241,7 @@ export default function Home() {
             ].map((fee, i) => (
               <Reveal key={fee.title} delay={i * 0.07}>
                 <div style={{
-                  background: fee.dark ? 'var(--sage)' : 'var(--white)',
+                  background: fee.dark ? 'var(--sage-dark)' : '#243228',
                   padding: '36px 32px 28px', display: 'flex', flexDirection: 'column',
                   boxShadow: '0 4px 24px rgba(0,0,0,0.07)', height: '100%',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
@@ -413,7 +413,7 @@ function FaqList() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
       {faqs.map((faq, i) => (
         <Reveal key={i} delay={i * 0.05}>
-          <div style={{ background: open === i ? 'var(--sage)' : 'var(--white)', transition: 'background 0.3s ease', overflow: 'hidden' }}>
+          <div style={{ background: open === i ? 'var(--sage-dark)' : '#1e2e20', transition: 'background 0.3s ease', overflow: 'hidden' }}>
             <button onClick={() => setOpen(open === i ? null : i)} style={{ width: '100%', padding: '22px 28px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
               <span style={{ fontFamily: 'var(--serif)', fontSize: '1.08rem', color: open === i ? '#fff' : 'var(--text-dark)', fontWeight: 400 }}>{faq.q}</span>
               <span style={{ fontSize: '1.2rem', color: open === i ? '#fff' : 'var(--sage)', transform: open === i ? 'rotate(45deg)' : 'none', transition: 'transform 0.3s', flexShrink: 0 }}>+</span>

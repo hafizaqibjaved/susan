@@ -95,7 +95,7 @@ export default function Services() {
       {/* Service sections - NO Susan photos */}
       {services.map((s, i) => {
         return (
-          <section key={s.id} id={s.id} style={{ padding: '100px 0', background: i % 2 === 0 ? 'var(--white)' : 'var(--off-white)' }}>
+          <section key={s.id} id={s.id} style={{ padding: '100px 0', background: i % 2 === 0 ? '#141a14' : '#1a2a1c' }}>
             <div className="container">
               <div className="services-section-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center', direction: i % 2 === 0 ? 'ltr' : 'rtl' }}>
 

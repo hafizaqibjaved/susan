@@ -36,7 +36,7 @@ const feeGroups = [
 function FeeCard({ item, accent }) {
   return (
     <div style={{
-      background: item.dark ? accent : 'var(--white)',
+      background: item.dark ? accent : '#243228',
       padding: '36px 34px 30px',
       display: 'flex', flexDirection: 'column',
       boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
