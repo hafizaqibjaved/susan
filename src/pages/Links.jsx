@@ -50,7 +50,7 @@ export default function Links() {
           <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: 'var(--text-dark)' }}>
             Useful <em style={{ color: 'var(--sage-dark)', fontStyle: 'italic' }}>Links</em>
           </h1>
-          <p style={{ fontSize: '0.92rem', color: 'var(--text-mid)', maxWidth: 520, marginTop: 16, lineHeight: 1.9 }}>
+          <p style={{ fontSize: '0.92rem', color: '#c8c0b4', maxWidth: 520, marginTop: 16, lineHeight: 1.9 }}>
             A collection of trusted organisations and resources that I recommend to the families and individuals I work with.
           </p>
         </div>
@@ -69,14 +69,14 @@ export default function Links() {
                   <Reveal key={link.name} delay={gi * 0.1 + li * 0.08}>
                     <a href={link.url} target="_blank" rel="noopener noreferrer" style={{
                       display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20,
-                      padding: '28px 32px', background: 'var(--card-bg)',
+                      padding: '28px 32px', background: '#243228',
                       borderLeft: '3px solid transparent', transition: 'all 0.3s ease', textDecoration: 'none',
                     }}
                     onMouseEnter={e => { e.currentTarget.style.borderLeftColor = 'var(--sage)'; e.currentTarget.style.background = 'var(--cream)'; e.currentTarget.style.transform = 'translateX(5px)'; }}
                     onMouseLeave={e => { e.currentTarget.style.borderLeftColor = 'transparent'; e.currentTarget.style.background = 'var(--off-white)'; e.currentTarget.style.transform = 'none'; }}>
                       <div>
                         <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.2rem', fontWeight: 400, color: 'var(--text-dark)', marginBottom: 6 }}>{link.name}</h3>
-                        <p style={{ fontSize: '0.83rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>{link.desc}</p>
+                        <p style={{ fontSize: '0.83rem', color: '#c8c0b4', lineHeight: 1.7 }}>{link.desc}</p>
                       </div>
                       <ExternalLink size={18} color="var(--sage)" style={{ flexShrink: 0 }}/>
                     </a>

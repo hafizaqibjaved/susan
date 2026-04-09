@@ -8,15 +8,15 @@
   --apricot-light: #e08c62;
   --apricot-dark: #9e4a24;
   --white: #FFFFFF;
-  --off-white: #1e2820;
-  --cream: #182018;
-  --text-dark: #f0ede8;
-  --text-mid: #b8b0a4;
-  --text-light: #7a7470;
+  --off-white: #243028;
+  --cream: #1a2a1c;
+  --text-dark: #f5f2ee;
+  --text-mid: #c8c0b4;
+  --text-light: #9a9490;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Jost', sans-serif;
   --page-bg: #141a14;
-  --card-bg: #1c2a1e;
+  --card-bg: #243228;
   --border-col: rgba(255,255,255,0.08);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}

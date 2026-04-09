@@ -110,7 +110,7 @@ export default function Fees() {
       </section>
 
       {/* Fee groups */}
-      <section style={{ padding: '80px 0 100px', background: 'var(--card-bg)' }}>
+      <section style={{ padding: '80px 0 100px', background: '#243228' }}>
         <div className="container">
           {feeGroups.map((group, gi) => (
             <div key={group.category} style={{ marginBottom: gi < feeGroups.length - 1 ? 80 : 0 }}>
@@ -125,7 +125,7 @@ export default function Fees() {
                   <span style={{ fontSize: '1.2rem' }}>{group.icon}</span>
                 </div>
                 <div style={{ flex: 1 }}>
-                  <h2 style={{ fontFamily: 'var(--serif)', fontSize: '1.9rem', fontWeight: 400, color: 'var(--text-dark)', lineHeight: 1.1 }}>
+                  <h2 style={{ fontFamily: 'var(--serif)', fontSize: '1.9rem', fontWeight: 400, color: '#f5f2ee', lineHeight: 1.1 }}>
                     {group.category}
                   </h2>
                 </div>

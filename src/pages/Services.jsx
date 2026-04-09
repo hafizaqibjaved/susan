@@ -126,14 +126,14 @@ export default function Services() {
                     <p className="section-tag">Service</p>
                     <h2 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(1.8rem, 3vw, 2.6rem)', fontWeight: 300, marginTop: 12, marginBottom: 28, lineHeight: 1.2 }}>{s.title}</h2>
                     {s.content.map((p, j) => (
-                      <p key={j} style={{ fontSize: '0.9rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: 16 }}>{p}</p>
+                      <p key={j} style={{ fontSize: '0.9rem', color: '#c8c0b4', lineHeight: 1.95, marginBottom: 16 }}>{p}</p>
                     ))}
                     <div style={{ marginTop: 32, padding: '26px 28px', background: '#182018', borderLeft: '3px solid var(--sage)' }}>
                       <p style={{ fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--sage-dark)', marginBottom: 14, fontWeight: 500 }}>What's Included</p>
                       {s.includes.map(item => (
                         <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 8 }}>
                           <span style={{ color: 'var(--apricot)', marginTop: 3, flexShrink: 0, fontSize: '0.7rem' }}>✦</span>
-                          <span style={{ fontSize: '0.85rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>{item}</span>
+                          <span style={{ fontSize: '0.85rem', color: '#c8c0b4', lineHeight: 1.7 }}>{item}</span>
                         </div>
                       ))}
                     </div>

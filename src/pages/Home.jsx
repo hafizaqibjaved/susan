@@ -122,7 +122,7 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT ── */}
-      <section id="about" className="section-pad" style={{ background: 'var(--card-bg)', position: 'relative', overflow: 'hidden' }}>
+      <section id="about" className="section-pad" style={{ background: '#243228', position: 'relative', overflow: 'hidden' }}>
         <div className="container">
           <div className="two-col-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start' }}>
             <Reveal direction="left">
@@ -158,7 +158,7 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section id="services" className="section-pad" style={{ background: 'var(--card-bg)', position: 'relative', overflow: 'hidden' }}>
+      <section id="services" className="section-pad" style={{ background: '#243228', position: 'relative', overflow: 'hidden' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal style={{ textAlign: 'center', marginBottom: 60 }}>
             <p className="section-tag" style={{ justifyContent: 'center', color: 'var(--apricot)' }}>What I Offer
@@ -184,8 +184,8 @@ export default function Home() {
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.09)'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = i % 2 === 0 ? 'var(--white)' : 'var(--cream)'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}>
                   <div style={{ fontSize: '1.6rem', marginBottom: 18 }}>{s.icon}</div>
-                  <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.35rem', fontWeight: 400, marginBottom: 14, color: 'var(--text-dark)' }}>{s.title}</h3>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text-mid)', lineHeight: 1.9 }}>{s.text}</p>
+                  <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.35rem', fontWeight: 400, marginBottom: 14, color: '#f5f2ee' }}>{s.title}</h3>
+                  <p style={{ fontSize: '0.85rem', color: '#c8c0b4', lineHeight: 1.9 }}>{s.text}</p>
                   <div style={{ width: 28, height: 1.5, background: 'var(--apricot)', marginTop: 24 }}/>
                 </div>
               </Reveal>
@@ -250,16 +250,16 @@ export default function Home() {
                 onMouseLeave={e => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 24px rgba(0,0,0,0.07)'; }}>
                   <div style={{ width: 32, height: 3, background: fee.dark ? 'rgba(255,255,255,0.4)' : 'var(--apricot)', marginBottom: 20 }}/>
                   <p style={{ fontFamily: 'var(--sans)', fontSize: '0.58rem', fontWeight: 500, letterSpacing: '0.16em', textTransform: 'uppercase',
-                    color: fee.dark ? 'rgba(255,255,255,0.6)' : 'var(--text-light)', marginBottom: 12, lineHeight: 1.6 }}>{fee.category}</p>
+                    color: fee.dark ? 'rgba(255,255,255,0.85)' : '#c8c0b4', marginBottom: 12, lineHeight: 1.6 }}>{fee.category}</p>
                   <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.5rem', fontWeight: 400,
-                    color: fee.dark ? '#fff' : 'var(--text-dark)', lineHeight: 1.2, marginBottom: 14 }}>{fee.title}</h3>
+                    color: '#f5f2ee', lineHeight: 1.2, marginBottom: 14 }}>{fee.title}</h3>
                   {fee.price ? (
                     <p style={{ marginBottom: 14 }}>
-                      <span style={{ fontFamily: 'var(--sans)', fontSize: '0.75rem', color: fee.dark ? 'rgba(255,255,255,0.65)' : 'var(--text-light)', marginRight: 4 }}>from</span>
+                      <span style={{ fontFamily: 'var(--sans)', fontSize: '0.75rem', color: 'rgba(255,255,255,0.75)', marginRight: 4 }}>from</span>
                       <span style={{ fontFamily: 'var(--serif)', fontSize: '1.9rem', fontWeight: 500, color: fee.dark ? '#fff' : 'var(--sage-dark)' }}>£{fee.price}</span>
                     </p>
                   ) : (
-                    <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '1rem', color: fee.dark ? 'rgba(255,255,255,0.8)' : 'var(--sage-dark)', marginBottom: 14 }}>By prior discussion</p>
+                    <p style={{ fontFamily: 'var(--serif)', fontStyle: 'italic', fontSize: '1rem', color: 'rgba(255,255,255,0.75)', marginBottom: 14 }}>By prior discussion</p>
                   )}
                   <p style={{ fontSize: '0.82rem', lineHeight: 1.8, color: fee.dark ? 'rgba(255,255,255,0.72)' : 'var(--text-mid)', marginBottom: 24, flex: 1 }}>{fee.desc}</p>
                   <Link to="/contact" style={{
@@ -319,7 +319,7 @@ export default function Home() {
       </section>
 
       {/* ── FAQS ── */}
-      <section id="faqs" className="section-pad" style={{ background: 'var(--card-bg)' }}>
+      <section id="faqs" className="section-pad" style={{ background: '#243228' }}>
         <div className="container" style={{ maxWidth: 800 }}>
           <Reveal style={{ textAlign: 'center', marginBottom: 60 }}>
             <p className="section-tag" style={{ justifyContent: 'center' }}>Questions</p>
@@ -431,7 +431,7 @@ function ContactForm() {
   const [sent, setSent] = useState(false);
   const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const submit = (e) => { e.preventDefault(); setSent(true); };
-  const inputStyle = { width: '100%', padding: '14px 16px', background: 'var(--card-bg)', border: '1px solid rgba(255,255,255,0.1)', color: 'var(--text-dark)', fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 300, outline: 'none', transition: 'border-color 0.2s' };
+  const inputStyle = { width: '100%', padding: '14px 16px', background: '#243228', border: '1px solid rgba(255,255,255,0.1)', color: 'var(--text-dark)', fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 300, outline: 'none', transition: 'border-color 0.2s' };
   if (sent) return (
     <div style={{ padding: '60px 40px', background: 'var(--sage)', textAlign: 'center' }}>
       <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.6rem', color: '#fff', marginBottom: 16 }}>Thank You</h3>

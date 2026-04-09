@@ -21,13 +21,13 @@ export default function Footer() {
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
               <a href="mailto:hello@susanstevenscelebrant.co.uk"
-                style={{ fontSize: '0.78rem', color: 'var(--text-mid)', transition: 'color 0.2s', wordBreak: 'break-all' }}
+                style={{ fontSize: '0.78rem', color: '#c8c0b4', transition: 'color 0.2s', wordBreak: 'break-all' }}
                 onMouseEnter={e => e.target.style.color = 'var(--sage-dark)'}
                 onMouseLeave={e => e.target.style.color = 'var(--text-mid)'}>
                 hello@susanstevenscelebrant.co.uk
               </a>
               <a href="tel:07493204657"
-                style={{ fontSize: '0.78rem', color: 'var(--text-mid)', transition: 'color 0.2s' }}
+                style={{ fontSize: '0.78rem', color: '#c8c0b4', transition: 'color 0.2s' }}
                 onMouseEnter={e => e.target.style.color = 'var(--sage-dark)'}
                 onMouseLeave={e => e.target.style.color = 'var(--text-mid)'}>
                 07493 204657
@@ -40,7 +40,7 @@ export default function Footer() {
             <p style={{ fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--sage-dark)', marginBottom: 16, fontWeight: 500 }}>Services</p>
             {['Funerals', 'Weddings', 'Vow Renewals', 'Life Celebrations', 'Pet Funerals'].map(s => (
               <Link key={s} to="/services" style={{
-                display: 'block', fontSize: '0.82rem', color: 'var(--text-mid)', marginBottom: 9, transition: 'color 0.2s',
+                display: 'block', fontSize: '0.82rem', color: '#c8c0b4', marginBottom: 9, transition: 'color 0.2s',
               }}
               onMouseEnter={e => e.target.style.color = 'var(--sage-dark)'}
               onMouseLeave={e => e.target.style.color = 'var(--text-mid)'}>
@@ -60,7 +60,7 @@ export default function Footer() {
               { label: 'Contact', to: '/contact' },
             ].map(l => (
               <Link key={l.label} to={l.to} style={{
-                display: 'block', fontSize: '0.82rem', color: 'var(--text-mid)', marginBottom: 9, transition: 'color 0.2s',
+                display: 'block', fontSize: '0.82rem', color: '#c8c0b4', marginBottom: 9, transition: 'color 0.2s',
               }}
               onMouseEnter={e => e.target.style.color = 'var(--sage-dark)'}
               onMouseLeave={e => e.target.style.color = 'var(--text-mid)'}>
@@ -72,10 +72,10 @@ export default function Footer() {
 
         {/* Divider */}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 20, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10 }}>
-          <p style={{ fontSize: '0.68rem', color: 'var(--text-mid)' }}>
+          <p style={{ fontSize: '0.68rem', color: '#c8c0b4' }}>
             &copy; {new Date().getFullYear()} Susan Stevens Celebrant. All rights reserved.
           </p>
-          <p style={{ fontSize: '0.68rem', color: 'var(--text-mid)' }}>
+          <p style={{ fontSize: '0.68rem', color: '#c8c0b4' }}>
             Website made by the{' '}
             <a href="https://www.funeralcelebrantacademy.co.uk" target="_blank" rel="noopener noreferrer"
               style={{ color: 'var(--sage-dark)', textDecoration: 'underline' }}>

@@ -62,13 +62,13 @@ export default function About() {
                   Working with People at Life's Most{' '}
                   <em style={{ color: 'var(--sage-dark)', fontStyle: 'italic' }}>Meaningful Moments</em>
                 </h2>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: 22 }}>
+                <p style={{ fontSize: '0.92rem', color: '#c8c0b4', lineHeight: 1.95, marginBottom: 22 }}>
                   Hello, my name is Susan and I work with people at some of the most meaningful points in life, whether saying goodbye to someone deeply cherished, marking a commitment or celebrating a love story.
                 </p>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: 22 }}>
+                <p style={{ fontSize: '0.92rem', color: '#c8c0b4', lineHeight: 1.95, marginBottom: 22 }}>
                   Every ceremony I create is personal, heartfelt and thoughtful. I take time to listen, understand and reflect on what is meaningful to you, so that every moment feels authentic, memorable, and deeply respectful.
                 </p>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-mid)', lineHeight: 1.95, marginBottom: 40 }}>
+                <p style={{ fontSize: '0.92rem', color: '#c8c0b4', lineHeight: 1.95, marginBottom: 40 }}>
                   Because every life, every love, every story deserves to be honoured.
                 </p>
 
@@ -80,8 +80,8 @@ export default function About() {
                     { title: 'Professional', text: 'APC certified and committed to excellence.' },
                   ].map(v => (
                     <div key={v.title} style={{ padding: '22px', background: '#182018', borderLeft: '3px solid var(--apricot)' }}>
-                      <h4 style={{ fontFamily: 'var(--serif)', fontSize: '1rem', fontWeight: 500, marginBottom: 6, color: 'var(--text-dark)' }}>{v.title}</h4>
-                      <p style={{ fontSize: '0.8rem', color: 'var(--text-mid)', lineHeight: 1.7 }}>{v.text}</p>
+                      <h4 style={{ fontFamily: 'var(--serif)', fontSize: '1rem', fontWeight: 500, marginBottom: 6, color: '#f5f2ee' }}>{v.title}</h4>
+                      <p style={{ fontSize: '0.8rem', color: '#c8c0b4', lineHeight: 1.7 }}>{v.text}</p>
                     </div>
                   ))}
                 </div>
