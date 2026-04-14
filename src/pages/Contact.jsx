@@ -39,19 +39,21 @@ export default function Contact() {
       {/* Hero banner with background */}
       <section style={{
         paddingTop: 140, paddingBottom: 80,
-        background: 'linear-gradient(135deg, #1a2a1c 0%, #141a14 100%)',
         position: 'relative', overflow: 'hidden',
+        backgroundImage: `url(https://images.unsplash.com/photo-1469259943454-aa100abba749?auto=format&fit=crop&w=1280&q=80)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 50%',
       }}>
-        <div style={{ position: 'absolute', top: -80, right: -80, width: 360, height: 360, borderRadius: '50%', background: 'rgba(212,149,106,0.12)' }}/>
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(20,30,20,0.5)' }}/>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <p className="section-tag" style={{ }}>Reach Out</p>
-          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: 'var(--text-dark)' }}>
-            Let's Start a <em style={{ color: 'var(--apricot-dark)', fontStyle: 'italic' }}>Conversation</em>
+          <p className="section-tag" style={{ color: 'var(--apricot-light)' }}>Reach Out</p>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: '#fff' }}>
+            Let's Start a <em style={{ color: 'var(--apricot-light)', fontStyle: 'italic' }}>Conversation</em>
           </h1>
         </div>
       </section>
 
-      <section style={{ padding: '80px 0', background: 'var(--page-bg)' }}>
+      <section style={{ padding: '80px 0', background: 'linear-gradient(165deg, #1a2319 0%, #1d281d 40%, #1f2b1e 70%, #1a2017 100%)' }}>
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start' }} className="contact-grid">
             {/* Left */}
@@ -83,7 +85,7 @@ export default function Contact() {
             {/* Form */}
             <Reveal direction="right" delay={0.1}>
               {sent ? (
-                <div style={{ padding: '60px 40px', background: '#182018', textAlign: 'center' }}>
+                <div style={{ padding: '60px 40px', background: 'linear-gradient(135deg, var(--sage) 0%, #3a7548 100%)', textAlign: 'center' }}>
                   <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.8rem', color: 'var(--text-dark)', marginBottom: 16 }}>Thank You</h3>
                   <p style={{ fontSize: '0.9rem', color: '#c8c0b4', lineHeight: 1.9 }}>Susan will be in touch with you warmly and promptly.</p>
                 </div>

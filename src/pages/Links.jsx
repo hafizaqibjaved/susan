@@ -41,14 +41,16 @@ export default function Links() {
       {/* Dark banner with background */}
       <section style={{
         paddingTop: 140, paddingBottom: 80,
-        background: 'linear-gradient(135deg, #1a2a1c 0%, #141a14 100%)',
         position: 'relative', overflow: 'hidden',
+        backgroundImage: `url(https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1280&q=80)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 40%',
       }}>
-        <div style={{ position: 'absolute', top: -60, right: -60, width: 300, height: 300, borderRadius: '50%', background: 'rgba(138,158,122,0.12)' }}/>
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(20,30,20,0.5)' }}/>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <p className="section-tag" style={{ }}>Helpful Resources</p>
-          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: 'var(--text-dark)' }}>
-            Useful <em style={{ color: 'var(--sage-dark)', fontStyle: 'italic' }}>Links</em>
+          <p className="section-tag" style={{ color: 'var(--apricot-light)' }}>Helpful Resources</p>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: '#fff' }}>
+            Useful <em style={{ color: 'var(--apricot-light)', fontStyle: 'italic' }}>Links</em>
           </h1>
           <p style={{ fontSize: '0.92rem', color: '#c8c0b4', maxWidth: 520, marginTop: 16, lineHeight: 1.9 }}>
             A collection of trusted organisations and resources that I recommend to the families and individuals I work with.
@@ -56,7 +58,7 @@ export default function Links() {
         </div>
       </section>
 
-      <section style={{ padding: '80px 0', background: 'var(--page-bg)' }}>
+      <section style={{ padding: '80px 0', background: 'linear-gradient(165deg, #1a2319 0%, #1d281d 40%, #1f2b1e 70%, #1a2017 100%)' }}>
         <div className="container" style={{ maxWidth: 860 }}>
           {links.map((group, gi) => (
             <Reveal key={group.category} delay={gi * 0.1} style={{ marginBottom: 50 }}>
@@ -69,7 +71,7 @@ export default function Links() {
                   <Reveal key={link.name} delay={gi * 0.1 + li * 0.08}>
                     <a href={link.url} target="_blank" rel="noopener noreferrer" style={{
                       display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 20,
-                      padding: '28px 32px', background: '#243228',
+                      padding: '28px 32px', background: 'linear-gradient(150deg, #263528 0%, #2a3d2c 50%, #263228 100%)',
                       borderLeft: '3px solid transparent', transition: 'all 0.3s ease', textDecoration: 'none',
                     }}
                     onMouseEnter={e => { e.currentTarget.style.borderLeftColor = 'var(--sage)'; e.currentTarget.style.background = 'var(--cream)'; e.currentTarget.style.transform = 'translateX(5px)'; }}

@@ -122,7 +122,9 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT ── */}
-      <section id="about" className="section-pad" style={{ background: '#243228', position: 'relative', overflow: 'hidden' }}>
+      <section id="about" className="section-pad" style={{ background: 'linear-gradient(160deg, #2a3d2e 0%, #2f4233 40%, #2d3829 70%, #2a2d24 100%)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: -120, right: -80, width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(201,104,58,0.06) 0%, transparent 70%)', pointerEvents: 'none' }}/>
+        <div style={{ position: 'absolute', bottom: -60, left: -60, width: 300, height: 300, borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%)', pointerEvents: 'none' }}/>
         <div className="container">
           <div className="two-col-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start' }}>
             <Reveal direction="left">
@@ -158,7 +160,9 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section id="services" className="section-pad" style={{ background: '#243228', position: 'relative', overflow: 'hidden' }}>
+      <section id="services" className="section-pad" style={{ background: 'linear-gradient(175deg, #263829 0%, #2d3d2e 35%, #32392a 60%, #2a2e24 100%)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: -100, left: -100, width: 450, height: 450, borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 65%)', pointerEvents: 'none' }}/>
+        <div style={{ position: 'absolute', bottom: -80, right: -60, width: 350, height: 350, borderRadius: '50%', background: 'radial-gradient(circle, rgba(201,104,58,0.05) 0%, transparent 70%)', pointerEvents: 'none' }}/>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <Reveal style={{ textAlign: 'center', marginBottom: 60 }}>
             <p className="section-tag" style={{ justifyContent: 'center', color: 'var(--apricot)' }}>What I Offer
@@ -175,14 +179,14 @@ export default function Home() {
             {services.map((s, i) => (
               <Reveal key={s.title} delay={i * 0.08}>
                 <div style={{
-                  background: '#1e2e20',
+                  background: 'linear-gradient(160deg, #1f3022 0%, #243426 60%, #223025 100%)',
                   padding: '44px 36px', height: '100%',
                   borderTop: '2px solid ' + (i % 2 === 0 ? 'var(--sage)' : 'var(--apricot)'),
                   transition: 'transform 0.3s ease, background 0.3s ease',
                   cursor: 'default',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 12px 40px rgba(0,0,0,0.09)'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = '#1e2e20'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}>
+                onMouseLeave={e => { e.currentTarget.style.background = 'linear-gradient(160deg, #1f3022 0%, #243426 60%, #223025 100%)'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; }}>
                   <div style={{ fontSize: '1.6rem', marginBottom: 18 }}>{s.icon}</div>
                   <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.35rem', fontWeight: 400, marginBottom: 14, color: '#f5f2ee' }}>{s.title}</h3>
                   <p style={{ fontSize: '0.85rem', color: '#c8c0b4', lineHeight: 1.9 }}>{s.text}</p>
@@ -193,7 +197,7 @@ export default function Home() {
             {/* CTA card */}
             <Reveal delay={0.4}>
               <div style={{
-                background: 'var(--sage)', padding: '44px 36px', height: '100%',
+                background: 'linear-gradient(145deg, var(--sage) 0%, #3f7a4e 60%, var(--sage-dark) 100%)', padding: '44px 36px', height: '100%',
                 display: 'flex', flexDirection: 'column', justifyContent: 'center',
                 borderTop: '2px solid var(--apricot)',
               }}>
@@ -213,7 +217,7 @@ export default function Home() {
           backgroundSize: 'cover', backgroundAttachment: 'fixed', backgroundPosition: 'center 40%',
           WebkitBackgroundAttachment: 'scroll', filter: 'brightness(0.45)',
         }}/>
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(20,35,18,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 28, padding: '0 20px', textAlign: 'center' }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(20,35,18,0.25) 0%, rgba(25,40,20,0.35) 50%, rgba(18,30,16,0.5) 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column', gap: 28, padding: '0 20px', textAlign: 'center' }}>
           <Reveal>
             <p style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(1.4rem, 3.5vw, 2.4rem)', fontWeight: 300, fontStyle: 'italic', color: '#fff', maxWidth: 700, lineHeight: 1.4 }}>
               "I am here to hold space for your moments, all of them, with warmth, care and deep respect for your story."
@@ -224,7 +228,7 @@ export default function Home() {
       </section>
 
       {/* ── FEES ── */}
-      <section id="fees" className="section-pad" style={{ background: '#182018' }}>
+      <section id="fees" className="section-pad" style={{ background: 'linear-gradient(165deg, #1c261c 0%, #212d22 35%, #252e22 60%, #1d221b 100%)' }}>
         <div className="container">
           <Reveal style={{ textAlign: 'center', marginBottom: 60 }}>
             <p className="section-tag" style={{ justifyContent: 'center' }}>Transparent Pricing</p>
@@ -241,7 +245,7 @@ export default function Home() {
             ].map((fee, i) => (
               <Reveal key={fee.title} delay={i * 0.07}>
                 <div style={{
-                  background: fee.dark ? 'var(--sage-dark)' : '#243228',
+                  background: fee.dark ? 'linear-gradient(150deg, var(--sage-dark) 0%, #2b5a3a 100%)' : 'linear-gradient(150deg, #263528 0%, #2a3d2c 50%, #263228 100%)',
                   padding: '36px 32px 28px', display: 'flex', flexDirection: 'column',
                   boxShadow: '0 4px 24px rgba(0,0,0,0.07)', height: '100%',
                   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
@@ -285,7 +289,7 @@ export default function Home() {
       </section>
 
       {/* ── PROCESS ── */}
-      <section className="section-pad" style={{ background: 'var(--page-bg)' }}>
+      <section className="section-pad" style={{ background: 'linear-gradient(170deg, #1a2419 0%, #1e2a1d 30%, #212e20 55%, #1c2318 100%)' }}>
         <div className="container">
           <Reveal style={{ textAlign: 'center', marginBottom: 70 }}>
             <p className="section-tag" style={{ justifyContent: 'center' }}>The Journey</p>
@@ -319,7 +323,7 @@ export default function Home() {
       </section>
 
       {/* ── FAQS ── */}
-      <section id="faqs" className="section-pad" style={{ background: '#243228' }}>
+      <section id="faqs" className="section-pad" style={{ background: 'linear-gradient(170deg, #253428 0%, #283a2c 40%, #2a3528 70%, #22291f 100%)' }}>
         <div className="container" style={{ maxWidth: 800 }}>
           <Reveal style={{ textAlign: 'center', marginBottom: 60 }}>
             <p className="section-tag" style={{ justifyContent: 'center' }}>Questions</p>
@@ -333,7 +337,7 @@ export default function Home() {
       </section>
 
       {/* ── LINKS (no gap fix - only 3 items so use 3-col) ── */}
-      <section id="links" className="section-pad" style={{ background: 'var(--page-bg)' }}>
+      <section id="links" className="section-pad" style={{ background: 'linear-gradient(165deg, #181f16 0%, #1c261b 40%, #1f291d 70%, #1a1f16 100%)' }}>
         <div className="container" style={{ maxWidth: 900, textAlign: 'center' }}>
           <Reveal>
             <p className="section-tag" style={{ justifyContent: 'center' }}>Helpful Resources</p>
@@ -347,7 +351,7 @@ export default function Home() {
             ].map((link, i) => (
               <Reveal key={link.name} delay={i * 0.1}>
                 <a href={link.url} target="_blank" rel="noopener noreferrer" style={{
-                  padding: '32px 24px', background: '#182018',
+                  padding: '32px 24px', background: 'linear-gradient(150deg, #1c261c 0%, #1f2b1e 100%)',
                   display: 'block', textAlign: 'left', height: '100%',
                   transition: 'all 0.3s ease', borderLeft: '3px solid transparent',
                 }}
@@ -363,7 +367,9 @@ export default function Home() {
       </section>
 
       {/* ── CONTACT CTA ── */}
-      <section id="contact" className="section-pad" style={{ background: '#182018', position: 'relative', overflow: 'hidden' }}>
+      <section id="contact" className="section-pad" style={{ background: 'linear-gradient(160deg, #1a2319 0%, #1f2a1e 35%, #232e21 60%, #1b2118 100%)', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: -60, left: -80, width: 350, height: 350, borderRadius: '50%', background: 'radial-gradient(circle, rgba(201,104,58,0.07) 0%, transparent 70%)', pointerEvents: 'none' }}/>
+        <div style={{ position: 'absolute', bottom: -100, right: -100, width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 65%)', pointerEvents: 'none' }}/>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="two-col-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start' }}>
             <Reveal direction="left">
@@ -413,7 +419,7 @@ function FaqList() {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
       {faqs.map((faq, i) => (
         <Reveal key={i} delay={i * 0.05}>
-          <div style={{ background: open === i ? 'var(--sage-dark)' : '#1e2e20', transition: 'background 0.3s ease', overflow: 'hidden' }}>
+          <div style={{ background: open === i ? 'linear-gradient(150deg, var(--sage-dark) 0%, #2d5c3e 100%)' : 'linear-gradient(150deg, #1f3022 0%, #223425 100%)', transition: 'background 0.3s ease', overflow: 'hidden' }}>
             <button onClick={() => setOpen(open === i ? null : i)} style={{ width: '100%', padding: '22px 28px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
               <span style={{ fontFamily: 'var(--serif)', fontSize: '1.08rem', color: open === i ? '#fff' : 'var(--text-dark)', fontWeight: 400 }}>{faq.q}</span>
               <span style={{ fontSize: '1.2rem', color: open === i ? '#fff' : 'var(--sage)', transform: open === i ? 'rotate(45deg)' : 'none', transition: 'transform 0.3s', flexShrink: 0 }}>+</span>
@@ -431,9 +437,9 @@ function ContactForm() {
   const [sent, setSent] = useState(false);
   const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const submit = (e) => { e.preventDefault(); setSent(true); };
-  const inputStyle = { width: '100%', padding: '14px 16px', background: '#243228', border: '1px solid rgba(255,255,255,0.1)', color: 'var(--text-dark)', fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 300, outline: 'none', transition: 'border-color 0.2s' };
+  const inputStyle = { width: '100%', padding: '14px 16px', background: 'linear-gradient(135deg, #243228 0%, #28382b 100%)', border: '1px solid rgba(255,255,255,0.1)', color: 'var(--text-dark)', fontFamily: 'var(--sans)', fontSize: '0.85rem', fontWeight: 300, outline: 'none', transition: 'border-color 0.2s' };
   if (sent) return (
-    <div style={{ padding: '60px 40px', background: 'var(--sage)', textAlign: 'center' }}>
+    <div style={{ padding: '60px 40px', background: 'linear-gradient(135deg, var(--sage) 0%, #3a7548 100%)', textAlign: 'center' }}>
       <h3 style={{ fontFamily: 'var(--serif)', fontSize: '1.6rem', color: '#fff', marginBottom: 16 }}>Thank You</h3>
       <p style={{ fontSize: '0.88rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.9 }}>Susan will be in touch with you warmly and promptly.</p>
     </div>

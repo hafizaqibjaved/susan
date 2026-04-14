@@ -16,6 +16,7 @@
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Jost', sans-serif;
   --page-bg: #141a14;
+  --page-bg-gradient: linear-gradient(180deg, #141a14 0%, #161d16 50%, #141a14 100%);
   --card-bg: #243228;
   --border-col: rgba(255,255,255,0.08);
 }

@@ -21,19 +21,21 @@ export default function FAQs() {
     <>
       <section style={{
         paddingTop: 140, paddingBottom: 80,
-        background: 'linear-gradient(135deg, #1a2a1c 0%, #141a14 100%)',
         position: 'relative', overflow: 'hidden',
+        backgroundImage: `url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1280&q=80)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 40%',
       }}>
-        <div style={{ position: 'absolute', bottom: -60, left: -60, width: 300, height: 300, borderRadius: '50%', background: 'rgba(212,149,106,0.1)' }}/>
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(20,30,20,0.5)' }}/>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <p className="section-tag" style={{ }}>Common Questions</p>
-          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: 'var(--text-dark)' }}>
-            Frequently <em style={{ color: 'var(--sage-dark)', fontStyle: 'italic' }}>Asked Questions</em>
+          <p className="section-tag" style={{ color: 'var(--apricot-light)' }}>Common Questions</p>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: '#fff' }}>
+            Frequently <em style={{ color: 'var(--apricot-light)', fontStyle: 'italic' }}>Asked Questions</em>
           </h1>
         </div>
       </section>
 
-      <section style={{ padding: '100px 0', background: 'var(--page-bg)' }}>
+      <section style={{ padding: '100px 0', background: 'linear-gradient(165deg, #1a2319 0%, #1d281d 40%, #1f2b1e 70%, #1a2017 100%)' }}>
         <div className="container" style={{ maxWidth: 860 }}>
           {categories.map(cat => (
             <div key={cat} style={{ marginBottom: 60 }}>
@@ -46,7 +48,7 @@ export default function FAQs() {
                   const key = `${cat}-${i}`;
                   const isOpen = open === key;
                   return (
-                    <div key={key} style={{ background: isOpen ? 'var(--sage)' : 'var(--off-white)', transition: 'background 0.3s ease', overflow: 'hidden' }}>
+                    <div key={key} style={{ background: isOpen ? 'linear-gradient(135deg, var(--sage) 0%, #3a7548 100%)' : 'linear-gradient(150deg, #1f3022 0%, #223425 100%)', transition: 'background 0.3s ease', overflow: 'hidden' }}>
                       <button onClick={() => setOpen(isOpen ? null : key)} style={{
                         width: '100%', padding: '22px 28px', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                         background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left',

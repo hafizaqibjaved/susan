@@ -36,7 +36,7 @@ const feeGroups = [
 function FeeCard({ item, accent }) {
   return (
     <div style={{
-      background: item.dark ? accent : '#243228',
+      background: item.dark ? `linear-gradient(150deg, ${accent} 0%, #2d5c3e 100%)` : 'linear-gradient(150deg, #263528 0%, #2a3d2c 50%, #263228 100%)',
       padding: '36px 34px 30px',
       display: 'flex', flexDirection: 'column',
       boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
@@ -91,17 +91,18 @@ function FeeCard({ item, accent }) {
 export default function Fees() {
   return (
     <>
-      {/* Hero */}
       <section style={{
         paddingTop: 140, paddingBottom: 80,
-        background: 'linear-gradient(135deg, #1a2a1c 0%, #141a14 100%)',
         position: 'relative', overflow: 'hidden',
+        backgroundImage: `url(https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=1280&q=80)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 50%',
       }}>
-        <div style={{ position: 'absolute', top: -80, right: -80, width: 400, height: 400, borderRadius: '50%', background: 'rgba(212,149,106,0.1)' }}/>
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(20,30,20,0.52)' }}/>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <p className="section-tag" style={{ }}>Transparent Pricing</p>
-          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: 'var(--text-dark)' }}>
-            Ceremony <em style={{ color: 'var(--sage-dark)', fontStyle: 'italic' }}>Fees</em>
+          <p className="section-tag" style={{ color: 'var(--apricot-light)' }}>Transparent Pricing</p>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: '#fff' }}>
+            Ceremony <em style={{ color: 'var(--apricot-light)', fontStyle: 'italic' }}>Fees</em>
           </h1>
           <p style={{ fontSize: '0.92rem', color: 'var(--text-mid)', maxWidth: 540, marginTop: 16, lineHeight: 1.9 }}>
             All fees are discussed openly during your initial enquiry. There is no obligation and no pressure. Travel costs may apply depending on your location.
@@ -110,7 +111,7 @@ export default function Fees() {
       </section>
 
       {/* Fee groups */}
-      <section style={{ padding: '80px 0 100px', background: '#243228' }}>
+      <section style={{ padding: '80px 0 100px', background: 'linear-gradient(170deg, #253428 0%, #283a2c 40%, #2a3528 70%, #22291f 100%)' }}>
         <div className="container">
           {feeGroups.map((group, gi) => (
             <div key={group.category} style={{ marginBottom: gi < feeGroups.length - 1 ? 80 : 0 }}>
@@ -143,7 +144,7 @@ export default function Fees() {
 
           {/* Bottom CTA */}
           <div style={{
-            marginTop: 60, padding: '60px 50px', background: 'var(--sage)',
+            marginTop: 60, padding: '60px 50px', background: 'linear-gradient(135deg, var(--sage) 0%, #3a7548 100%)',
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             flexWrap: 'wrap', gap: 30,
           }}>

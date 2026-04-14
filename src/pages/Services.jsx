@@ -74,17 +74,18 @@ const services = [
 export default function Services() {
   return (
     <>
-      {/* Dark banner */}
       <section style={{
         paddingTop: 140, paddingBottom: 80,
-        background: 'linear-gradient(135deg, #1a2a1c 0%, #141a14 100%)',
         position: 'relative', overflow: 'hidden',
+        backgroundImage: `url(https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1280&q=80)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center 30%',
       }}>
-        <div style={{ position: 'absolute', top: -60, left: -60, width: 360, height: 360, borderRadius: '50%', background: 'rgba(212,149,106,0.1)' }}/>
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(20,30,20,0.5)' }}/>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <p className="section-tag" style={{ }}>What I Offer</p>
-          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: 'var(--text-dark)' }}>
-            Ceremonies Shaped <em style={{ color: 'var(--sage-dark)', fontStyle: 'italic' }}>By Your Story</em>
+          <p className="section-tag" style={{ color: 'var(--apricot-light)' }}>What I Offer</p>
+          <h1 style={{ fontFamily: 'var(--serif)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 300, marginTop: 12, lineHeight: 1.15, color: '#fff' }}>
+            Ceremonies Shaped <em style={{ color: 'var(--apricot-light)', fontStyle: 'italic' }}>By Your Story</em>
           </h1>
           <div style={{ marginTop: 28 }}>
             <APCBadge dark={false} showLabel={true} />
@@ -95,7 +96,7 @@ export default function Services() {
       {/* Service sections - NO Susan photos */}
       {services.map((s, i) => {
         return (
-          <section key={s.id} id={s.id} style={{ padding: '100px 0', background: i % 2 === 0 ? '#141a14' : '#1a2a1c' }}>
+          <section key={s.id} id={s.id} style={{ padding: '100px 0', background: i % 2 === 0 ? 'linear-gradient(165deg, #141a14 0%, #171e16 50%, #141a14 100%)' : 'linear-gradient(165deg, #1a2a1c 0%, #1e2e1f 50%, #1a2a1c 100%)' }}>
             <div className="container">
               <div className="services-section-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center', direction: i % 2 === 0 ? 'ltr' : 'rtl' }}>
 
@@ -128,7 +129,7 @@ export default function Services() {
                     {s.content.map((p, j) => (
                       <p key={j} style={{ fontSize: '0.9rem', color: '#c8c0b4', lineHeight: 1.95, marginBottom: 16 }}>{p}</p>
                     ))}
-                    <div style={{ marginTop: 32, padding: '26px 28px', background: '#182018', borderLeft: '3px solid var(--sage)' }}>
+                    <div style={{ marginTop: 32, padding: '26px 28px', background: 'linear-gradient(150deg, #1c261c 0%, #1f2b1e 100%)', borderLeft: '3px solid var(--sage)' }}>
                       <p style={{ fontFamily: 'var(--sans)', fontSize: '0.6rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--sage-dark)', marginBottom: 14, fontWeight: 500 }}>What's Included</p>
                       {s.includes.map(item => (
                         <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 8 }}>
