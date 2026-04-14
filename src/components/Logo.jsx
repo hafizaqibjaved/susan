@@ -1,11 +1,7 @@
-import { clientLogo } from '../assets';
-
 export default function Logo({ size = 80, light = false }) {
-  // Logo aspect ratio is ~2.74:1 (wider than tall)
-  // size = height, width auto-calculated
   return (
     <img
-      src={clientLogo}
+      src="/logo-client.png"
       alt="Susan Stevens Independent Celebrant"
       style={{
         height: size,
